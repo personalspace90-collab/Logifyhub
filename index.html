@@ -136,8 +136,8 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 .fl{font-family:‘Bebas Neue’;font-size:1.3rem;letter-spacing:4px;color:var(–text);margin-bottom:.6rem;}
 
 /* AUTH */
-.aw{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(–bg);padding:5rem 1rem 2rem;}
-.ab{width:420px;max-width:94vw;background:var(–card);border:1px solid var(–border);border-radius:8px;padding:2.2rem;box-shadow:0 20px 70px rgba(0,0,0,.7);}
+.aw{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0a0a;padding:5rem 1rem 2rem;}
+.ab{width:420px;max-width:94vw;background:#181818;border:1px solid #2a2a2a;border-radius:16px;padding:2.2rem;box-shadow:0 20px 70px rgba(0,0,0,.7);}
 .ab .logo{display:block;margin-bottom:1.3rem;}
 .ab h2{font-family:‘Bebas Neue’;font-size:1.8rem;letter-spacing:3px;margin-bottom:.15rem;}
 .ab .sub{color:var(–muted);margin-bottom:1.4rem;font-size:.88rem;}
@@ -1219,7 +1219,13 @@ async function doLogin(){
   const e=document.getElementById('le').value.trim().toLowerCase();
   const p=document.getElementById('lp').value;
   if(!e||!p){toast('Enter email and password.');return;}
-  if(!window.db){toast('Connecting to server... please try again in a second.');return;}
+  // Wait up to 5 seconds for Firebase
+  if(!window.db){
+    toast('Connecting... please wait.');
+    let tries=0;
+    while(!window.db && tries<10){await new Promise(r=>setTimeout(r,500));tries++;}
+    if(!window.db){toast('Server connection failed. Please refresh and try again.');return;}
+  }
   if(e==='admin@logifyhub.com'){
     const adpw=await fbGetAdmin();
     if(p!==adpw&&p!=='admin123'){toast('❌ Wrong admin password.');return;}
@@ -1228,13 +1234,18 @@ async function doLogin(){
   }
   const users=await fbGetUsers();
   const u=users.find(x=>x.email===e);
-  if(!u){toast('❌ No account found. Please register.');return;}
+  if(!u){toast('❌ No account found. Check your email or register a new account.');return;}
   if(u.password!==p){toast('❌ Wrong password.');return;}
   if(u.status==='banned'){toast('❌ Account banned. Contact support.');return;}
   DB.users=users;CU=u;localStorage.setItem('lh_session',u.email);loadDash(u);toast('Welcome back, '+u.fname+'!');setTimeout(()=>go('dashboard'),700);
 }
 async function doRegister(){
-  if(!window.db){toast('Connecting to server... please try again in a second.');return;}
+  if(!window.db){
+    toast('Connecting... please wait.');
+    let tries=0;
+    while(!window.db && tries<10){await new Promise(r=>setTimeout(r,500));tries++;}
+    if(!window.db){toast('Server connection failed. Please refresh and try again.');return;}
+  }
   const f=document.getElementById('rf').value.trim(),l=document.getElementById('rl').value.trim();
   const e=document.getElementById('re').value.trim().toLowerCase(),ph=document.getElementById('rph').value.trim();
   const p=document.getElementById('rp').value,p2=document.getElementById('rp2').value;
