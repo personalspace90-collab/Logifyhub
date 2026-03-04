@@ -29,12 +29,53 @@ body{font-family:'Rajdhani',sans-serif;background:var(--bg);color:var(--text);ov
 nav{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);}
 .logo{font-family:'Bebas Neue';font-size:1.6rem;letter-spacing:4px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;}
 .nav-links{display:flex;gap:1rem;align-items:center;}
+/* AI Chatbot */
+.chat-bubble{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#1a3a6e,#2a6acd);border:2px solid #3a7ad5;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(42,106,205,.4);transition:all .2s;}
+.chat-bubble:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(42,106,205,.6);}
+.chat-bubble .notif{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#4caf7d;border-radius:50%;border:2px solid var(--bg);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+.chat-win{position:fixed;bottom:5.5rem;right:1.5rem;z-index:9999;width:320px;max-height:480px;background:#0f0f0f;border:1px solid #1e3a6e;border-radius:14px;display:flex;flex-direction:column;box-shadow:0 12px 50px rgba(0,0,0,.8);overflow:hidden;transform:scale(0);transform-origin:bottom right;transition:transform .22s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}
+.chat-win.open{transform:scale(1);pointer-events:all;}
+.chat-head{background:linear-gradient(135deg,#0d1e3a,#162e55);padding:.85rem 1rem;display:flex;align-items:center;gap:.6rem;border-bottom:1px solid #1a3a6e;}
+.chat-head .av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1a3a6e,#2a6acd);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.chat-head .ht{flex:1}
+.chat-head .hn{font-weight:700;font-size:.88rem;color:var(--text)}
+.chat-head .hs{font-size:.7rem;color:#4caf7d}
+.chat-head .hx{cursor:pointer;color:var(--muted);font-size:1.1rem;padding:.2rem;}
+.chat-msgs{flex:1;overflow-y:auto;padding:.8rem;display:flex;flex-direction:column;gap:.6rem;max-height:320px;}
+.chat-msgs::-webkit-scrollbar{width:3px}
+.chat-msgs::-webkit-scrollbar-thumb{background:#1a3a6e;border-radius:3px}
+.msg{max-width:85%;padding:.55rem .8rem;border-radius:10px;font-size:.82rem;line-height:1.45;animation:fadeUp .2s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.msg.bot{background:#141e30;border:1px solid #1a3060;color:var(--text);align-self:flex-start;border-radius:10px 10px 10px 2px;}
+.msg.usr{background:linear-gradient(135deg,#1a3a6e,#2a6acd);color:#fff;align-self:flex-end;border-radius:10px 10px 2px 10px;}
+.msg.bot.typing{color:var(--muted);font-style:italic;}
+.chat-chips{padding:.4rem .8rem;display:flex;flex-wrap:wrap;gap:.35rem;}
+.chip{background:#141e30;border:1px solid #1a3060;color:#7ab0e8;border-radius:12px;padding:.3rem .7rem;font-size:.72rem;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.chip:hover{background:#1a2a4a;border-color:#3a6aad;}
+.chat-inp{display:flex;gap:.4rem;padding:.6rem .8rem;border-top:1px solid #141e30;}
+.chat-inp input{flex:1;background:#141414;border:1px solid #1e1e1e;border-radius:6px;padding:.45rem .7rem;color:var(--text);font-family:'Rajdhani';font-size:.83rem;}
+.chat-inp input:focus{outline:none;border-color:#2a6acd;}
+.chat-inp button{background:linear-gradient(135deg,#1a3a6e,#2a6acd);border:none;border-radius:6px;padding:.45rem .7rem;color:#fff;cursor:pointer;font-size:.9rem;}
+@media(max-width:400px){.chat-win{width:calc(100vw - 2rem);right:1rem;}}
+/* Back button */
+.back-btn{position:fixed;bottom:1.2rem;left:1.2rem;z-index:8000;background:rgba(20,20,20,.9);border:1px solid var(--border);color:var(--muted);padding:.5rem .9rem;border-radius:20px;font-family:'Rajdhani';font-weight:700;font-size:.78rem;letter-spacing:1px;cursor:pointer;backdrop-filter:blur(8px);transition:all .2s;display:none;}
+.back-btn:hover{color:var(--text);border-color:#555;}
+/* Product Dropdown */
+.prod-dd{position:relative;}
+.prod-dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;width:260px;background:#141414;border:1px solid var(--border);border-radius:8px;padding:.4rem 0;z-index:9999;box-shadow:0 12px 40px rgba(0,0,0,.7);max-height:70vh;overflow-y:auto;}
+.prod-dd-menu.open{display:block;}
+.dd-group{padding:.5rem 1rem .25rem;font-size:.68rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;font-weight:700;border-top:1px solid var(--border);margin-top:.2rem;}
+.dd-group:first-child{border-top:none;margin-top:0;}
+.dd-item{display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem;font-size:.82rem;color:var(--text);cursor:pointer;transition:background .15s;}
+.dd-item:hover{background:rgba(255,255,255,.06);}
+.dd-item span{color:var(--gold);font-weight:700;font-size:.78rem;}
 .nav-links a{color:var(--muted);font-weight:600;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:color .2s;}
 .nav-links a:hover{color:var(--text);}
-.btn{padding:.45rem 1.1rem;border:none;border-radius:3px;font-family:'Rajdhani';font-weight:700;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
-.btn-p{background:var(--text);color:var(--bg);}.btn-p:hover{background:#fff;}
-.btn-o{background:transparent;border:1.5px solid var(--b2);color:var(--text);}.btn-o:hover{background:var(--card2);}
-.btn-g{background:var(--card2);color:var(--muted);border:1px solid var(--border);}.btn-g:hover{color:var(--text);}
+.btn{padding:.5rem 1.25rem;border:none;border-radius:6px;font-family:'Rajdhani';font-weight:700;font-size:.83rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .18s;box-shadow:0 2px 8px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.07);}
+.btn-p{background:linear-gradient(135deg,#e0e0e0,#ffffff);color:#0a0a0a;border:1px solid rgba(255,255,255,.2);box-shadow:0 3px 12px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.4);}.btn-p:hover{background:linear-gradient(135deg,#ffffff,#e8e8e8);transform:translateY(-1px);box-shadow:0 5px 16px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.5);}.btn-p:active{transform:translateY(0);box-shadow:0 1px 4px rgba(0,0,0,.4);}
+.btn-o{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1.5px solid var(--b2);color:var(--text);}.btn-o:hover{background:rgba(255,255,255,.09);border-color:#555;transform:translateY(-1px);}
+.btn-g{background:linear-gradient(180deg,#232323,#1a1a1a);color:var(--muted);border:1px solid var(--border);}.btn-g:hover{color:var(--text);background:linear-gradient(180deg,#2a2a2a,#222);transform:translateY(-1px);}
 .btn-s{background:var(--success);color:#fff;}
 .btn-d{background:var(--red);color:#fff;}
 .btn-w{background:var(--gold);color:#000;}
@@ -137,8 +178,8 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 .fb{padding:.25rem .82rem;border-radius:50px;border:1.5px solid var(–border);background:transparent;color:var(–muted);cursor:pointer;font-family:‘Rajdhani’;font-weight:600;font-size:.76rem;letter-spacing:1.5px;transition:all .2s;}
 .fb.on,.fb:hover{border-color:var(–b2);color:var(–text);background:var(–card2);}
 .pgrid{padding:1.75rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:1rem;max-width:1400px;margin:0 auto;}
-.pcard{background:var(–card);border:1px solid var(–border);border-radius:8px;overflow:hidden;transition:all .3s;}
-.pcard:hover{border-color:var(–b2);transform:translateY(-3px);box-shadow:0 8px 35px rgba(0,0,0,.5);}
+.pcard{background:linear-gradient(160deg,#1c1c1c,#131313);border:1px solid var(–border);border-radius:10px;overflow:hidden;transition:all .22s;box-shadow:0 4px 18px rgba(0,0,0,.4);}
+.pcard:hover{border-color:#444;transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.65);}
 .phead{padding:1rem 1rem 0;display:flex;justify-content:space-between;align-items:flex-start;}
 .ppn{display:flex;align-items:center;gap:.4rem;}.ppi{font-size:1.25rem;}.ppname{font-weight:700;letter-spacing:1px;}
 .pt2{padding:.14rem .5rem;border-radius:2px;font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
@@ -228,7 +269,22 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 <body>
 
 <nav id="mnav">
-  <div class="logo" onclick="go('landing')">Logify Hub</div>
+  <div class="logo" onclick="go('landing')" style="display:flex;align-items:center;gap:.5rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="36" height="36" style="display:block">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8ab4e8"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#6a9fd5"/>
+    </linearGradient>
+    <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1e3a"/>
+      <stop offset="100%" style="stop-color:#162845"/>
+    </linearGradient>
+  </defs>
+  <polygon points="22,1 40,11 40,33 22,43 4,33 4,11" fill="url(#hbg)" stroke="url(#lg)" stroke-width="1.5"/>
+  <polygon points="22,5 36,13 36,31 22,39 8,31 8,13" fill="none" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
+  <text x="7" y="30" font-family="'Bebas Neue',sans-serif" font-size="20" font-weight="900" fill="url(#lg)">LH</text>
+</svg><span style="font-family:'Bebas Neue';letter-spacing:2px;font-size:1.1rem">Logify Hub</span></div>
   <div class="nav-links">
     <a class="hide" onclick="go('landing')">Home</a>
     <a class="hide" onclick="go('products')">Shop</a>
@@ -240,6 +296,28 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 
 <!-- LANDING -->
 
+<!-- AI CHATBOT -->
+
+<div class="chat-bubble" onclick="toggleChat()" id="chatBubble">🤖<div class="notif"></div></div>
+<div class="chat-win" id="chatWin">
+  <div class="chat-head">
+    <div class="av">🤖</div>
+    <div class="ht"><div class="hn">Logify Assistant</div><div class="hs">● Online now</div></div>
+    <div class="hx" onclick="toggleChat()">✕</div>
+  </div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-chips" id="chatChips">
+    <div class="chip" onclick="chipMsg('How do I place an order?')">How to order?</div>
+    <div class="chip" onclick="chipMsg('What payment methods do you accept?')">Payment methods</div>
+    <div class="chip" onclick="chipMsg('I cant login to my account')">Login issue</div>
+    <div class="chip" onclick="chipMsg('How long does delivery take?')">Delivery time</div>
+  </div>
+  <div class="chat-inp">
+    <input type="text" id="chatInput" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button onclick="sendChat()">➤</button>
+  </div>
+</div>
+<button class="back-btn" id="globalBack" onclick="goBack()">← Back</button>
 <div id="landing" class="page active">
   <section class="hero">
     <div class="gbg"></div>
@@ -267,7 +345,7 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
       <div class="fc"><div class="fi">📧</div><h3>Email Delivery</h3><p>Credentials sent to your email after we confirm your Opay payment.</p></div>
       <div class="fc"><div class="fi">🔐</div><h3>Full Access</h3><p>Complete ownership — email, recovery codes, full profile control.</p></div>
       <div class="fc"><div class="fi">🏦</div><h3>Opay Transfer</h3><p>Pay via Opay. Upload receipt. We confirm and release credentials.</p></div>
-      <div class="fc"><div class="fi">🔄</div><h3>30-Day Guarantee</h3><p>Account flagged within 30 days? Free replacement, no questions.</p></div>
+      <div class="fc"><div class="fi">🔄</div><h3>30-Day Guarantee</h3><p>Account flagged within 30 days? Replacement ensured within 1 hour, no questions.</p></div>
       <div class="fc"><div class="fi">🌐</div><h3>VPN Subscriptions</h3><p>PIA, NordVPN, Surfshark, ExpressVPN at Naira prices.</p></div>
     </div>
   </div>
@@ -294,13 +372,11 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
         <div class="hw"><div class="icon">🏦</div><h4>2. Pay via Opay</h4><p>Transfer exact amount below</p></div>
         <div class="hw"><div class="icon">📤</div><h4>3. Upload Receipt</h4><p>We confirm & send your login</p></div>
       </div>
-      <div class="bbox">
-        <div class="bbt">💳 Opay Payment Details</div>
-        <div class="br"><span class="bk">Account Number</span><span class="bv big">9110375674</span></div>
-        <div class="br"><span class="bk">Bank</span><span class="bv">Opay</span></div>
-        <div class="br"><span class="bk">Account Name</span><span class="bv">Grace Akor</span></div>
-      </div>
-    </div>
+
+```
+</div>
+```
+
   </div>
   <div id="contact-sec" class="ctsec">
     <div class="cti">
@@ -322,12 +398,65 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
   </footer>
 </div>
 
+<!-- FORGOT PASSWORD -->
+
+<div id="forgot" class="page">
+  <nav>
+    <div class="logo" onclick="go('landing')" style="display:flex;align-items:center;gap:.5rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="36" height="36" style="display:block">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8ab4e8"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#6a9fd5"/>
+    </linearGradient>
+    <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1e3a"/>
+      <stop offset="100%" style="stop-color:#162845"/>
+    </linearGradient>
+  </defs>
+  <polygon points="22,1 40,11 40,33 22,43 4,33 4,11" fill="url(#hbg)" stroke="url(#lg)" stroke-width="1.5"/>
+  <polygon points="22,5 36,13 36,31 22,39 8,31 8,13" fill="none" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
+  <text x="7" y="30" font-family="'Bebas Neue',sans-serif" font-size="20" font-weight="900" fill="url(#lg)">LH</text>
+</svg><span style="font-family:'Bebas Neue';letter-spacing:2px;font-size:1.1rem">Logify Hub</span></div>
+    <div class="nav-links"><button class="btn btn-o btn-sm" onclick="go('login')">← Back to Login</button></div>
+  </nav>
+  <div class="af">
+    <div class="afc">
+      <div class="afl">🔑</div>
+      <h2>Reset Password</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:1.5rem;text-align:center">Enter your email and we'll look up your account</p>
+      <div class="afg">
+        <label>Email Address</label>
+        <input type="email" id="fpEmail" placeholder="your@email.com">
+      </div>
+      <div id="fpResult" style="display:none;margin:.5rem 0;padding:.75rem 1rem;border-radius:6px;font-size:.85rem;"></div>
+      <button class="btn btn-p" onclick="doForgot()" style="width:100%;padding:.8rem;font-size:.95rem;margin-top:.5rem">Find My Account →</button>
+      <div class="abk"><a onclick="go('login')">← Back to Login</a></div>
+    </div>
+  </div>
+</div>
+
 <!-- LOGIN -->
 
 <div id="login" class="page">
   <div class="aw">
     <div class="ab">
-      <div class="logo">Logify Hub</div>
+      <div class="logo" style="display:flex;align-items:center;gap:.5rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="36" height="36" style="display:block">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8ab4e8"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#6a9fd5"/>
+    </linearGradient>
+    <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1e3a"/>
+      <stop offset="100%" style="stop-color:#162845"/>
+    </linearGradient>
+  </defs>
+  <polygon points="22,1 40,11 40,33 22,43 4,33 4,11" fill="url(#hbg)" stroke="url(#lg)" stroke-width="1.5"/>
+  <polygon points="22,5 36,13 36,31 22,39 8,31 8,13" fill="none" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
+  <text x="7" y="30" font-family="'Bebas Neue',sans-serif" font-size="20" font-weight="900" fill="url(#lg)">LH</text>
+</svg><span style="font-family:'Bebas Neue';letter-spacing:2px;font-size:1.1rem">Logify Hub</span></div>
       <h2>Welcome Back</h2>
       <p class="sub">Sign in to your account</p>
       <div class="af">
@@ -338,6 +467,7 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
         <button class="btn btn-p" onclick="doLogin()">Sign In →</button>
       </div>
       <div class="asw">No account? <a onclick="go('register')">Register free</a></div>
+      <div class="asw" style="margin-top:.3rem"><a onclick="go('forgot')" style="color:var(--muted);font-size:.8rem">Forgot password?</a></div>
       <div class="abk"><a onclick="go('landing')">← Back to Home</a></div>
     </div>
   </div>
@@ -348,7 +478,22 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 <div id="register" class="page">
   <div class="aw">
     <div class="ab">
-      <div class="logo">Logify Hub</div>
+      <div class="logo" style="display:flex;align-items:center;gap:.5rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="36" height="36" style="display:block">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8ab4e8"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#6a9fd5"/>
+    </linearGradient>
+    <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1e3a"/>
+      <stop offset="100%" style="stop-color:#162845"/>
+    </linearGradient>
+  </defs>
+  <polygon points="22,1 40,11 40,33 22,43 4,33 4,11" fill="url(#hbg)" stroke="url(#lg)" stroke-width="1.5"/>
+  <polygon points="22,5 36,13 36,31 22,39 8,31 8,13" fill="none" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
+  <text x="7" y="30" font-family="'Bebas Neue',sans-serif" font-size="20" font-weight="900" fill="url(#lg)">LH</text>
+</svg><span style="font-family:'Bebas Neue';letter-spacing:2px;font-size:1.1rem">Logify Hub</span></div>
       <h2>Create Account</h2>
       <p class="sub">Register to start buying</p>
       <div class="af">
@@ -374,7 +519,22 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 
 <div id="dashboard" class="page">
   <nav style="z-index:1000">
-    <div class="logo">Logify Hub</div>
+    <div class="logo" style="display:flex;align-items:center;gap:.5rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="36" height="36" style="display:block">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8ab4e8"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#6a9fd5"/>
+    </linearGradient>
+    <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1e3a"/>
+      <stop offset="100%" style="stop-color:#162845"/>
+    </linearGradient>
+  </defs>
+  <polygon points="22,1 40,11 40,33 22,43 4,33 4,11" fill="url(#hbg)" stroke="url(#lg)" stroke-width="1.5"/>
+  <polygon points="22,5 36,13 36,31 22,39 8,31 8,13" fill="none" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
+  <text x="7" y="30" font-family="'Bebas Neue',sans-serif" font-size="20" font-weight="900" fill="url(#lg)">LH</text>
+</svg><span style="font-family:'Bebas Neue';letter-spacing:2px;font-size:1.1rem">Logify Hub</span></div>
     <div class="nav-links">
       <a onclick="go('products')">Shop</a>
       <span style="color:var(--muted);font-size:.82rem" id="dwelcome">👤 User</span>
@@ -446,6 +606,37 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 <!-- PRODUCTS -->
 
 <div id="products" class="page">
+  <nav style="z-index:1001;justify-content:flex-start;gap:1rem;">
+    <div class="prod-dd" id="prodDrop" style="margin-right:auto">
+        <button class="btn btn-o btn-sm" onclick="toggleDrop()">🛒 Products ▾</button>
+        <div class="prod-dd-menu" id="prodMenu">
+          <div class="dd-group">📘 Facebook</div>
+          <div class="dd-item" onclick="fprod('facebook',null);closeDrop()">Facebook — Create Page</div>
+          <div class="dd-item" onclick="fprod('facebook',null);closeDrop()">Facebook — Non-Page</div>
+          <div class="dd-item" onclick="fprod('facebook',null);closeDrop()">Facebook — Dating</div>
+          <div class="dd-group">📸 Instagram</div>
+          <div class="dd-item" onclick="fprod('instagram',null);closeDrop()">Instagram 250 Followers</div>
+          <div class="dd-item" onclick="fprod('instagram',null);closeDrop()">Instagram 500 Followers</div>
+          <div class="dd-group">🐦 Twitter/X</div>
+          <div class="dd-item" onclick="fprod('twitter',null);closeDrop()">Twitter 100 Followers</div>
+          <div class="dd-item" onclick="fprod('twitter',null);closeDrop()">Twitter 500 Followers</div>
+          <div class="dd-group">🎵 TikTok</div>
+          <div class="dd-item" onclick="fprod('tiktok',null);closeDrop()">TikTok 1000 Followers</div>
+          <div class="dd-group">▶️ YouTube</div>
+          <div class="dd-item" onclick="fprod('youtube',null);closeDrop()">YouTube Monetized</div>
+          <div class="dd-group">🎮 Discord</div>
+          <div class="dd-item" onclick="fprod('discord',null);closeDrop()">Discord Aged 2014–2019</div>
+          <div class="dd-group">💼 LinkedIn</div>
+          <div class="dd-item" onclick="fprod('linkedin',null);closeDrop()">LinkedIn Aged Profile</div>
+          <div class="dd-group">🌐 VPN</div>
+          <div class="dd-item" onclick="fprod('vpn',null);closeDrop()">PIA VPN 1 Month</div>
+          <div class="dd-item" onclick="fprod('vpn',null);closeDrop()">NordVPN 1 Month</div>
+          <div class="dd-item" onclick="fprod('vpn',null);closeDrop()">Surfshark 1 Week</div>
+        </div>
+      </div>
+      <button class="btn btn-g btn-sm" id="pLogoutBtn" onclick="doLogout()" style="display:none">Logout</button>
+      <button class="btn btn-o btn-sm" id="pLoginBtn" onclick="go('login')">Login</button>
+  </nav>
   <div class="ph" style="padding-top:calc(64px + 1.75rem)">
     <h2>Browse Products</h2>
     <p>Social media accounts & VPN — in stock and ready</p>
@@ -457,8 +648,8 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
       <button class="fb" onclick="fprod('youtube',this)">YouTube</button>
       <button class="fb" onclick="fprod('tiktok',this)">TikTok</button>
       <button class="fb" onclick="fprod('linkedin',this)">LinkedIn</button>
-      <button class="fb" onclick="fprod('discord',this)">🎮 Discord</button>
-      <button class="fb" onclick="fprod('vpn',this)">🌐 VPN</button>
+      <button class="fb" onclick="fprod('discord',this)">Discord</button>
+      <button class="fb" onclick="fprod('vpn',this)">VPN</button>
     </div>
   </div>
   <div class="pgrid">
@@ -495,13 +686,25 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
           <select id="cq" onchange="uqty()"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5">5</option><option value="10">10</option></select>
         </div>
       </div>
-      <h3>Pay via Opay then Upload Receipt</h3>
-      <div class="bbox" style="margin:0 0 1rem">
-        <div class="bbt">Opay Transfer Details</div>
-        <div class="br"><span class="bk">Account</span><span class="bv">9110375674</span></div>
-        <div class="br"><span class="bk">Bank</span><span class="bv">Opay</span></div>
+      <h3>Choose Payment Method</h3>
+      <div style="display:flex;gap:.6rem;margin-bottom:1rem">
+        <button class="btn btn-o" id="payOpayBtn" onclick="setPayMethod('opay')" style="flex:1;font-size:.75rem;padding:.5rem .6rem;border-color:#4caf7d;color:#4caf7d">🏦 OPay</button>
+        <button class="btn btn-o" id="payBtcBtn" onclick="setPayMethod('btc')" style="flex:1;font-size:.75rem;padding:.5rem .6rem">₿ Bitcoin</button>
+      </div>
+      <div id="opayBox" class="bbox" style="margin:0 0 1rem">
+        <div class="bbt">OPay Transfer Details</div>
+        <div class="br"><span class="bk">Account</span><span class="bv">6481012827</span></div>
+        <div class="br"><span class="bk">Bank</span><span class="bv">OPay</span></div>
         <div class="br"><span class="bk">Name</span><span class="bv">Grace Akor</span></div>
         <div class="br"><span class="bk">Amount</span><span class="bv" id="camount" style="color:var(--success)">—</span></div>
+      </div>
+      <div id="btcBox" class="bbox" style="margin:0 0 1rem;display:none">
+        <div class="bbt">₿ Bitcoin Payment</div>
+        <div class="br"><span class="bk">BTC Address</span></div>
+        <div style="background:#111;border:1px solid var(--border);border-radius:5px;padding:.7rem;margin:.4rem 0;word-break:break-all;font-family:'Space Mono',monospace;font-size:.72rem;color:#f0c040;letter-spacing:.5px">bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma</div>
+        <button class="btn btn-g btn-sm" onclick="copyBTC()" style="width:100%;margin-top:.3rem">📋 Copy Address</button>
+        <div class="br" style="margin-top:.6rem"><span class="bk">Amount</span><span class="bv" id="camount2" style="color:var(--success)">—</span></div>
+        <div style="color:var(--muted);font-size:.72rem;margin-top:.4rem">⚠ Send exact BTC equivalent. Upload transaction screenshot below.</div>
       </div>
       <div class="uzone" onclick="document.getElementById('rfile').click()">
         <input type="file" id="rfile" accept="image/*" onchange="prevReceipt(this)">
@@ -537,7 +740,22 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 
 <div id="admin" class="page">
   <nav style="z-index:1000">
-    <div class="logo">Logify Hub</div>
+    <div class="logo" style="display:flex;align-items:center;gap:.5rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="36" height="36" style="display:block">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8ab4e8"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#6a9fd5"/>
+    </linearGradient>
+    <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1e3a"/>
+      <stop offset="100%" style="stop-color:#162845"/>
+    </linearGradient>
+  </defs>
+  <polygon points="22,1 40,11 40,33 22,43 4,33 4,11" fill="url(#hbg)" stroke="url(#lg)" stroke-width="1.5"/>
+  <polygon points="22,5 36,13 36,31 22,39 8,31 8,13" fill="none" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
+  <text x="7" y="30" font-family="'Bebas Neue',sans-serif" font-size="20" font-weight="900" fill="url(#lg)">LH</text>
+</svg><span style="font-family:'Bebas Neue';letter-spacing:2px;font-size:1.1rem">Logify Hub</span></div>
     <div class="nav-links">
       <span class="tag t-adm" style="font-size:.62rem">⚙ Admin</span>
       <button class="btn btn-g btn-sm" onclick="doLogout()">Logout</button>
@@ -678,8 +896,8 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
       <div class="dp">
         <div class="pt">Payment & Notifications</div>
         <div style="background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:.9rem;margin-bottom:.9rem">
-          <div class="br"><span class="bk">Account</span><span class="bv">9110375674</span></div>
-          <div class="br"><span class="bk">Bank</span><span class="bv">Opay</span></div>
+          <div class="br"><span class="bk">Account</span><span class="bv">6481012827</span></div>
+          <div class="br"><span class="bk">Bank</span><span class="bv">OPay</span></div>
           <div class="br"><span class="bk">Name</span><span class="bv">Grace Akor</span></div>
         </div>
         <p style="color:var(--muted);font-size:.8rem">Notification email: <strong style="color:var(--text)">godswillakordenver@gmail.com</strong></p>
@@ -806,11 +1024,194 @@ const now=()=>new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short'
 const stl=s=>s==='released'?'t-ok':s==='cancelled'?'t-no':'t-wait';
 const slbl=s=>s==='released'?'Delivered':s==='cancelled'?'Cancelled':'Awaiting';
 
-function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const e=document.getElementById(id);if(e){e.classList.add('active');window.scrollTo(0,0);}}
+let navHistory=[];
+function updateBackBtn(){
+  const btn=document.getElementById('globalBack');
+  if(btn)btn.style.display=navHistory.length>0?'block':'none';
+}
+function go(id){
+  const cur=document.querySelector('.page.active');
+  if(cur&&cur.id&&cur.id!==id)navHistory.push(cur.id);
+  if(navHistory.length>10)navHistory.shift();
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const e=document.getElementById(id);
+  if(e){e.classList.add('active');window.scrollTo(0,0);}
+  if(id==='products')setTimeout(showProdNav,50);
+  updateBackBtn();
+}
+function goBack(){
+  if(navHistory.length>0){
+    const prev=navHistory.pop();
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const e=document.getElementById(prev);
+    if(e){e.classList.add('active');window.scrollTo(0,0);}
+    if(prev==='products')setTimeout(showProdNav,50);
+    updateBackBtn();
+  }
+}
+window.addEventListener('popstate',goBack);
 function goContact(){go('landing');setTimeout(()=>document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'}),100);}
 function epw(id,btn){const i=document.getElementById(id);if(i.type==='password'){i.type='text';btn.textContent='🙈';}else{i.type='password';btn.textContent='👁';}}
 function togAdminPw(btn){const e=document.getElementById('apwshow');if(e.textContent==='••••••••'){e.textContent=DB.adminPw;btn.textContent='🙈 Hide';}else{e.textContent='••••••••';btn.textContent='👁 Show';}}
 async function chgPw(){const n=document.getElementById('npw').value,c=document.getElementById('npw2').value;if(!n){toast('Enter new password.');return;}if(n!==c){toast('Passwords do not match.');return;}if(n.length<6){toast('Min 6 characters.');return;}DB.adminPw=n;await fbSetAdmin(n);document.getElementById('apwshow').textContent='••••••••';document.getElementById('npw').value='';document.getElementById('npw2').value='';toast('✅ Password updated.');}
+
+// ===== AI CHATBOT =====
+let chatOpen=false;
+let chatHistory=[];
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chatWin').classList.toggle('open',chatOpen);
+  if(chatOpen&&chatHistory.length===0){
+    addBotMsg("👋 Hi! I'm the Logify Hub assistant. I can help you with orders, payments, login issues, and more. What do you need?");
+  }
+}
+function addBotMsg(txt,typing=false){
+  const msgs=document.getElementById('chatMsgs');
+  const d=document.createElement('div');
+  d.className='msg bot'+(typing?' typing':'');
+  d.textContent=txt;
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
+  return d;
+}
+function addUserMsg(txt){
+  const msgs=document.getElementById('chatMsgs');
+  const d=document.createElement('div');
+  d.className='msg usr';
+  d.textContent=txt;
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function chipMsg(txt){
+  document.getElementById('chatInput').value=txt;
+  sendChat();
+}
+async function sendChat(){
+  const inp=document.getElementById('chatInput');
+  const txt=inp.value.trim();
+  if(!txt)return;
+  inp.value='';
+  addUserMsg(txt);
+  chatHistory.push({role:'user',content:txt});
+  const typing=addBotMsg('Typing...', true);
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:400,
+        system:`You are a helpful support assistant for Logify Hub, a Nigerian online marketplace that sells aged social media accounts and VPN subscriptions. 
+
+Key info:
+- Payment: OPay bank transfer (Account: 6481012827, Name: Grace Akor) OR Bitcoin (bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma)
+- Delivery: Credentials sent by email after payment confirmed
+- 30-day guarantee: if account gets flagged within 30 days, replacement within 1 hour
+- Products: Facebook (₦2,500–₦10,000), Instagram (₦3,500–₦4,500), Twitter (₦5,000–₦10,000), TikTok ₦6,000, YouTube Monetized ₦70,000, Discord ₦4,000, LinkedIn ₦26,000, VPN (₦1,500–₦2,500)
+
+For LOGIN ISSUES with purchased accounts, help with:
+- Facebook: Try logging in at facebook.com, use "Forgot password" with the email provided, check if account needs phone verification, clear browser cache/cookies, try incognito mode, disable VPN if using one
+- Instagram: Go to instagram.com, use "Get more help" on login screen, try the email link option, check if account needs 2FA code (check email provided with account)
+- Twitter/X: Use twitter.com/i/flow/login, try "Forgot password", check for verification email
+- TikTok: Try logging in fresh on mobile app, use email+password provided
+- Discord: Use discord.com/login, try email login, check for verification email
+- YouTube/Google: Use accounts.google.com to recover, check recovery email provided
+- General tips: Use a VPN if in a restricted region, clear cookies, try different browser, don't log in from too many devices at once
+
+Be friendly, concise, and helpful. Reply in 2-3 sentences max. If you can't resolve it, tell them to contact support on WhatsApp.`,
+        messages:chatHistory
+      })
+    });
+    const data=await res.json();
+    const reply=data.content&&data.content[0]?data.content[0].text:'Sorry, I could not connect. Please try again.';
+    typing.remove();
+    addBotMsg(reply);
+    chatHistory.push({role:'assistant',content:reply});
+    if(chatHistory.length>20)chatHistory=chatHistory.slice(-20);
+  }catch(e){
+    typing.remove();
+    addBotMsg('Sorry, I am having trouble connecting right now. Please contact support on WhatsApp.');
+  }
+}
+
+// ===== PAYMENT METHOD =====
+let payMethod='opay';
+let usdRate=0; // NGN per USD, fetched live
+
+async function fetchUsdRate(){
+  try{
+    const r=await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+    const d=await r.json();
+    usdRate=d.rates&&d.rates.NGN?d.rates.NGN:1600;
+  }catch(e){usdRate=1600;} // fallback rate
+}
+fetchUsdRate();
+
+function ngnToUsd(ngn){return usdRate>0?(ngn/usdRate):0;}
+function fmtUsd(usd){return '$'+usd.toFixed(2);}
+
+function setPayMethod(m){
+  const total=CP.up*(parseInt(document.getElementById('cq')?.value)||1);
+  const usd=ngnToUsd(total);
+
+  if(m==='btc'){
+    if(usd<3){
+      toast('⚠ Bitcoin only available for orders over $3 (approx ₦'+(3*usdRate).toLocaleString()+')');
+      return;
+    }
+  }
+  payMethod=m;
+  document.getElementById('opayBox').style.display=m==='opay'?'':'none';
+  document.getElementById('btcBox').style.display=m==='btc'?'':'none';
+  document.getElementById('payOpayBtn').style.borderColor=m==='opay'?'#4caf7d':'';
+  document.getElementById('payOpayBtn').style.color=m==='opay'?'#4caf7d':'';
+  document.getElementById('payBtcBtn').style.borderColor=m==='btc'?'#f0c040':'';
+  document.getElementById('payBtcBtn').style.color=m==='btc'?'#f0c040':'';
+  if(m==='btc') updateBtcAmount();
+}
+
+function updateBtcAmount(){
+  const total=CP.up*(parseInt(document.getElementById('cq')?.value)||1);
+  const usd=ngnToUsd(total);
+  const el=document.getElementById('camount2');
+  if(el) el.innerHTML=fmt(total)+' <span style="color:#f0c040;font-size:.8rem">(≈ '+fmtUsd(usd)+' USD)</span>';
+}
+
+function copyBTC(){
+  navigator.clipboard.writeText('bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma').then(()=>toast('✅ BTC address copied!')).catch(()=>toast('Copy manually: bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma'));
+}
+
+function toggleDrop(){document.getElementById('prodMenu').classList.toggle('open');}
+function closeDrop(){document.getElementById('prodMenu').classList.remove('open');}
+document.addEventListener('click',function(e){if(!e.target.closest('.prod-dd'))closeDrop();});
+
+function showProdNav(){
+  const isLogged = CU && CU !== 'admin';
+  const isAdmin = CU === 'admin';
+  const lb = document.getElementById('pLoginBtn');
+  const logb = document.getElementById('pLogoutBtn');
+  if(lb) lb.style.display = (isLogged||isAdmin) ? 'none' : '';
+  if(logb) logb.style.display = (isLogged||isAdmin) ? '' : 'none';
+}
+
+async function doForgot(){
+  const e = document.getElementById('fpEmail').value.trim().toLowerCase();
+  const res = document.getElementById('fpResult');
+  if(!e){toast('Enter your email.');return;}
+  res.style.display='block';
+  res.style.background='rgba(255,255,255,.05)';
+  res.style.color='var(--muted)';
+  res.textContent='Looking up account...';
+  const users = await fbGetUsers();
+  const u = users.find(x=>x.email===e);
+  if(!u){
+    res.style.background='rgba(255,68,68,.1)';res.style.color='var(--red)';
+    res.textContent='❌ No account found with that email. Please register.';
+    return;
+  }
+  res.style.background='rgba(76,175,125,.1)';res.style.color='var(--success)';
+  res.innerHTML='✅ Account found! Your password hint: <strong style="color:var(--text)">' + u.password.charAt(0) + '••••••</strong><br><span style="font-size:.78rem;color:var(--muted)">Contact support on WhatsApp to reset it if needed.</span>';
+}
 
 async function doLogin(){
   const e=document.getElementById('le').value.trim().toLowerCase();
@@ -901,12 +1302,12 @@ function buy(name,price){
   document.getElementById('cpname').textContent=name;
   document.getElementById('cup').textContent=fmt(price);
   document.getElementById('cq').value='1';document.getElementById('cqd').textContent='1';
-  document.getElementById('ctot').textContent=fmt(price);document.getElementById('camount').textContent=fmt(price);
+  document.getElementById('ctot').textContent=fmt(price);document.getElementById('camount').textContent=fmt(price);payMethod='opay';setPayMethod('opay');
   if(CU&&CU!=='admin'){document.getElementById('cn').value=CU.fname+' '+CU.lname;document.getElementById('ce').value=CU.email;document.getElementById('cph').value=CU.phone;}
   document.getElementById('rfn').textContent='';document.getElementById('cprev').style.display='none';
   go('checkout');
 }
-function uqty(){const q=parseInt(document.getElementById('cq').value)||1,t=CP.up*q;document.getElementById('cqd').textContent=q;document.getElementById('ctot').textContent=fmt(t);document.getElementById('camount').textContent=fmt(t);}
+function uqty(){const q=parseInt(document.getElementById('cq').value)||1,t=CP.up*q;document.getElementById('cqd').textContent=q;document.getElementById('ctot').textContent=fmt(t);document.getElementById('camount').textContent=fmt(t);if(payMethod==='btc')updateBtcAmount();}
 function prevReceipt(inp){if(!inp.files||!inp.files[0])return;const f=inp.files[0];document.getElementById('rfn').textContent='✓ '+f.name;const r=new FileReader();r.onload=e=>{CP.rd=e.target.result;const p=document.getElementById('cprev');p.src=e.target.result;p.style.display='block';};r.readAsDataURL(f);}
 async function submitOrder(){
   const n=document.getElementById('cn').value.trim(),e=document.getElementById('ce').value.trim(),ph=document.getElementById('cph').value.trim();
