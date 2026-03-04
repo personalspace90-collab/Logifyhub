@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" style="background:#0a0a0a;color:#e8e8e8;">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logify Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
@@ -25,7 +27,7 @@ console.log('Firebase connected!');
 :root{--bg:#0a0a0a;--bg2:#111;--card:#181818;--card2:#202020;--border:#2a2a2a;--b2:#383838;--text:#e8e8e8;--muted:#666;--success:#4caf7d;--gold:#d4a843;--red:#ff4444;--grad:linear-gradient(135deg,#777,#fff,#888);}
 
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:‘Rajdhani’,sans-serif;background:var(–bg);color:var(–text);overflow-x:hidden;}
+body{font-family:‘Rajdhani’,sans-serif;background:#0a0a0a !important;color:#e8e8e8 !important;overflow-x:hidden;}
 .page{display:none;min-height:100vh;}.page.active{display:block;}
 nav{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.97);border-bottom:1px solid var(–border);backdrop-filter:blur(12px);}
 .logo{font-family:‘Bebas Neue’;font-size:1.6rem;letter-spacing:4px;background:var(–grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;}
@@ -1101,7 +1103,7 @@ async function sendChat(){
       method:'POST',
       headers:{'Content-Type':'application/json','x-api-key':['sk-ant-api03-rDoqeIf','S3skfEhtwY61iA-ZGIY5','FV7BfWEcalduQXX6cfbM','WiBqXnDYJKruz5hdJ5eYIKymcyST5IUYl-NpbEw-ZoL3KAAA'].join(''),'anthropic-version':'2023-06-01','anthropic-dangerous-allow-browser':'true'},
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
+        model:'claude-sonnet-4-5',
         max_tokens:400,
         system:`You are a helpful support assistant for Logify Hub, a Nigerian online marketplace that sells aged social media accounts and VPN subscriptions. 
 
