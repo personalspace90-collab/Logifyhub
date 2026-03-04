@@ -215,7 +215,12 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
 .rmd h3{font-family:‘Bebas Neue’;font-size:1.3rem;letter-spacing:2px;margin-bottom:.8rem;}
 
 #toast{position:fixed;bottom:1.8rem;right:1.8rem;background:var(–card2);border:1px solid var(–b2);border-radius:4px;padding:.78rem 1.2rem;color:var(–text);font-weight:600;z-index:99999;transform:translateY(100px);opacity:0;transition:all .3s;max-width:280px;font-size:.86rem;}
-@media(max-width:860px){.ci{grid-template-columns:1fr;}.dgrid{grid-template-columns:1fr;}.sb,.asb{display:none;}.dm,.adm{margin-left:0;}}
+@media(max-width:860px){.ci{grid-template-columns:1fr;}.dgrid{grid-template-columns:1fr;}.sb,.asb{display:none;}.dm,.adm{margin-left:0;padding-bottom:80px;}}
+.amobnav{display:none;position:fixed;bottom:0;left:0;right:0;background:#0d0d0d;border-top:1px solid var(–border);z-index:9000;padding:.5rem 0 .3rem;display:flex;justify-content:space-around;}
+.amob{display:flex;flex-direction:column;align-items:center;gap:.15rem;cursor:pointer;color:var(–muted);font-size:.58rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:.25rem .4rem;border-radius:4px;transition:all .2s;min-width:48px;}
+.amob:hover,.amob.on{color:var(–text);background:rgba(255,255,255,.06);}
+.amob span{font-size:1.1rem;}
+@media(min-width:861px){.amobnav{display:none;}}
 @media(max-width:580px){.fg2{grid-template-columns:1fr;}.hide{display:none;}}
 </style>
 
@@ -536,6 +541,13 @@ footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem
       <button class="btn btn-g btn-sm" onclick="doLogout()">Logout</button>
     </div>
   </nav>
+  <div class="amobnav">
+    <div class="amob on" onclick="atab('aov');mobOn(this)"><span>📊</span>Overview</div>
+    <div class="amob" onclick="atab('aord');mobOn(this)"><span>📦</span>Orders</div>
+    <div class="amob" onclick="atab('ausr');mobOn(this)"><span>👥</span>Users</div>
+    <div class="amob" onclick="atab('arep');mobOn(this)"><span>📈</span>Reports</div>
+    <div class="amob" onclick="atab('aset');mobOn(this)"><span>⚙️</span>Settings</div>
+  </div>
   <div class="adl">
     <div class="asb">
       <div class="abt">⚙ Admin Panel</div>
@@ -758,6 +770,22 @@ let DB={users:[],orders:[],adminPw:'admin123'};
 let CU=null,curOid=null;
 let CP={name:'',up:0,rd:null};
 
+// Auto-restore session on page load
+window.addEventListener('load',async()=>{
+  const s=localStorage.getItem('lh_session');
+  if(!s)return;
+  if(s==='admin'){
+    const adpw=await fbGetAdmin();
+    DB.adminPw=adpw;CU='admin';
+    go('admin');await loadStats();
+  } else {
+    const users=await fbGetUsers();
+    const u=users.find(x=>x.email===s);
+    if(u&&u.status!=='banned'){DB.users=users;CU=u;loadDash(u);go('dashboard');}
+    else localStorage.removeItem('lh_session');
+  }
+});
+
 // Firebase helpers
 async function fbGetUsers(){if(!window.db)return DB.users;try{const s=await window.fsGetDocs(window.fsColl(window.db,'users'));return s.docs.map(d=>({id:d.id,...d.data()}));}catch(e){console.error(e);return DB.users;}}
 async function fbGetOrders(){if(!window.db)return DB.orders;try{const s=await window.fsGetDocs(window.fsColl(window.db,'orders'));return s.docs.map(d=>({...d.data(),id:d.id}));}catch(e){console.error(e);return DB.orders;}}
@@ -785,7 +813,7 @@ async function doLogin(){
   if(e==='admin@logifyhub.com'){
     const adpw=await fbGetAdmin();
     if(p!==adpw&&p!=='admin123'){toast('❌ Wrong admin password.');return;}
-    DB.adminPw=adpw;CU='admin';toast('Welcome, Admin!');
+    DB.adminPw=adpw;CU='admin';localStorage.setItem('lh_session','admin');toast('Welcome, Admin!');
     setTimeout(async()=>{go('admin');await loadStats();},700);return;
   }
   const users=await fbGetUsers();
@@ -793,7 +821,7 @@ async function doLogin(){
   if(!u){toast('❌ No account found. Please register.');return;}
   if(u.password!==p){toast('❌ Wrong password.');return;}
   if(u.status==='banned'){toast('❌ Account banned. Contact support.');return;}
-  DB.users=users;CU=u;loadDash(u);toast('Welcome back, '+u.fname+'!');setTimeout(()=>go('dashboard'),700);
+  DB.users=users;CU=u;localStorage.setItem('lh_session',u.email);loadDash(u);toast('Welcome back, '+u.fname+'!');setTimeout(()=>go('dashboard'),700);
 }
 async function doRegister(){
   const f=document.getElementById('rf').value.trim(),l=document.getElementById('rl').value.trim();
@@ -809,9 +837,9 @@ async function doRegister(){
   const u={id:gid(),fname:f,lname:l,email:e,phone:ph,password:p,joined:now(),status:'active',orders:[]};
   await fbSaveUser(u);
   DB.users=users;DB.users.push(u);
-  CU=u;loadDash(u);toast('Account created! Welcome, '+f+'!');setTimeout(()=>go('dashboard'),700);
+  CU=u;localStorage.setItem('lh_session',u.email);loadDash(u);toast('Account created! Welcome, '+f+'!');setTimeout(()=>go('dashboard'),700);
 }
-function doLogout(){CU=null;go('login');document.getElementById('le').value='';document.getElementById('lp').value='';}
+function doLogout(){CU=null;localStorage.removeItem('lh_session');go('login');document.getElementById('le').value='';document.getElementById('lp').value='';}
 
 function loadDash(u){
   document.getElementById('dwelcome').textContent='👤 '+u.fname;
@@ -891,6 +919,7 @@ function attRec(inp,oid){if(!inp.files||!inp.files[0])return;const r=new FileRea
 
 async function atab(id){document.querySelectorAll('.asec').forEach(s=>s.classList.remove('on'));const e=document.getElementById(id);if(e)e.classList.add('on');await loadStats();}
 function setOn(el){const sb=el.closest('.asb');if(sb)sb.querySelectorAll('.si').forEach(i=>i.classList.remove('on'));el.classList.add('on');}
+function mobOn(el){document.querySelectorAll('.amob').forEach(i=>i.classList.remove('on'));el.classList.add('on');}
 async function loadStats(){
   DB.users=await fbGetUsers();
   DB.orders=await fbGetOrders();
