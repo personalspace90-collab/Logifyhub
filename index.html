@@ -1,7 +1,5 @@
-
-
-
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,6 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>emailjs.init('DtXt6dmTNb8PINqsV');</script>
+<script type="module">
+import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import{getFirestore,doc,setDoc,getDoc,collection,addDoc,getDocs,updateDoc,deleteDoc,query,where,orderBy}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+const FC={apiKey:"AIzaSyALnbcOWMZxQ3S4sUB_vjl3GAxkUmsGI8o",authDomain:"logifyhub-6d127.firebaseapp.com",projectId:"logifyhub-6d127",storageBucket:"logifyhub-6d127.firebasestorage.app",messagingSenderId:"400535870848",appId:"1:400535870848:web:8b35105361ee57f1afb565"};
+const FApp=initializeApp(FC);
+const db=getFirestore(FApp);
+window.db=db;window.fsDoc=doc;window.fsSet=setDoc;window.fsGet=getDoc;
+window.fsColl=collection;window.fsAdd=addDoc;window.fsGetDocs=getDocs;
+window.fsUpdate=updateDoc;window.fsDelete=deleteDoc;
+window.fsQuery=query;window.fsWhere=where;window.fsOrder=orderBy;
+window.fsReady=true;
+console.log('Firebase connected!');
+</script>
 <style>
 :root{--bg:#0a0a0a;--bg2:#111;--card:#181818;--card2:#202020;--border:#2a2a2a;--b2:#383838;--text:#e8e8e8;--muted:#666;--success:#4caf7d;--gold:#d4a843;--red:#ff4444;--grad:linear-gradient(135deg,#777,#fff,#888);}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -39,174 +50,175 @@ textarea{resize:vertical;min-height:90px;}select option{background:var(--card);}
 
 /* LANDING */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:5rem 1.5rem 3rem;position:relative;overflow:hidden;text-align:center;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 10%,rgba(150,150,150,.05) 0%,transparent 70%);}
+.hero::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 10%,rgba(150,150,150,.05) 0%,transparent 70%);}
 .gbg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px;}
 .hc{position:relative;max-width:860px;}
-.badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.05);border:1px solid var(--b2);color:var(--text);padding:.28rem .9rem;border-radius:50px;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1.4rem;}
-.badge::before{content:'●';font-size:.4rem;animation:pulse 1.5s infinite;}
+.badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.05);border:1px solid var(–b2);color:var(–text);padding:.28rem .9rem;border-radius:50px;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1.4rem;}
+.badge::before{content:‘●’;font-size:.4rem;animation:pulse 1.5s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
-h1{font-family:'Bebas Neue';font-size:clamp(2.8rem,9vw,6.2rem);line-height:.93;letter-spacing:3px;margin-bottom:1.4rem;}
-h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hsub{font-size:1.05rem;color:var(--muted);max-width:500px;margin:0 auto 2.2rem;line-height:1.7;}
+h1{font-family:‘Bebas Neue’;font-size:clamp(2.8rem,9vw,6.2rem);line-height:.93;letter-spacing:3px;margin-bottom:1.4rem;}
+h1 em{font-style:normal;background:var(–grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hsub{font-size:1.05rem;color:var(–muted);max-width:500px;margin:0 auto 2.2rem;line-height:1.7;}
 .hcta{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;}
-.sbar{display:flex;justify-content:center;gap:3rem;padding:2.2rem 1.5rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);flex-wrap:wrap;}
-.sn{font-family:'Bebas Neue';font-size:2.1rem;letter-spacing:2px;}.sl{color:var(--muted);font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;margin-top:.15rem;}
+.sbar{display:flex;justify-content:center;gap:3rem;padding:2.2rem 1.5rem;border-top:1px solid var(–border);border-bottom:1px solid var(–border);background:var(–bg2);flex-wrap:wrap;}
+.sn{font-family:‘Bebas Neue’;font-size:2.1rem;letter-spacing:2px;}.sl{color:var(–muted);font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;margin-top:.15rem;}
 .sec{padding:4rem 1.5rem;max-width:1150px;margin:0 auto;}
-.st{font-family:'Bebas Neue';font-size:clamp(1.7rem,4vw,2.8rem);letter-spacing:3px;text-align:center;margin-bottom:.6rem;}
-.st em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.ss{color:var(--muted);text-align:center;margin-bottom:2.6rem;font-size:.95rem;}
+.st{font-family:‘Bebas Neue’;font-size:clamp(1.7rem,4vw,2.8rem);letter-spacing:3px;text-align:center;margin-bottom:.6rem;}
+.st em{font-style:normal;background:var(–grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.ss{color:var(–muted);text-align:center;margin-bottom:2.6rem;font-size:.95rem;}
 .fg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
-.fc{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden;}
-.fc::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--grad);opacity:0;transition:opacity .3s;}
-.fc:hover{border-color:var(--b2);transform:translateY(-3px);background:var(--card2);}.fc:hover::after{opacity:1;}
-.fi{font-size:1.6rem;margin-bottom:.75rem;}.fc h3{font-size:1.05rem;font-weight:700;margin-bottom:.35rem;}.fc p{color:var(--muted);line-height:1.65;font-size:.86rem;}
-.plats{background:var(--bg2);padding:4rem 1.5rem;}
+.fc{background:var(–card);border:1px solid var(–border);border-radius:6px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden;}
+.fc::after{content:’’;position:absolute;top:0;left:0;right:0;height:1px;background:var(–grad);opacity:0;transition:opacity .3s;}
+.fc:hover{border-color:var(–b2);transform:translateY(-3px);background:var(–card2);}.fc:hover::after{opacity:1;}
+.fi{font-size:1.6rem;margin-bottom:.75rem;}.fc h3{font-size:1.05rem;font-weight:700;margin-bottom:.35rem;}.fc p{color:var(–muted);line-height:1.65;font-size:.86rem;}
+.plats{background:var(–bg2);padding:4rem 1.5rem;}
 .pi{max-width:1150px;margin:0 auto;}
 .pcards{display:flex;gap:.9rem;overflow-x:auto;padding-bottom:.9rem;flex-wrap:wrap;}
-.pc{min-width:155px;flex:1;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:1.2rem;text-align:center;cursor:pointer;transition:all .3s;}
-.pc:hover{border-color:var(--b2);background:var(--card2);}
-.pci{font-size:1.8rem;margin-bottom:.55rem;}.pc h4{font-weight:700;letter-spacing:1px;margin-bottom:.15rem;font-size:.95rem;}.pc p{color:var(--muted);font-size:.75rem;}.pc .pf{color:var(--text);font-weight:700;font-size:.95rem;margin-top:.4rem;}
-.bbox{background:var(--card);border:1px solid var(--b2);border-radius:8px;padding:1.3rem 1.6rem;max-width:440px;margin:1.6rem auto 0;}
-.bbt{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.85rem;}
-.br{display:flex;justify-content:space-between;align-items:center;padding:.45rem 0;border-bottom:1px solid var(--border);}
-.br:last-child{border-bottom:none;}.bk{color:var(--muted);font-size:.86rem;}.bv{font-family:'Space Mono';font-size:.86rem;font-weight:700;}.bv.big{font-size:1.15rem;color:var(--success);}
-.howsec{background:var(--bg2);padding:3.5rem 1.5rem;}
+.pc{min-width:155px;flex:1;background:var(–card);border:1px solid var(–border);border-radius:6px;padding:1.2rem;text-align:center;cursor:pointer;transition:all .3s;}
+.pc:hover{border-color:var(–b2);background:var(–card2);}
+.pci{font-size:1.8rem;margin-bottom:.55rem;}.pc h4{font-weight:700;letter-spacing:1px;margin-bottom:.15rem;font-size:.95rem;}.pc p{color:var(–muted);font-size:.75rem;}.pc .pf{color:var(–text);font-weight:700;font-size:.95rem;margin-top:.4rem;}
+.bbox{background:var(–card);border:1px solid var(–b2);border-radius:8px;padding:1.3rem 1.6rem;max-width:440px;margin:1.6rem auto 0;}
+.bbt{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(–muted);font-weight:700;margin-bottom:.85rem;}
+.br{display:flex;justify-content:space-between;align-items:center;padding:.45rem 0;border-bottom:1px solid var(–border);}
+.br:last-child{border-bottom:none;}.bk{color:var(–muted);font-size:.86rem;}.bv{font-family:‘Space Mono’;font-size:.86rem;font-weight:700;}.bv.big{font-size:1.15rem;color:var(–success);}
+.howsec{background:var(–bg2);padding:3.5rem 1.5rem;}
 .how3{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:1rem;max-width:600px;margin:0 auto 1.6rem;}
-.hw{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:1.3rem;text-align:center;}
-.hw .icon{font-size:1.8rem;margin-bottom:.6rem;}.hw h4{font-weight:700;font-size:.95rem;margin-bottom:.3rem;}.hw p{color:var(--muted);font-size:.8rem;}
-.ctsec{background:var(--bg);padding:4rem 1.5rem;}
+.hw{background:var(–card);border:1px solid var(–border);border-radius:6px;padding:1.3rem;text-align:center;}
+.hw .icon{font-size:1.8rem;margin-bottom:.6rem;}.hw h4{font-weight:700;font-size:.95rem;margin-bottom:.3rem;}.hw p{color:var(–muted);font-size:.8rem;}
+.ctsec{background:var(–bg);padding:4rem 1.5rem;}
 .cti{max-width:620px;margin:0 auto;}
 .fg2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1.6rem;}
 .full{grid-column:1/-1;}
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1.5rem;text-align:center;color:var(--muted);}
-.fl{font-family:'Bebas Neue';font-size:1.3rem;letter-spacing:4px;color:var(--text);margin-bottom:.6rem;}
+footer{background:var(–bg2);border-top:1px solid var(–border);padding:2.2rem 1.5rem;text-align:center;color:var(–muted);}
+.fl{font-family:‘Bebas Neue’;font-size:1.3rem;letter-spacing:4px;color:var(–text);margin-bottom:.6rem;}
 
 /* AUTH */
-.aw{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);padding:5rem 1rem 2rem;}
-.ab{width:420px;max-width:94vw;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:2.2rem;box-shadow:0 20px 70px rgba(0,0,0,.7);}
+.aw{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(–bg);padding:5rem 1rem 2rem;}
+.ab{width:420px;max-width:94vw;background:var(–card);border:1px solid var(–border);border-radius:8px;padding:2.2rem;box-shadow:0 20px 70px rgba(0,0,0,.7);}
 .ab .logo{display:block;margin-bottom:1.3rem;}
-.ab h2{font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:3px;margin-bottom:.15rem;}
-.ab .sub{color:var(--muted);margin-bottom:1.4rem;font-size:.88rem;}
+.ab h2{font-family:‘Bebas Neue’;font-size:1.8rem;letter-spacing:3px;margin-bottom:.15rem;}
+.ab .sub{color:var(–muted);margin-bottom:1.4rem;font-size:.88rem;}
 .af{display:flex;flex-direction:column;gap:.8rem;}
 .af .btn-p{padding:.8rem;font-size:.95rem;}
-.asw{margin-top:1rem;text-align:center;color:var(--muted);font-size:.82rem;}.asw a{color:var(--text);cursor:pointer;text-decoration:underline;}
-.abk{margin-top:.5rem;text-align:center;}.abk a{color:var(--muted);cursor:pointer;font-size:.76rem;}
+.asw{margin-top:1rem;text-align:center;color:var(–muted);font-size:.82rem;}.asw a{color:var(–text);cursor:pointer;text-decoration:underline;}
+.abk{margin-top:.5rem;text-align:center;}.abk a{color:var(–muted);cursor:pointer;font-size:.76rem;}
 .pw{position:relative;}.pw input{padding-right:2.8rem;}
-.eye{position:absolute;right:.65rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem;}
+.eye{position:absolute;right:.65rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(–muted);cursor:pointer;font-size:.9rem;}
 
 /* DASHBOARD */
 .dl{display:flex;min-height:100vh;padding-top:64px;}
-.sb{width:210px;background:var(--bg2);border-right:1px solid var(--border);padding:1.3rem 0;position:fixed;top:64px;left:0;bottom:0;overflow-y:auto;}
-.si{display:flex;align-items:center;gap:.6rem;padding:.75rem 1.3rem;cursor:pointer;color:var(--muted);font-weight:600;letter-spacing:.5px;transition:all .2s;border-left:2px solid transparent;font-size:.88rem;}
-.si:hover,.si.on{color:var(--text);background:rgba(255,255,255,.04);border-left-color:var(--text);}
+.sb{width:210px;background:var(–bg2);border-right:1px solid var(–border);padding:1.3rem 0;position:fixed;top:64px;left:0;bottom:0;overflow-y:auto;}
+.si{display:flex;align-items:center;gap:.6rem;padding:.75rem 1.3rem;cursor:pointer;color:var(–muted);font-weight:600;letter-spacing:.5px;transition:all .2s;border-left:2px solid transparent;font-size:.88rem;}
+.si:hover,.si.on{color:var(–text);background:rgba(255,255,255,.04);border-left-color:var(–text);}
 .sic{font-size:.88rem;width:16px;text-align:center;}
-.sdiv{height:1px;background:var(--border);margin:.5rem 0;}
-.ssec{padding:.35rem 1.3rem;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:.35rem;}
+.sdiv{height:1px;background:var(–border);margin:.5rem 0;}
+.ssec{padding:.35rem 1.3rem;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(–muted);margin-top:.35rem;}
 .dm{margin-left:210px;flex:1;padding:2rem;}
 .dh{margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.8rem;}
-.dh h1{font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:2px;}.dh p{color:var(--muted);font-size:.86rem;margin-top:.1rem;}
+.dh h1{font-family:‘Bebas Neue’;font-size:1.8rem;letter-spacing:2px;}.dh p{color:var(–muted);font-size:.86rem;margin-top:.1rem;}
 .krow{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.85rem;margin-bottom:1.5rem;}
-.kc{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:1.2rem;position:relative;overflow:hidden;}
-.kc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--grad);}
-.kl{color:var(--muted);font-size:.66rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.35rem;}
-.kv{font-family:'Bebas Neue';font-size:1.9rem;letter-spacing:2px;}
+.kc{background:var(–card);border:1px solid var(–border);border-radius:6px;padding:1.2rem;position:relative;overflow:hidden;}
+.kc::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:1px;background:var(–grad);}
+.kl{color:var(–muted);font-size:.66rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.35rem;}
+.kv{font-family:‘Bebas Neue’;font-size:1.9rem;letter-spacing:2px;}
 .dgrid{display:grid;grid-template-columns:2fr 1fr;gap:1rem;}
-.dp{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:1.25rem;}
-.pt{font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.7rem;margin-bottom:.9rem;color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:.6rem;}
-.or{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.86rem;}
-.or:last-child{border-bottom:none;}.on2{font-weight:600;}.od{color:var(--muted);font-size:.72rem;}
-.ni{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--muted);}
-.ni:last-child{border-bottom:none;}.nd{width:6px;height:6px;border-radius:50%;background:var(--text);flex-shrink:0;margin-top:5px;}.nd.g{background:var(--gold);}.nd.r{background:var(--red);}
+.dp{background:var(–card);border:1px solid var(–border);border-radius:6px;padding:1.25rem;}
+.pt{font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.7rem;margin-bottom:.9rem;color:var(–muted);border-bottom:1px solid var(–border);padding-bottom:.6rem;}
+.or{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(–border);font-size:.86rem;}
+.or:last-child{border-bottom:none;}.on2{font-weight:600;}.od{color:var(–muted);font-size:.72rem;}
+.ni{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem 0;border-bottom:1px solid var(–border);font-size:.82rem;color:var(–muted);}
+.ni:last-child{border-bottom:none;}.nd{width:6px;height:6px;border-radius:50%;background:var(–text);flex-shrink:0;margin-top:5px;}.nd.g{background:var(–gold);}.nd.r{background:var(–red);}
 
 /* PRODUCTS */
-#products{background:var(--bg);padding-top:64px;}
-.ph{background:var(--bg2);border-bottom:1px solid var(--border);padding:1.75rem;}
-.ph h2{font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:3px;}.ph p{color:var(--muted);font-size:.88rem;margin-top:.15rem;}
+#products{background:var(–bg);padding-top:64px;}
+.ph{background:var(–bg2);border-bottom:1px solid var(–border);padding:1.75rem;}
+.ph h2{font-family:‘Bebas Neue’;font-size:1.8rem;letter-spacing:3px;}.ph p{color:var(–muted);font-size:.88rem;margin-top:.15rem;}
 .fbar{display:flex;gap:.45rem;margin-top:.9rem;flex-wrap:wrap;}
-.fb{padding:.25rem .82rem;border-radius:50px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-family:'Rajdhani';font-weight:600;font-size:.76rem;letter-spacing:1.5px;transition:all .2s;}
-.fb.on,.fb:hover{border-color:var(--b2);color:var(--text);background:var(--card2);}
+.fb{padding:.25rem .82rem;border-radius:50px;border:1.5px solid var(–border);background:transparent;color:var(–muted);cursor:pointer;font-family:‘Rajdhani’;font-weight:600;font-size:.76rem;letter-spacing:1.5px;transition:all .2s;}
+.fb.on,.fb:hover{border-color:var(–b2);color:var(–text);background:var(–card2);}
 .pgrid{padding:1.75rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:1rem;max-width:1400px;margin:0 auto;}
-.pcard{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s;}
-.pcard:hover{border-color:var(--b2);transform:translateY(-3px);box-shadow:0 8px 35px rgba(0,0,0,.5);}
+.pcard{background:var(–card);border:1px solid var(–border);border-radius:8px;overflow:hidden;transition:all .3s;}
+.pcard:hover{border-color:var(–b2);transform:translateY(-3px);box-shadow:0 8px 35px rgba(0,0,0,.5);}
 .phead{padding:1rem 1rem 0;display:flex;justify-content:space-between;align-items:flex-start;}
 .ppn{display:flex;align-items:center;gap:.4rem;}.ppi{font-size:1.25rem;}.ppname{font-weight:700;letter-spacing:1px;}
 .pt2{padding:.14rem .5rem;border-radius:2px;font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
-.ta{background:rgba(212,168,67,.12);color:var(--gold);border:1px solid rgba(212,168,67,.25);}
-.tp{background:rgba(76,175,125,.1);color:var(--success);border:1px solid rgba(76,175,125,.22);}
-.tb{background:rgba(200,200,200,.08);color:#ccc;border:1px solid var(--b2);}
+.ta{background:rgba(212,168,67,.12);color:var(–gold);border:1px solid rgba(212,168,67,.25);}
+.tp{background:rgba(76,175,125,.1);color:var(–success);border:1px solid rgba(76,175,125,.22);}
+.tb{background:rgba(200,200,200,.08);color:#ccc;border:1px solid var(–b2);}
 .tv{background:rgba(100,149,237,.14);color:#6495ed;border:1px solid rgba(100,149,237,.28);}
 .pbody{padding:1rem;}.pbody h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
 .pspecs{list-style:none;margin:.55rem 0;}
-.pspecs li{color:var(--muted);font-size:.82rem;padding:.12rem 0;display:flex;align-items:center;gap:.4rem;}
-.pspecs li::before{content:'✓';color:var(--success);font-size:.66rem;}
-.pfoot{padding:.8rem 1rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
-.pp{font-family:'Bebas Neue';font-size:1.5rem;letter-spacing:1px;}.pp span{font-family:'Rajdhani';font-size:.72rem;color:var(--muted);letter-spacing:0;}
-.sb2{font-size:.66rem;color:var(--success);font-weight:700;margin-top:.1rem;}
+.pspecs li{color:var(–muted);font-size:.82rem;padding:.12rem 0;display:flex;align-items:center;gap:.4rem;}
+.pspecs li::before{content:‘✓’;color:var(–success);font-size:.66rem;}
+.pfoot{padding:.8rem 1rem;border-top:1px solid var(–border);display:flex;align-items:center;justify-content:space-between;}
+.pp{font-family:‘Bebas Neue’;font-size:1.5rem;letter-spacing:1px;}.pp span{font-family:‘Rajdhani’;font-size:.72rem;color:var(–muted);letter-spacing:0;}
+.sb2{font-size:.66rem;color:var(–success);font-weight:700;margin-top:.1rem;}
 
 /* CHECKOUT */
-#checkout{background:var(--bg);padding-top:64px;min-height:100vh;}
+#checkout{background:var(–bg);padding-top:64px;min-height:100vh;}
 .ci{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem;display:grid;grid-template-columns:1fr 310px;gap:1.6rem;}
-.ctitle{font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:3px;margin-bottom:1.4rem;grid-column:1/-1;}
-.cpanel{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.5rem;height:fit-content;}
-.cpanel h3{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.1rem;color:var(--muted);}
-.csum{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:1.5rem;height:fit-content;}
-.csum h3{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.1rem;color:var(--muted);}
-.sitem{display:flex;justify-content:space-between;padding:.45rem 0;color:var(--muted);font-size:.86rem;}
-.stot{display:flex;justify-content:space-between;padding:.8rem 0 0;border-top:1px solid var(--border);margin-top:.35rem;font-weight:700;font-size:1.05rem;}
-.uzone{border:2px dashed var(--b2);border-radius:6px;padding:1.6rem;text-align:center;cursor:pointer;transition:all .3s;background:var(--bg2);margin-bottom:.85rem;}
-.uzone:hover{border-color:var(--text);background:var(--card2);}
-.uzone input{display:none;}.uzone .ui2{font-size:1.8rem;margin-bottom:.4rem;}.uzone p{color:var(--muted);font-size:.84rem;}
-.ufn{color:var(--success);font-size:.8rem;margin-top:.4rem;font-weight:700;}
-#cprev{max-width:100%;max-height:160px;border-radius:4px;margin-top:.65rem;display:none;border:1px solid var(--border);}
+.ctitle{font-family:‘Bebas Neue’;font-size:1.8rem;letter-spacing:3px;margin-bottom:1.4rem;grid-column:1/-1;}
+.cpanel{background:var(–card);border:1px solid var(–border);border-radius:8px;padding:1.5rem;height:fit-content;}
+.cpanel h3{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.1rem;color:var(–muted);}
+.csum{background:var(–card2);border:1px solid var(–border);border-radius:8px;padding:1.5rem;height:fit-content;}
+.csum h3{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.1rem;color:var(–muted);}
+.sitem{display:flex;justify-content:space-between;padding:.45rem 0;color:var(–muted);font-size:.86rem;}
+.stot{display:flex;justify-content:space-between;padding:.8rem 0 0;border-top:1px solid var(–border);margin-top:.35rem;font-weight:700;font-size:1.05rem;}
+.uzone{border:2px dashed var(–b2);border-radius:6px;padding:1.6rem;text-align:center;cursor:pointer;transition:all .3s;background:var(–bg2);margin-bottom:.85rem;}
+.uzone:hover{border-color:var(–text);background:var(–card2);}
+.uzone input{display:none;}.uzone .ui2{font-size:1.8rem;margin-bottom:.4rem;}.uzone p{color:var(–muted);font-size:.84rem;}
+.ufn{color:var(–success);font-size:.8rem;margin-top:.4rem;font-weight:700;}
+#cprev{max-width:100%;max-height:160px;border-radius:4px;margin-top:.65rem;display:none;border:1px solid var(–border);}
 
 /* ADMIN */
-#admin{background:var(--bg);}
+#admin{background:var(–bg);}
 .adl{display:flex;min-height:100vh;padding-top:64px;}
-.asb{width:210px;background:#0d0d0d;border-right:1px solid var(--border);padding:1.3rem 0;position:fixed;top:64px;left:0;bottom:0;overflow-y:auto;}
-.abt{margin:0 .9rem 1.2rem;padding:.4rem .7rem;background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.25);border-radius:4px;display:flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:700;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;}
+.asb{width:210px;background:#0d0d0d;border-right:1px solid var(–border);padding:1.3rem 0;position:fixed;top:64px;left:0;bottom:0;overflow-y:auto;}
+.abt{margin:0 .9rem 1.2rem;padding:.4rem .7rem;background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.25);border-radius:4px;display:flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:700;letter-spacing:1.5px;color:var(–gold);text-transform:uppercase;}
 .adm{margin-left:210px;flex:1;padding:2rem;}
 .ath{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:.65rem;}
-.ath h1{font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:2px;}.ath p{color:var(--muted);font-size:.84rem;}
+.ath h1{font-family:‘Bebas Neue’;font-size:1.8rem;letter-spacing:2px;}.ath p{color:var(–muted);font-size:.84rem;}
 .asec{display:none;}.asec.on{display:block;}
 .akpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.85rem;margin-bottom:1.5rem;}
-.ak{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:1.1rem;}
-.akl{color:var(--muted);font-size:.64rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.3rem;}
-.akv{font-family:'Bebas Neue';font-size:1.75rem;letter-spacing:2px;}
+.ak{background:var(–card);border:1px solid var(–border);border-radius:6px;padding:1.1rem;}
+.akl{color:var(–muted);font-size:.64rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.3rem;}
+.akv{font-family:‘Bebas Neue’;font-size:1.75rem;letter-spacing:2px;}
 .ttop{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.55rem;}
-.si2{background:var(--card2);border:1.5px solid var(--border);color:var(--text);padding:.45rem .85rem;border-radius:3px;font-family:'Rajdhani';font-size:.88rem;outline:none;width:210px;}
-.si2:focus{border-color:var(--b2);}
-.pw2{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;overflow-x:auto;}
+.si2{background:var(–card2);border:1.5px solid var(–border);color:var(–text);padding:.45rem .85rem;border-radius:3px;font-family:‘Rajdhani’;font-size:.88rem;outline:none;width:210px;}
+.si2:focus{border-color:var(–b2);}
+.pw2{background:var(–card);border:1px solid var(–border);border-radius:6px;overflow:hidden;overflow-x:auto;}
 .dt{width:100%;border-collapse:collapse;font-size:.84rem;min-width:600px;}
-.dt th{text-align:left;padding:.62rem .9rem;background:var(--bg2);color:var(--muted);font-size:.63rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--border);}
-.dt td{padding:.78rem .9rem;border-bottom:1px solid var(--border);vertical-align:middle;}
+.dt th{text-align:left;padding:.62rem .9rem;background:var(–bg2);color:var(–muted);font-size:.63rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(–border);}
+.dt td{padding:.78rem .9rem;border-bottom:1px solid var(–border);vertical-align:middle;}
 .dt tr:hover td{background:rgba(255,255,255,.015);}
 .dt tr.ban td{opacity:.5;}
 .abs{display:flex;gap:.28rem;flex-wrap:wrap;}
 .mot{width:100%;border-collapse:collapse;font-size:.84rem;min-width:560px;}
-.mot th{text-align:left;padding:.58rem .9rem;background:var(--bg2);color:var(--muted);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--border);}
-.mot td{padding:.75rem .9rem;border-bottom:1px solid var(--border);vertical-align:middle;}
+.mot th{text-align:left;padding:.58rem .9rem;background:var(–bg2);color:var(–muted);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(–border);}
+.mot td{padding:.75rem .9rem;border-bottom:1px solid var(–border);vertical-align:middle;}
 
 /* MODALS */
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;pointer-events:none;transition:opacity .22s;}
 .mo.open{opacity:1;pointer-events:all;}
-.md{background:var(--card);border:1px solid var(--b2);border-radius:8px;padding:2.2rem;max-width:400px;width:90%;text-align:center;transform:scale(.92);transition:transform .22s;}
+.md{background:var(–card);border:1px solid var(–b2);border-radius:8px;padding:2.2rem;max-width:400px;width:90%;text-align:center;transform:scale(.92);transition:transform .22s;}
 .mo.open .md{transform:scale(1);}
 .mi{font-size:2.6rem;margin-bottom:.8rem;}
-.md h2{font-family:'Bebas Neue';font-size:1.65rem;letter-spacing:3px;margin-bottom:.4rem;}
-.md p{color:var(--muted);margin-bottom:1.3rem;line-height:1.6;font-size:.88rem;}
-.cmd{background:var(--card);border:1px solid var(--b2);border-radius:8px;padding:1.55rem;max-width:350px;width:90%;transform:scale(.92);transition:transform .22s;}
+.md h2{font-family:‘Bebas Neue’;font-size:1.65rem;letter-spacing:3px;margin-bottom:.4rem;}
+.md p{color:var(–muted);margin-bottom:1.3rem;line-height:1.6;font-size:.88rem;}
+.cmd{background:var(–card);border:1px solid var(–b2);border-radius:8px;padding:1.55rem;max-width:350px;width:90%;transform:scale(.92);transition:transform .22s;}
 .mo.open .cmd{transform:scale(1);}
-.cmd h3{font-family:'Bebas Neue';font-size:1.3rem;letter-spacing:2px;margin-bottom:.55rem;}
-.cmd p{color:var(--muted);margin-bottom:1.2rem;font-size:.86rem;line-height:1.6;}
+.cmd h3{font-family:‘Bebas Neue’;font-size:1.3rem;letter-spacing:2px;margin-bottom:.55rem;}
+.cmd p{color:var(–muted);margin-bottom:1.2rem;font-size:.86rem;line-height:1.6;}
 .cbb{display:flex;gap:.55rem;justify-content:flex-end;}
-.rmd{background:var(--card);border:1px solid var(--b2);border-radius:8px;padding:1.7rem;max-width:430px;width:93%;transform:scale(.92);transition:transform .22s;}
+.rmd{background:var(–card);border:1px solid var(–b2);border-radius:8px;padding:1.7rem;max-width:430px;width:93%;transform:scale(.92);transition:transform .22s;}
 .mo.open .rmd{transform:scale(1);}
-.rmd h3{font-family:'Bebas Neue';font-size:1.3rem;letter-spacing:2px;margin-bottom:.8rem;}
+.rmd h3{font-family:‘Bebas Neue’;font-size:1.3rem;letter-spacing:2px;margin-bottom:.8rem;}
 
-#toast{position:fixed;bottom:1.8rem;right:1.8rem;background:var(--card2);border:1px solid var(--b2);border-radius:4px;padding:.78rem 1.2rem;color:var(--text);font-weight:600;z-index:99999;transform:translateY(100px);opacity:0;transition:all .3s;max-width:280px;font-size:.86rem;}
+#toast{position:fixed;bottom:1.8rem;right:1.8rem;background:var(–card2);border:1px solid var(–b2);border-radius:4px;padding:.78rem 1.2rem;color:var(–text);font-weight:600;z-index:99999;transform:translateY(100px);opacity:0;transition:all .3s;max-width:280px;font-size:.86rem;}
 @media(max-width:860px){.ci{grid-template-columns:1fr;}.dgrid{grid-template-columns:1fr;}.sb,.asb{display:none;}.dm,.adm{margin-left:0;}}
 @media(max-width:580px){.fg2{grid-template-columns:1fr;}.hide{display:none;}}
 </style>
+
 </head>
 <body>
 
@@ -222,6 +234,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </nav>
 
 <!-- LANDING -->
+
 <div id="landing" class="page active">
   <section class="hero">
     <div class="gbg"></div>
@@ -305,6 +318,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- LOGIN -->
+
 <div id="login" class="page">
   <div class="aw">
     <div class="ab">
@@ -325,6 +339,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- REGISTER -->
+
 <div id="register" class="page">
   <div class="aw">
     <div class="ab">
@@ -351,6 +366,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- USER DASHBOARD -->
+
 <div id="dashboard" class="page">
   <nav style="z-index:1000">
     <div class="logo">Logify Hub</div>
@@ -423,6 +439,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- PRODUCTS -->
+
 <div id="products" class="page">
   <div class="ph" style="padding-top:calc(64px + 1.75rem)">
     <h2>Browse Products</h2>
@@ -457,6 +474,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- CHECKOUT -->
+
 <div id="checkout" class="page">
   <div class="ci">
     <div class="ctitle">Complete Your Order</div>
@@ -509,6 +527,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- ADMIN -->
+
 <div id="admin" class="page">
   <nav style="z-index:1000">
     <div class="logo">Logify Hub</div>
@@ -536,139 +555,143 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
     </div>
     <div class="adm">
 
-      <!-- OVERVIEW -->
-      <div id="aov" class="asec on">
-        <div class="ath"><div><h1>Overview</h1><p>Platform metrics</p></div></div>
-        <div class="akpi">
-          <div class="ak"><div class="akl">Revenue</div><div class="akv" style="color:var(--success)" id="arev">₦0</div></div>
-          <div class="ak"><div class="akl">Users</div><div class="akv" id="ausr2">0</div></div>
-          <div class="ak"><div class="akl">Orders</div><div class="akv" id="aord2">0</div></div>
-          <div class="ak"><div class="akl">Awaiting</div><div class="akv" style="color:var(--gold)" id="aawt">0</div></div>
-          <div class="ak"><div class="akl">Released</div><div class="akv" style="color:var(--success)" id="arel">0</div></div>
-          <div class="ak"><div class="akl">Banned</div><div class="akv" style="color:var(--red)" id="aban">0</div></div>
-        </div>
-        <div class="dp"><div class="pt">Recent Orders</div><div id="arec"><p style="color:var(--muted);font-size:.84rem">No orders yet.</p></div></div>
-      </div>
-
-      <!-- ORDERS -->
-      <div id="aord" class="asec">
-        <div class="ath"><div><h1>Orders & Receipts</h1><p>View receipts, confirm payment, release credentials</p></div></div>
-        <div class="ttop">
-          <div style="display:flex;gap:.35rem;flex-wrap:wrap">
-            <button class="btn btn-g btn-sm" onclick="faord('all')">All</button>
-            <button class="btn btn-g btn-sm" onclick="faord('await')">Awaiting</button>
-            <button class="btn btn-g btn-sm" onclick="faord('rel')">Released</button>
-            <button class="btn btn-g btn-sm" onclick="faord('can')">Cancelled</button>
-          </div>
-          <input class="si2" placeholder="Search..." oninput="stbl(this,'aotb')">
-        </div>
-        <div class="pw2"><table class="dt" id="aotb">
-          <thead><tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Receipt</th><th>Status</th><th>Actions</th></tr></thead>
-          <tbody id="aotbd"><tr><td colspan="7" style="color:var(--muted);padding:2rem;text-align:center">No orders yet.</td></tr></tbody>
-        </table></div>
-      </div>
-
-      <!-- USERS -->
-      <div id="ausr" class="asec">
-        <div class="ath"><div><h1>Users</h1><p>Ban, unban, delete accounts</p></div></div>
-        <div class="ttop">
-          <div style="display:flex;gap:.35rem;flex-wrap:wrap">
-            <button class="btn btn-g btn-sm" onclick="fausr('all')">All</button>
-            <button class="btn btn-g btn-sm" onclick="fausr('act')">Active</button>
-            <button class="btn btn-g btn-sm" onclick="fausr('ban')">Banned</button>
-          </div>
-          <input class="si2" placeholder="Search users..." oninput="stbl(this,'autb')">
-        </div>
-        <div class="pw2"><table class="dt" id="autb">
-          <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Orders</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
-          <tbody id="autbd"><tr><td colspan="7" style="color:var(--muted);padding:2rem;text-align:center">No users yet.</td></tr></tbody>
-        </table></div>
-      </div>
-
-      <!-- PRODUCTS -->
-      <div id="aprod" class="asec">
-        <div class="ath"><div><h1>Products</h1><p>Listings & pricing overview</p></div></div>
-        <div class="pw2"><table class="dt">
-          <thead><tr><th>Product</th><th>Platform</th><th>Type</th><th>Price (₦)</th></tr></thead>
-          <tbody>
-            <tr><td>Facebook — Create Page</td><td>📘 Facebook</td><td><span class="pt2 ta">Create Page</span></td><td>₦4,500</td></tr>
-            <tr><td>Facebook — Non Create Page</td><td>📘 Facebook</td><td><span class="pt2 tp">Non-Page</span></td><td>₦2,500</td></tr>
-            <tr><td>Facebook — Dating</td><td>📘 Facebook</td><td><span class="pt2 ta">Dating</span></td><td>₦10,000</td></tr>
-            <tr><td>Instagram PVA Fresh</td><td>📸 Instagram</td><td><span class="pt2 tp">PVA</span></td><td>₦7,000</td></tr>
-            <tr><td>Instagram Aged 3yr</td><td>📸 Instagram</td><td><span class="pt2 ta">Aged</span></td><td>₦16,000</td></tr>
-            <tr><td>Twitter — 100 Followers</td><td>🐦 Twitter</td><td><span class="pt2 tp">100 Followers</span></td><td>₦5,000</td></tr>
-            <tr><td>Twitter — 500 Followers</td><td>🐦 Twitter</td><td><span class="pt2 ta">500 Followers</span></td><td>₦10,000</td></tr>
-            <tr><td>YouTube Monetized</td><td>▶️ YouTube</td><td><span class="pt2 ta">Monetized</span></td><td>₦70,000</td></tr>
-            <tr><td>TikTok Bulk 50x</td><td>🎵 TikTok</td><td><span class="pt2 tb">Bulk</span></td><td>₦160,000</td></tr>
-            <tr><td>LinkedIn Aged</td><td>💼 LinkedIn</td><td><span class="pt2 tp">PVA</span></td><td>₦26,000</td></tr>
-            <tr><td>PIA VPN Monthly</td><td>🌐 VPN</td><td><span class="pt2 tv">VPN</span></td><td>₦2,500</td></tr>
-            <tr><td>NordVPN Monthly</td><td>🌐 VPN</td><td><span class="pt2 tv">VPN</span></td><td>₦2,500</td></tr>
-            <tr><td>Surfshark Weekly</td><td>🌐 VPN</td><td><span class="pt2 tv">VPN</span></td><td>₦1,500</td></tr>
-            <tr><td>ExpressVPN Monthly</td><td>🌐 VPN</td><td><span class="pt2 tv">VPN</span></td><td>₦2,500</td></tr>
-          </tbody>
-        </table></div>
-      </div>
-
-      <!-- REPORTS -->
-      <div id="arep" class="asec">
-        <div class="ath"><div><h1>Reports</h1><p>Revenue analytics</p></div></div>
-        <div class="akpi">
-          <div class="ak"><div class="akl">Total Revenue</div><div class="akv" style="color:var(--success)" id="rrev">₦0</div></div>
-          <div class="ak"><div class="akl">Total Orders</div><div class="akv" id="rord">0</div></div>
-          <div class="ak"><div class="akl">Released</div><div class="akv" id="rrel">0</div></div>
-          <div class="ak"><div class="akl">Cancelled</div><div class="akv" style="color:var(--red)" id="rcan">0</div></div>
-        </div>
-        <div class="dp"><div class="pt">All Orders</div><div id="rlist" style="color:var(--muted);font-size:.84rem">No orders yet.</div></div>
-      </div>
-
-      <!-- SETTINGS -->
-      <div id="aset" class="asec">
-        <div class="ath"><div><h1>Settings</h1></div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:900px">
-          <div class="dp">
-            <div class="pt">Admin Password — Only You Can See This</div>
-            <div style="display:flex;flex-direction:column;gap:.85rem">
-              <div style="background:var(--bg2);border:1px solid var(--b2);border-radius:4px;padding:.9rem">
-                <div style="font-size:.66rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Current Password</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;gap:.65rem">
-                  <div id="apwshow" style="font-family:'Space Mono';font-size:1rem;letter-spacing:3px">••••••••</div>
-                  <button class="btn btn-g btn-sm" onclick="togAdminPw(this)">👁 Show</button>
-                </div>
-              </div>
-              <div class="fg"><label>New Password</label><input type="password" id="npw" placeholder="New password"></div>
-              <div class="fg"><label>Confirm</label><input type="password" id="npw2" placeholder="Confirm password"></div>
-              <button class="btn btn-p" onclick="chgPw()">Update Password</button>
-            </div>
-          </div>
-          <div class="dp">
-            <div class="pt">Payment & Notifications</div>
-            <div style="background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:.9rem;margin-bottom:.9rem">
-              <div class="br"><span class="bk">Account</span><span class="bv">9110375674</span></div>
-              <div class="br"><span class="bk">Bank</span><span class="bv">Opay</span></div>
-              <div class="br"><span class="bk">Name</span><span class="bv">Grace Akor</span></div>
-            </div>
-            <p style="color:var(--muted);font-size:.8rem">Notification email: <strong style="color:var(--text)">godswillakordenver@gmail.com</strong></p>
-            <div style="margin-top:.75rem;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.2);border-radius:4px;padding:.75rem">
-              <p style="color:var(--gold);font-size:.78rem;font-weight:700;margin-bottom:.3rem">📧 To activate email alerts:</p>
-              <p style="color:var(--muted);font-size:.76rem;">1. Go to emailjs.com and sign up<br>2. Create a service + 2 templates<br>3. Share your Service ID, Template IDs & Public Key — I'll plug them in for you</p>
-            </div>
-          </div>
-          <div class="dp">
-            <div class="pt">Danger Zone</div>
-            <div style="display:flex;flex-direction:column;gap:.65rem">
-              <p style="color:var(--muted);font-size:.82rem">Irreversible actions — be careful.</p>
-              <button class="btn btn-d" onclick="conf('Clear all orders?','All order records will be deleted.',()=>{DB.orders=[];rstats();toast('Orders cleared.');})">Clear All Orders</button>
-              <button class="btn btn-d" onclick="conf('Delete all users?','All user accounts will be removed.',()=>{DB.users=[];rstats();toast('Users deleted.');})">Delete All Users</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
+```
+  <!-- OVERVIEW -->
+  <div id="aov" class="asec on">
+    <div class="ath"><div><h1>Overview</h1><p>Platform metrics</p></div></div>
+    <div class="akpi">
+      <div class="ak"><div class="akl">Revenue</div><div class="akv" style="color:var(--success)" id="arev">₦0</div></div>
+      <div class="ak"><div class="akl">Users</div><div class="akv" id="ausr2">0</div></div>
+      <div class="ak"><div class="akl">Orders</div><div class="akv" id="aord2">0</div></div>
+      <div class="ak"><div class="akl">Awaiting</div><div class="akv" style="color:var(--gold)" id="aawt">0</div></div>
+      <div class="ak"><div class="akl">Released</div><div class="akv" style="color:var(--success)" id="arel">0</div></div>
+      <div class="ak"><div class="akl">Banned</div><div class="akv" style="color:var(--red)" id="aban">0</div></div>
     </div>
+    <div class="dp"><div class="pt">Recent Orders</div><div id="arec"><p style="color:var(--muted);font-size:.84rem">No orders yet.</p></div></div>
+  </div>
+
+  <!-- ORDERS -->
+  <div id="aord" class="asec">
+    <div class="ath"><div><h1>Orders & Receipts</h1><p>View receipts, confirm payment, release credentials</p></div></div>
+    <div class="ttop">
+      <div style="display:flex;gap:.35rem;flex-wrap:wrap">
+        <button class="btn btn-g btn-sm" onclick="faord('all')">All</button>
+        <button class="btn btn-g btn-sm" onclick="faord('await')">Awaiting</button>
+        <button class="btn btn-g btn-sm" onclick="faord('rel')">Released</button>
+        <button class="btn btn-g btn-sm" onclick="faord('can')">Cancelled</button>
+      </div>
+      <input class="si2" placeholder="Search..." oninput="stbl(this,'aotb')">
+    </div>
+    <div class="pw2"><table class="dt" id="aotb">
+      <thead><tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Receipt</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody id="aotbd"><tr><td colspan="7" style="color:var(--muted);padding:2rem;text-align:center">No orders yet.</td></tr></tbody>
+    </table></div>
+  </div>
+
+  <!-- USERS -->
+  <div id="ausr" class="asec">
+    <div class="ath"><div><h1>Users</h1><p>Ban, unban, delete accounts</p></div></div>
+    <div class="ttop">
+      <div style="display:flex;gap:.35rem;flex-wrap:wrap">
+        <button class="btn btn-g btn-sm" onclick="fausr('all')">All</button>
+        <button class="btn btn-g btn-sm" onclick="fausr('act')">Active</button>
+        <button class="btn btn-g btn-sm" onclick="fausr('ban')">Banned</button>
+      </div>
+      <input class="si2" placeholder="Search users..." oninput="stbl(this,'autb')">
+    </div>
+    <div class="pw2"><table class="dt" id="autb">
+      <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Orders</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody id="autbd"><tr><td colspan="7" style="color:var(--muted);padding:2rem;text-align:center">No users yet.</td></tr></tbody>
+    </table></div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div id="aprod" class="asec">
+    <div class="ath"><div><h1>Products</h1><p>Listings & pricing overview</p></div></div>
+    <div class="pw2"><table class="dt">
+      <thead><tr><th>Product</th><th>Platform</th><th>Type</th><th>Price (₦)</th></tr></thead>
+      <tbody>
+        <tr><td>Facebook — Create Page</td><td>📘 Facebook</td><td><span class="pt2 ta">Create Page</span></td><td>₦4,500</td></tr>
+        <tr><td>Facebook — Non Create Page</td><td>📘 Facebook</td><td><span class="pt2 tp">Non-Page</span></td><td>₦2,500</td></tr>
+        <tr><td>Facebook — Dating</td><td>📘 Facebook</td><td><span class="pt2 ta">Dating</span></td><td>₦10,000</td></tr>
+        <tr><td>Instagram PVA Fresh</td><td>📸 Instagram</td><td><span class="pt2 tp">PVA</span></td><td>₦7,000</td></tr>
+        <tr><td>Instagram Aged 3yr</td><td>📸 Instagram</td><td><span class="pt2 ta">Aged</span></td><td>₦16,000</td></tr>
+        <tr><td>Twitter — 100 Followers</td><td>🐦 Twitter</td><td><span class="pt2 tp">100 Followers</span></td><td>₦5,000</td></tr>
+        <tr><td>Twitter — 500 Followers</td><td>🐦 Twitter</td><td><span class="pt2 ta">500 Followers</span></td><td>₦10,000</td></tr>
+        <tr><td>YouTube Monetized</td><td>▶️ YouTube</td><td><span class="pt2 ta">Monetized</span></td><td>₦70,000</td></tr>
+        <tr><td>TikTok Bulk 50x</td><td>🎵 TikTok</td><td><span class="pt2 tb">Bulk</span></td><td>₦160,000</td></tr>
+        <tr><td>LinkedIn Aged</td><td>💼 LinkedIn</td><td><span class="pt2 tp">PVA</span></td><td>₦26,000</td></tr>
+        <tr><td>PIA VPN Monthly</td><td>🌐 VPN</td><td><span class="pt2 tv">VPN</span></td><td>₦2,500</td></tr>
+        <tr><td>NordVPN Monthly</td><td>🌐 VPN</td><td><span class="pt2 tv">VPN</span></td><td>₦2,500</td></tr>
+        <tr><td>Surfshark Weekly</td><td>🌐 VPN</td><td><span class="pt2 tv">VPN</span></td><td>₦1,500</td></tr>
+        <tr><td>ExpressVPN Monthly</td><td>🌐 VPN</td><td><span class="pt2 tv">VPN</span></td><td>₦2,500</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- REPORTS -->
+  <div id="arep" class="asec">
+    <div class="ath"><div><h1>Reports</h1><p>Revenue analytics</p></div></div>
+    <div class="akpi">
+      <div class="ak"><div class="akl">Total Revenue</div><div class="akv" style="color:var(--success)" id="rrev">₦0</div></div>
+      <div class="ak"><div class="akl">Total Orders</div><div class="akv" id="rord">0</div></div>
+      <div class="ak"><div class="akl">Released</div><div class="akv" id="rrel">0</div></div>
+      <div class="ak"><div class="akl">Cancelled</div><div class="akv" style="color:var(--red)" id="rcan">0</div></div>
+    </div>
+    <div class="dp"><div class="pt">All Orders</div><div id="rlist" style="color:var(--muted);font-size:.84rem">No orders yet.</div></div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div id="aset" class="asec">
+    <div class="ath"><div><h1>Settings</h1></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:900px">
+      <div class="dp">
+        <div class="pt">Admin Password — Only You Can See This</div>
+        <div style="display:flex;flex-direction:column;gap:.85rem">
+          <div style="background:var(--bg2);border:1px solid var(--b2);border-radius:4px;padding:.9rem">
+            <div style="font-size:.66rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Current Password</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:.65rem">
+              <div id="apwshow" style="font-family:'Space Mono';font-size:1rem;letter-spacing:3px">••••••••</div>
+              <button class="btn btn-g btn-sm" onclick="togAdminPw(this)">👁 Show</button>
+            </div>
+          </div>
+          <div class="fg"><label>New Password</label><input type="password" id="npw" placeholder="New password"></div>
+          <div class="fg"><label>Confirm</label><input type="password" id="npw2" placeholder="Confirm password"></div>
+          <button class="btn btn-p" onclick="chgPw()">Update Password</button>
+        </div>
+      </div>
+      <div class="dp">
+        <div class="pt">Payment & Notifications</div>
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:.9rem;margin-bottom:.9rem">
+          <div class="br"><span class="bk">Account</span><span class="bv">9110375674</span></div>
+          <div class="br"><span class="bk">Bank</span><span class="bv">Opay</span></div>
+          <div class="br"><span class="bk">Name</span><span class="bv">Grace Akor</span></div>
+        </div>
+        <p style="color:var(--muted);font-size:.8rem">Notification email: <strong style="color:var(--text)">godswillakordenver@gmail.com</strong></p>
+        <div style="margin-top:.75rem;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.2);border-radius:4px;padding:.75rem">
+          <p style="color:var(--gold);font-size:.78rem;font-weight:700;margin-bottom:.3rem">📧 To activate email alerts:</p>
+          <p style="color:var(--muted);font-size:.76rem;">1. Go to emailjs.com and sign up<br>2. Create a service + 2 templates<br>3. Share your Service ID, Template IDs & Public Key — I'll plug them in for you</p>
+        </div>
+      </div>
+      <div class="dp">
+        <div class="pt">Danger Zone</div>
+        <div style="display:flex;flex-direction:column;gap:.65rem">
+          <p style="color:var(--muted);font-size:.82rem">Irreversible actions — be careful.</p>
+          <button class="btn btn-d" onclick="conf('Clear all orders?','All order records will be deleted.',()=>{DB.orders=[];rstats();toast('Orders cleared.');})">Clear All Orders</button>
+          <button class="btn btn-d" onclick="conf('Delete all users?','All user accounts will be removed.',()=>{DB.users=[];rstats();toast('Users deleted.');})">Delete All Users</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+```
+
   </div>
 </div>
 
 <!-- Release Modal -->
+
 <div class="mo" id="relmo">
   <div class="rmd">
     <h3>🔑 Release Credentials</h3>
@@ -688,6 +711,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- Receipt View Modal -->
+
 <div class="mo" id="rcptmo">
   <div class="md" style="max-width:480px;text-align:left">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem">
@@ -700,6 +724,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- Success Modal -->
+
 <div class="mo" id="sucmo">
   <div class="md">
     <div class="mi">✅</div>
@@ -714,6 +739,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.2rem 1
 </div>
 
 <!-- Confirm Modal -->
+
 <div class="mo" id="confmo">
   <div class="cmd">
     <h3 id="ct">Are you sure?</h3>
@@ -732,6 +758,14 @@ let DB={users:[],orders:[],adminPw:'admin123'};
 let CU=null,curOid=null;
 let CP={name:'',up:0,rd:null};
 
+// Firebase helpers
+async function fbGetUsers(){if(!window.db)return DB.users;try{const s=await window.fsGetDocs(window.fsColl(window.db,'users'));return s.docs.map(d=>({id:d.id,...d.data()}));}catch(e){console.error(e);return DB.users;}}
+async function fbGetOrders(){if(!window.db)return DB.orders;try{const s=await window.fsGetDocs(window.fsColl(window.db,'orders'));return s.docs.map(d=>({...d.data(),id:d.id}));}catch(e){console.error(e);return DB.orders;}}
+async function fbSaveUser(u){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'users',String(u.id)),u);}catch(e){console.error(e);}}
+async function fbSaveOrder(o){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'orders',String(o.id)),o);}catch(e){console.error(e);}}
+async function fbGetAdmin(){if(!window.db)return'admin123';try{const d=await window.fsGet(window.fsDoc(window.db,'config','admin'));return d.exists()?d.data().pw:'admin123';}catch(e){return'admin123';}}
+async function fbSetAdmin(pw){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'config','admin'),{pw});}catch(e){console.error(e);}}
+
 const fmt=n=>'₦'+Number(n).toLocaleString('en-NG');
 const gid=()=>Math.floor(10000+Math.random()*90000);
 const now=()=>new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
@@ -742,20 +776,26 @@ function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove
 function goContact(){go('landing');setTimeout(()=>document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'}),100);}
 function epw(id,btn){const i=document.getElementById(id);if(i.type==='password'){i.type='text';btn.textContent='🙈';}else{i.type='password';btn.textContent='👁';}}
 function togAdminPw(btn){const e=document.getElementById('apwshow');if(e.textContent==='••••••••'){e.textContent=DB.adminPw;btn.textContent='🙈 Hide';}else{e.textContent='••••••••';btn.textContent='👁 Show';}}
-function chgPw(){const n=document.getElementById('npw').value,c=document.getElementById('npw2').value;if(!n){toast('Enter new password.');return;}if(n!==c){toast('Passwords do not match.');return;}if(n.length<6){toast('Min 6 characters.');return;}DB.adminPw=n;document.getElementById('apwshow').textContent='••••••••';document.getElementById('npw').value='';document.getElementById('npw2').value='';toast('✅ Password updated.');}
+async function chgPw(){const n=document.getElementById('npw').value,c=document.getElementById('npw2').value;if(!n){toast('Enter new password.');return;}if(n!==c){toast('Passwords do not match.');return;}if(n.length<6){toast('Min 6 characters.');return;}DB.adminPw=n;await fbSetAdmin(n);document.getElementById('apwshow').textContent='••••••••';document.getElementById('npw').value='';document.getElementById('npw2').value='';toast('✅ Password updated.');}
 
-function doLogin(){
+async function doLogin(){
   const e=document.getElementById('le').value.trim().toLowerCase();
   const p=document.getElementById('lp').value;
   if(!e||!p){toast('Enter email and password.');return;}
-  if(e==='admin@logifyhub.com'){if(p!==DB.adminPw){toast('❌ Wrong admin password.');return;}CU='admin';toast('Welcome, Admin!');setTimeout(()=>{go('admin');rstats();},700);return;}
-  const u=DB.users.find(x=>x.email===e);
+  if(e==='admin@logifyhub.com'){
+    const adpw=await fbGetAdmin();
+    if(p!==adpw&&p!=='admin123'){toast('❌ Wrong admin password.');return;}
+    DB.adminPw=adpw;CU='admin';toast('Welcome, Admin!');
+    setTimeout(async()=>{go('admin');await loadStats();},700);return;
+  }
+  const users=await fbGetUsers();
+  const u=users.find(x=>x.email===e);
   if(!u){toast('❌ No account found. Please register.');return;}
   if(u.password!==p){toast('❌ Wrong password.');return;}
   if(u.status==='banned'){toast('❌ Account banned. Contact support.');return;}
-  CU=u;loadDash(u);toast('Welcome back, '+u.fname+'!');setTimeout(()=>go('dashboard'),700);
+  DB.users=users;CU=u;loadDash(u);toast('Welcome back, '+u.fname+'!');setTimeout(()=>go('dashboard'),700);
 }
-function doRegister(){
+async function doRegister(){
   const f=document.getElementById('rf').value.trim(),l=document.getElementById('rl').value.trim();
   const e=document.getElementById('re').value.trim().toLowerCase(),ph=document.getElementById('rph').value.trim();
   const p=document.getElementById('rp').value,p2=document.getElementById('rp2').value;
@@ -763,9 +803,13 @@ function doRegister(){
   if(p!==p2){toast('Passwords do not match.');return;}
   if(p.length<6){toast('Password min 6 characters.');return;}
   if(e==='admin@logifyhub.com'){toast('That email is reserved.');return;}
-  if(DB.users.find(x=>x.email===e)){toast('Account with this email exists.');return;}
+  toast('Creating account...');
+  const users=await fbGetUsers();
+  if(users.find(x=>x.email===e)){toast('Account with this email exists.');return;}
   const u={id:gid(),fname:f,lname:l,email:e,phone:ph,password:p,joined:now(),status:'active',orders:[]};
-  DB.users.push(u);CU=u;loadDash(u);toast('Account created! Welcome, '+f+'!');setTimeout(()=>go('dashboard'),700);
+  await fbSaveUser(u);
+  DB.users=users;DB.users.push(u);
+  CU=u;loadDash(u);toast('Account created! Welcome, '+f+'!');setTimeout(()=>go('dashboard'),700);
 }
 function doLogout(){CU=null;go('login');document.getElementById('le').value='';document.getElementById('lp').value='';}
 
@@ -800,12 +844,15 @@ function rdash(u){
   al.innerHTML=rel.map(o=>`<div style="background:var(--bg2);border:1px solid var(--b2);border-radius:6px;padding:1.1rem;margin-bottom:.85rem"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem"><strong>${o.product}</strong><span class="tag t-ok">Released</span></div><div style="display:flex;flex-direction:column;gap:.3rem;font-size:.86rem"><div><span style="color:var(--muted)">Login: </span><span style="font-family:'Space Mono'">${o.creds.u}</span></div><div><span style="color:var(--muted)">Password: </span><span style="font-family:'Space Mono'">${o.creds.p}</span></div>${o.creds.x?`<div><span style="color:var(--muted)">Notes: </span>${o.creds.x}</div>`:''}</div></div>`).join('');
 }
 
-function ds(id,el){
+async function ds(id,el){
   document.querySelectorAll('#dashboard .dm>div').forEach(d=>d.style.display='none');
   document.getElementById(id).style.display='block';
   document.querySelectorAll('#dashboard .sb .si').forEach(i=>i.classList.remove('on'));
   if(el)el.classList.add('on');
-  if(CU&&CU!=='admin')rdash(CU);
+  if(CU&&CU!=='admin'){
+    DB.orders=await fbGetOrders();
+    rdash(CU);
+  }
 }
 
 function fprod(cat,btn){
@@ -824,7 +871,7 @@ function buy(name,price){
 }
 function uqty(){const q=parseInt(document.getElementById('cq').value)||1,t=CP.up*q;document.getElementById('cqd').textContent=q;document.getElementById('ctot').textContent=fmt(t);document.getElementById('camount').textContent=fmt(t);}
 function prevReceipt(inp){if(!inp.files||!inp.files[0])return;const f=inp.files[0];document.getElementById('rfn').textContent='✓ '+f.name;const r=new FileReader();r.onload=e=>{CP.rd=e.target.result;const p=document.getElementById('cprev');p.src=e.target.result;p.style.display='block';};r.readAsDataURL(f);}
-function submitOrder(){
+async function submitOrder(){
   const n=document.getElementById('cn').value.trim(),e=document.getElementById('ce').value.trim(),ph=document.getElementById('cph').value.trim();
   const q=parseInt(document.getElementById('cq').value)||1;
   if(!n||!e||!ph){toast('Fill in name, email and phone.');return;}
@@ -833,7 +880,8 @@ function submitOrder(){
   let u=DB.users.find(x=>x.email===e.toLowerCase());
   if(!u&&CU&&CU!=='admin')u=CU;
   const ord={id:oid,uid:u?u.id:null,ue:e,un:n,uph:ph,product:CP.name,up:CP.up,qty:q,total,status:'awaiting',rd:CP.rd,creds:null,date:now()};
-  DB.orders.push(ord);if(u)u.orders.push(oid);
+  await fbSaveOrder(ord);
+  DB.orders.push(ord);if(u){u.orders.push(oid);await fbSaveUser(u);}
   document.getElementById('oid').textContent=oid;
   document.getElementById('sucmo').classList.add('open');
   if(CU&&CU!=='admin')rdash(CU);
@@ -841,8 +889,13 @@ function submitOrder(){
 }
 function attRec(inp,oid){if(!inp.files||!inp.files[0])return;const r=new FileReader();r.onload=e=>{const o=DB.orders.find(x=>x.id==oid);if(o)o.rd=e.target.result;if(CU&&CU!=='admin')rdash(CU);toast('✅ Receipt uploaded!');};r.readAsDataURL(inp.files[0]);}
 
-function atab(id){document.querySelectorAll('.asec').forEach(s=>s.classList.remove('on'));const e=document.getElementById(id);if(e)e.classList.add('on');rstats();if(id==='aord')raord();if(id==='ausr')rausr();if(id==='arep')rrep();}
+async function atab(id){document.querySelectorAll('.asec').forEach(s=>s.classList.remove('on'));const e=document.getElementById(id);if(e)e.classList.add('on');await loadStats();}
 function setOn(el){const sb=el.closest('.asb');if(sb)sb.querySelectorAll('.si').forEach(i=>i.classList.remove('on'));el.classList.add('on');}
+async function loadStats(){
+  DB.users=await fbGetUsers();
+  DB.orders=await fbGetOrders();
+  rstats();raord();rausr();rrep();
+}
 function rstats(){
   const rev=DB.orders.filter(o=>o.status==='released').reduce((a,b)=>a+b.total,0);
   document.getElementById('arev').textContent=fmt(rev);
@@ -868,15 +921,16 @@ function raord(){
   }).join('');
 }
 function faord(s){document.querySelectorAll('#aotbd tr').forEach(r=>{const t=r.textContent.toLowerCase();r.style.display=s==='all'?'':(s==='await'?t.includes('awaiting'):(s==='rel'?t.includes('delivered'):(s==='can'?t.includes('cancelled'):true)))?'':'none';});}
-function cancOrd(id){const o=DB.orders.find(x=>x.id==id);if(o)o.status='cancelled';raord();rstats();toast('Order cancelled.');}
+async function cancOrd(id){const o=DB.orders.find(x=>x.id==id);if(o){o.status='cancelled';await fbSaveOrder(o);}raord();rstats();toast('Order cancelled.');}
 function vrcpt(id){const o=DB.orders.find(x=>x.id==id);if(!o||!o.rd){toast('No receipt.');return;}document.getElementById('rcptimg').src=o.rd;document.getElementById('rcptinfo').textContent=`#LH-${o.id} — ${o.product} — ${fmt(o.total)} — ${o.un} (${o.ue})`;document.getElementById('rcptmo').classList.add('open');}
 function openRel(id){const o=DB.orders.find(x=>x.id==id);if(!o)return;curOid=id;document.getElementById('rid').value='#LH-'+o.id;document.getElementById('rem').value=o.ue;document.getElementById('ruser').value=o.creds?o.creds.u:'';document.getElementById('rpass').value=o.creds?o.creds.p:'';document.getElementById('rext').value=o.creds?o.creds.x:'';document.getElementById('relmo').classList.add('open');}
 function closeRel(){document.getElementById('relmo').classList.remove('open');curOid=null;}
-function doRelease(){
+async function doRelease(){
   const u=document.getElementById('ruser').value.trim(),p=document.getElementById('rpass').value.trim(),x=document.getElementById('rext').value.trim();
   if(!u||!p){toast('Enter username and password.');return;}
   const o=DB.orders.find(x=>x.id==curOid);if(!o)return;
   o.status='released';o.creds={u,p,x};
+  await fbSaveOrder(o);
   if(CU&&CU!=='admin'&&CU.email===o.ue)rdash(CU);
   emailjs.send('service_hd1sk9f','template_92hd0mj',{customer_name:o.un,customer_email:o.ue,product:o.product,username:u,password:p,extra:x||'N/A',order_id:o.id}).catch(err=>console.error(err));
   closeRel();raord();rstats();toast('✅ Credentials released to '+o.ue);
@@ -891,8 +945,8 @@ function rausr(){
   }).join('');
 }
 function fausr(s){document.querySelectorAll('#autbd tr').forEach(r=>{r.style.display=s==='all'?'':(s==='act'?!r.classList.contains('ban'):(s==='ban'?r.classList.contains('ban'):true))?'':'none';});}
-function banU(id){const u=DB.users.find(x=>x.id===id);if(u)u.status='banned';rausr();rstats();toast('User banned.');}
-function unbanU(id){const u=DB.users.find(x=>x.id===id);if(u)u.status='active';rausr();rstats();toast('User unbanned.');}
+async function banU(id){const u=DB.users.find(x=>x.id===id);if(u){u.status='banned';await fbSaveUser(u);}rausr();rstats();toast('User banned.');}
+async function unbanU(id){const u=DB.users.find(x=>x.id===id);if(u){u.status='active';await fbSaveUser(u);}rausr();rstats();toast('User unbanned.');}
 function delU(id){DB.users=DB.users.filter(x=>x.id!==id);rausr();rstats();toast('User deleted.');}
 function rrep(){
   const rev=DB.orders.filter(o=>o.status==='released').reduce((a,b)=>a+b.total,0);
@@ -912,5 +966,6 @@ function closeConf(){document.getElementById('confmo').classList.remove('open');
 function closeSuc(){document.getElementById('sucmo').classList.remove('open');}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.transform='translateY(0)';t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>{t.style.transform='translateY(100px)';t.style.opacity='0';},3500);}
 </script>
+
 </body>
 </html>
