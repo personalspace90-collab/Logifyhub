@@ -26,7 +26,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;padding:0 1.5rem
   background:rgba(10,15,26,.95);border-bottom:1px solid var(--bord);backdrop-filter:blur(12px);}
 .logo{display:flex;align-items:center;gap:.4rem;cursor:pointer;
   font-family:'Montserrat';font-size:1.15rem;font-weight:800;color:var(--txt);}
-.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--grad);flex-shrink:0;}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--grad);}
 .nav-links{display:flex;gap:1.2rem;align-items:center;}
 .nav-links a{color:var(--mut2);font-size:.83rem;font-weight:500;cursor:pointer;text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--txt);}
@@ -42,14 +42,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;padding:0 1.5rem
 .btn-ghost:hover{background:rgba(255,255,255,.1);}
 .btn-outline{background:transparent;border:1.5px solid var(--mut);color:var(--txt);}
 .btn-outline:hover{border-color:var(--primary);color:var(--primary);}
-.btn-red{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2);}
-.btn-red:hover{background:rgba(239,68,68,.18);}
+.btn-red{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.22);}
+.btn-red:hover{background:rgba(239,68,68,.2);}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;}
-.btn-gold:hover{opacity:.88;}
 .btn-lg{padding:.72rem 1.8rem;font-size:.9rem;}
 .btn-sm{padding:.3rem .75rem;font-size:.73rem;}
 .btn-full{width:100%;padding:.78rem;font-size:.88rem;}
-.btn-xs{padding:.2rem .55rem;font-size:.68rem;}
+.btn-xs{padding:.18rem .5rem;font-size:.67rem;}
 
 /* HERO */
 .hero{min-height:100vh;padding-top:60px;position:relative;overflow:hidden;
@@ -69,57 +68,59 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .hero-cta{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:560px;width:100%;margin:0 auto;}
 .hst{background:rgba(255,255,255,.04);border:1px solid var(--bord);border-radius:12px;padding:1.1rem .8rem;text-align:center;}
-.hst-v{font-family:'Montserrat';font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hst-v{font-family:'Montserrat';font-size:1.5rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hst-l{color:var(--mut2);font-size:.68rem;margin-top:.18rem;}
 
 /* SECTIONS */
 .sec{padding:4rem 1.5rem;max-width:1100px;margin:0 auto;}
-.sec-badge{display:inline-flex;align-items:center;gap:.4rem;
+.sec-badge{display:inline-flex;align-items:center;
   background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.18);
   color:var(--primary2);padding:.2rem .72rem;border-radius:50px;
   font-size:.64rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.7rem;}
 .sec-h2{font-family:'Montserrat';font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;margin-bottom:.4rem;}
 .sec-sub{color:var(--mut2);font-size:.86rem;margin-bottom:2rem;}
 
-/* STORE — LIST LAYOUT */
+/* STORE — CTL STYLE */
+.store-wrap{max-width:1100px;margin:0 auto;padding:1.5rem;}
 .cat-section{margin-bottom:2rem;}
-.cat-header{display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:.75rem;padding-bottom:.55rem;border-bottom:1px solid var(--bord);}
-.cat-header-left{display:flex;align-items:center;gap:.6rem;}
-.cat-icon{width:36px;height:36px;border-radius:10px;background:var(--grad);
-  display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
-.cat-name{font-family:'Montserrat';font-size:1rem;font-weight:800;}
-.cat-view{color:var(--primary2);font-size:.76rem;font-weight:600;cursor:pointer;}
+.cat-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;}
+.cat-title{display:flex;align-items:center;gap:.6rem;font-family:'Montserrat';font-size:1rem;font-weight:800;}
+.cat-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.cat-view{color:var(--primary2);font-size:.78rem;font-weight:600;cursor:pointer;}
 .cat-view:hover{text-decoration:underline;}
 .prod-list{background:var(--card);border:1px solid var(--bord);border-radius:14px;overflow:hidden;}
-.prod-item{display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;
-  border-bottom:1px solid var(--bord);transition:background .2s;cursor:pointer;}
-.prod-item:last-child{border-bottom:none;}
-.prod-item:hover{background:rgba(255,255,255,.03);}
-.prod-item-icon{width:44px;height:44px;border-radius:10px;background:var(--grad);
-  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
-.prod-item-info{flex:1;min-width:0;}
-.prod-item-name{font-weight:600;font-size:.84rem;line-height:1.35;
+.prod-row{display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;
+  border-bottom:1px solid var(--bord);cursor:pointer;transition:background .18s;}
+.prod-row:last-child{border-bottom:none;}
+.prod-row:hover{background:rgba(255,255,255,.03);}
+.prod-row-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  background:rgba(59,130,246,.1);}
+.prod-row-info{flex:1;min-width:0;}
+.prod-row-name{font-size:.84rem;font-weight:600;line-height:1.35;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:.2rem;}
-.prod-item-stock{font-size:.7rem;font-weight:600;}
-.stock-ok{color:var(--green);}
-.stock-low{color:var(--gold);}
-.stock-out{color:var(--red);}
-.prod-item-right{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0;}
-.prod-item-price{font-family:'Montserrat';font-size:.92rem;font-weight:800;color:var(--primary2);}
-.buy-btn{background:var(--grad);color:#fff;border:none;padding:.32rem .85rem;
+.prod-row-stock{display:flex;align-items:center;gap:.3rem;font-size:.7rem;color:var(--mut2);}
+.stock-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.dot-green{background:var(--green);}
+.dot-orange{background:#f97316;}
+.dot-red{background:var(--red);}
+.prod-row-right{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0;}
+.prod-row-price{font-family:'Montserrat';font-size:.9rem;font-weight:800;color:var(--primary2);}
+.buy-btn{background:var(--primary);color:#fff;border:none;padding:.32rem .85rem;
   border-radius:50px;font-family:'Montserrat';font-weight:700;font-size:.72rem;
-  cursor:pointer;transition:all .18s;white-space:nowrap;}
-.buy-btn:hover{opacity:.85;transform:scale(1.04);}
-.buy-btn:disabled{background:rgba(255,255,255,.08);color:var(--mut2);cursor:not-allowed;transform:none;}
-.sold-badge{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.2);
-  padding:.18rem .55rem;border-radius:50px;font-size:.65rem;font-weight:700;}
+  cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:.25rem;}
+.buy-btn:hover{background:var(--primary2);transform:translateY(-1px);}
+.buy-btn:disabled{background:rgba(255,255,255,.08);color:var(--mut2);cursor:default;transform:none;}
+.sold-badge{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2);
+  padding:.2rem .55rem;border-radius:50px;font-size:.68rem;font-weight:700;}
 
-/* CAT FILTER TABS */
-.cat-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;overflow-x:auto;padding-bottom:.2rem;}
-.cat-tab{padding:.35rem .85rem;border-radius:50px;font-size:.74rem;font-weight:600;
+/* STORE TOP BAR */
+.store-topbar{background:var(--bg2);border-bottom:1px solid var(--bord);padding:1.2rem 1.5rem .9rem;}
+.cat-filter-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.75rem;}
+.cat-tab{padding:.32rem .82rem;border-radius:50px;font-size:.74rem;font-weight:600;
   cursor:pointer;border:1px solid var(--bord2);color:var(--mut2);
-  transition:all .18s;background:rgba(255,255,255,.04);white-space:nowrap;flex-shrink:0;}
+  transition:all .18s;background:rgba(255,255,255,.04);}
 .cat-tab:hover{color:var(--txt);border-color:var(--primary);}
 .cat-tab.on{background:var(--grad);color:#fff;border-color:transparent;}
 
@@ -147,9 +148,9 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .fg{display:flex;flex-direction:column;gap:.26rem;margin-bottom:.75rem;}
 .fg label{font-size:.7rem;font-weight:600;color:var(--mut2);letter-spacing:.3px;}
 .fg input,.fg select,.fg textarea{
-  background:rgba(255,255,255,.04);border:1.5px solid var(--bord);color:var(--txt);
-  padding:.6rem .85rem;border-radius:8px;font-family:'Inter';font-size:.86rem;
-  outline:none;width:100%;transition:border-color .2s;}
+  background:rgba(255,255,255,.04);border:1.5px solid var(--bord);
+  color:var(--txt);padding:.6rem .85rem;border-radius:8px;
+  font-family:'Inter';font-size:.86rem;outline:none;width:100%;transition:border-color .2s;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(59,130,246,.45);background:rgba(255,255,255,.06);}
 .fg input::placeholder{color:rgba(255,255,255,.2);}
 .fg textarea{resize:vertical;min-height:75px;}
@@ -195,20 +196,18 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 
 /* WALLET */
 .wal-card{background:linear-gradient(135deg,#0f2040,#1a3060);
-  border:1px solid rgba(59,130,246,.2);border-radius:14px;
-  padding:1.6rem;margin-bottom:1.1rem;position:relative;overflow:hidden;}
-.wal-card::before{content:'';position:absolute;top:-40px;right:-40px;
-  width:140px;height:140px;border-radius:50%;background:rgba(59,130,246,.07);}
+  border:1px solid rgba(59,130,246,.2);border-radius:14px;padding:1.6rem;margin-bottom:1.1rem;position:relative;overflow:hidden;}
+.wal-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;
+  border-radius:50%;background:rgba(59,130,246,.07);}
 .wal-lbl{font-size:.63rem;letter-spacing:2px;text-transform:uppercase;color:var(--mut2);margin-bottom:.3rem;font-weight:600;}
 .wal-amt{font-family:'Montserrat';font-size:2.1rem;font-weight:900;
   background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .wal-sub{color:var(--mut2);font-size:.74rem;margin-top:.15rem;}
 .wal-actions{display:flex;gap:.65rem;margin-top:1.1rem;}
-.wal-btn{flex:1;padding:.58rem;border-radius:8px;font-family:'Montserrat';
-  font-weight:700;font-size:.76rem;cursor:pointer;transition:all .2s;border:none;}
+.wal-btn{flex:1;padding:.58rem;border-radius:8px;font-family:'Montserrat';font-weight:700;
+  font-size:.76rem;cursor:pointer;transition:all .2s;border:none;}
 .wal-btn.p{background:var(--grad);color:#fff;}
 .wal-btn.s{background:rgba(255,255,255,.06);color:var(--txt);border:1px solid var(--bord);}
-.wal-btn.s:hover{background:rgba(255,255,255,.1);}
 
 /* CTL BALANCE */
 .ctl-bal{background:linear-gradient(135deg,#0f2818,#1a3d25);
@@ -229,7 +228,7 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .tx-a.pos{color:var(--green);}
 .tx-a.neg{color:var(--primary2);}
 
-/* ADMIN */
+/* ADMIN TABLES */
 .asec{display:none;}.asec.on{display:block;}
 .tbl-wrap{background:var(--card);border:1px solid var(--bord);border-radius:12px;overflow:hidden;overflow-x:auto;}
 .tbl{width:100%;border-collapse:collapse;font-size:.8rem;min-width:520px;}
@@ -250,20 +249,11 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 .ak-v{font-family:'Montserrat';font-size:1.5rem;font-weight:800;}
 .abs{display:flex;gap:.28rem;flex-wrap:wrap;}
 
-/* ADMIN PRODUCT MANAGER */
-.prod-manager-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem;}
-.apcard{background:var(--card2);border:1px solid var(--bord);border-radius:12px;padding:1rem;position:relative;}
-.apcard-name{font-weight:700;font-size:.88rem;margin-bottom:.25rem;}
-.apcard-cat{font-size:.68rem;color:var(--primary2);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem;}
-.apcard-price{font-family:'Montserrat';font-size:1rem;font-weight:800;color:var(--gold);margin-bottom:.55rem;}
-.apcard-actions{display:flex;gap:.35rem;}
-
 /* CHECKOUT */
 .co-wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem;padding-top:calc(60px + 1.8rem);}
 .co-grid{display:grid;grid-template-columns:1fr 270px;gap:1.3rem;}
 .co-title{font-family:'Montserrat';font-size:1.3rem;font-weight:800;margin-bottom:1.3rem;grid-column:1/-1;}
-.csum{background:var(--card);border:1px solid var(--bord);border-radius:12px;
-  padding:1.2rem;height:fit-content;position:sticky;top:74px;}
+.csum{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.2rem;height:fit-content;position:sticky;top:74px;}
 .csum-t{font-size:.64rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut2);margin-bottom:.85rem;}
 .csum-row{display:flex;justify-content:space-between;padding:.35rem 0;font-size:.82rem;color:var(--mut2);}
 .csum-tot{display:flex;justify-content:space-between;border-top:1px solid var(--bord);
@@ -303,14 +293,14 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
   max-width:340px;width:92%;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
 .mo.open .mo-box2{transform:scale(1);}
 .mo-box2 h3{font-family:'Montserrat';font-size:1rem;font-weight:800;margin-bottom:.35rem;}
+.mo-wide{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:1.8rem;
+  max-width:480px;width:93%;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);max-height:90vh;overflow-y:auto;}
+.mo.open .mo-wide{transform:scale(1);}
+.mo-wide h3{font-family:'Montserrat';font-size:1.05rem;font-weight:800;margin-bottom:.85rem;}
 .dep-mo{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:1.8rem;
-  max-width:360px;width:92%;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
+  max-width:340px;width:92%;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
 .mo.open .dep-mo{transform:scale(1);}
 .dep-mo h3{font-family:'Montserrat';font-size:1.1rem;font-weight:800;margin-bottom:.25rem;}
-.prod-mo{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:1.8rem;
-  max-width:420px;width:93%;transform:scale(.92);transition:transform .22s;box-shadow:0 32px 80px rgba(0,0,0,.8);}
-.mo.open .prod-mo{transform:scale(1);}
-.prod-mo h3{font-family:'Montserrat';font-size:1.05rem;font-weight:800;margin-bottom:.9rem;}
 .mo-btns{display:flex;gap:.5rem;justify-content:flex-end;margin-top:.85rem;}
 
 /* TOAST */
@@ -323,34 +313,31 @@ h1.hero-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text
 /* BACK FAB */
 .back-fab{position:fixed;bottom:1.3rem;left:1.3rem;z-index:8000;
   background:var(--card);border:1px solid var(--bord);color:var(--mut2);
-  padding:.45rem .9rem;border-radius:50px;font-family:'Inter';
-  font-weight:600;font-size:.74rem;cursor:pointer;transition:all .2s;
-  display:none;box-shadow:0 4px 16px rgba(0,0,0,.5);}
+  padding:.45rem .9rem;border-radius:50px;font-family:'Inter';font-weight:600;
+  font-size:.74rem;cursor:pointer;transition:all .2s;display:none;box-shadow:0 4px 16px rgba(0,0,0,.5);}
 .back-fab:hover{color:var(--primary2);border-color:rgba(59,130,246,.35);}
 
 /* MOBILE NAV — SVG ICONS */
 .mobnav{display:none;position:fixed;bottom:0;left:0;right:0;
-  background:var(--bg2);border-top:1px solid var(--bord);
-  z-index:9000;padding:.5rem 0 .4rem;}
-.mob-btn{display:flex;flex-direction:column;align-items:center;gap:.15rem;
-  cursor:pointer;color:var(--mut2);font-size:.5rem;letter-spacing:.4px;
-  text-transform:uppercase;font-weight:700;padding:.2rem .35rem;
-  border-radius:6px;transition:all .18s;min-width:52px;flex:1;}
+  background:var(--bg2);border-top:1px solid var(--bord);z-index:9000;padding:.4rem 0 .25rem;}
+.mob-btn{display:flex;flex-direction:column;align-items:center;gap:.15rem;cursor:pointer;
+  color:var(--mut2);font-size:.5rem;letter-spacing:.5px;text-transform:uppercase;
+  font-weight:700;padding:.18rem .3rem;border-radius:6px;transition:color .18s;min-width:44px;}
 .mob-btn:hover,.mob-btn.on{color:var(--primary2);}
-.mob-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;
-  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:all .18s;}
-.mob-btn.on svg{stroke:var(--primary2);}
+.mob-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;}
 
 /* LOADING */
-.ctl-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem;gap:.75rem;color:var(--mut2);}
-.spin{width:32px;height:32px;border:3px solid var(--bord);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite;}
+.ctl-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:3rem;gap:.75rem;color:var(--mut2);}
+.spin{width:30px;height:30px;border:3px solid var(--bord);border-top-color:var(--primary);
+  border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* CTA */
 .cta-box{background:linear-gradient(135deg,#0f1f3d,#1a2f5a);
   border:1px solid rgba(59,130,246,.15);border-radius:20px;
   padding:3.2rem 2rem;text-align:center;margin:0 1.5rem 3.5rem;position:relative;overflow:hidden;}
-.cta-box::before{content:'◈';position:absolute;font-size:12rem;opacity:.03;right:-1rem;top:-3rem;color:var(--primary);line-height:1;}
 .cta-box h2{font-family:'Montserrat';font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;margin-bottom:.6rem;}
 .cta-box p{color:var(--mut2);margin-bottom:1.8rem;font-size:.88rem;}
 
@@ -368,10 +355,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
   .mobnav{display:flex;justify-content:space-around;}
 }
 @media(max-width:600px){
-  .hero-stats{grid-template-columns:1fr 1fr 1fr;}
-  .how-grid{grid-template-columns:1fr 1fr;}
   .hide{display:none;}
-  .prod-manager-grid{grid-template-columns:1fr;}
+  .how-grid{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
@@ -379,9 +364,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
 
 <!-- NAV -->
 <nav id="main-nav">
-  <div class="logo" onclick="go('home')">
-    <div class="logo-dot"></div> Logify Hub
-  </div>
+  <div class="logo" onclick="go('home')"><div class="logo-dot"></div> Logify Hub</div>
   <div class="nav-links">
     <a class="hide" onclick="go('store')">Store</a>
     <a id="navDash" style="display:none" onclick="go('dashboard')">Dashboard</a>
@@ -399,7 +382,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
     <div class="hero-inner">
       <div class="hero-badge">⚡ Instant Digital Delivery</div>
       <h1 class="hero-h1">Buy Digital Products<br><span>Delivered Instantly</span></h1>
-      <p class="hero-sub">Social media accounts, followers, engagement and more. Pay via Paga. Get credentials in seconds.</p>
+      <p class="hero-sub">Social media accounts, followers, engagement and more. Pay with your wallet. Get credentials in seconds.</p>
       <div class="hero-cta">
         <button class="btn btn-primary btn-lg" onclick="go('store')">Browse Store →</button>
         <button class="btn btn-outline btn-lg" onclick="go('register')">Create Account</button>
@@ -412,7 +395,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
     </div>
   </div>
 
-  <!-- HOW IT WORKS -->
   <div style="background:var(--bg2);border-top:1px solid var(--bord);border-bottom:1px solid var(--bord);padding:3.5rem 0;">
     <div class="sec" style="padding-top:0;padding-bottom:0">
       <div style="text-align:center;margin-bottom:1.8rem">
@@ -421,24 +403,21 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
         <p class="sec-sub">Get your digital products in 3 simple steps</p>
       </div>
       <div class="how-grid">
-        <div class="how-card"><div class="how-n">01</div><div class="how-icon">🔍</div><div class="how-t">Browse Products</div><div class="how-d">Explore hundreds of digital products — social accounts, followers, engagement and more</div></div>
-        <div class="how-card"><div class="how-n">02</div><div class="how-icon">💳</div><div class="how-t">Fund & Pay</div><div class="how-d">Deposit to your wallet via Paga, then buy instantly with one click</div></div>
+        <div class="how-card"><div class="how-n">01</div><div class="how-icon">🔍</div><div class="how-t">Browse Products</div><div class="how-d">Explore hundreds of digital products — social accounts, followers, and more</div></div>
+        <div class="how-card"><div class="how-n">02</div><div class="how-icon">💳</div><div class="how-t">Fund Wallet</div><div class="how-d">Deposit via Paystack then buy instantly with one click</div></div>
         <div class="how-card"><div class="how-n">03</div><div class="how-icon">⚡</div><div class="how-t">Instant Delivery</div><div class="how-d">Credentials delivered to your dashboard immediately after payment</div></div>
-        <div class="how-card"><div class="how-n">04</div><div class="how-icon">📊</div><div class="how-t">Track Orders</div><div class="how-d">View all your orders, credentials, and transaction history anytime</div></div>
+        <div class="how-card"><div class="how-n">04</div><div class="how-icon">📊</div><div class="how-t">Track Orders</div><div class="how-d">View all your orders and credentials anytime from your dashboard</div></div>
       </div>
     </div>
   </div>
 
-  <!-- FEATURED -->
   <div class="sec">
     <div style="text-align:center;margin-bottom:1.8rem">
       <div class="sec-badge">Featured</div>
       <h2 class="sec-h2">Popular Products</h2>
       <p class="sec-sub">Powered by Classyteelogs — always in stock, always instant</p>
     </div>
-    <div id="homeFeatured">
-      <div class="ctl-loading"><div class="spin"></div><span>Loading products...</span></div>
-    </div>
+    <div id="homeFeatured"><div class="ctl-loading"><div class="spin"></div><span>Loading...</span></div></div>
     <div style="text-align:center;margin-top:1.5rem">
       <button class="btn btn-primary btn-lg" onclick="go('store')">View All Products →</button>
     </div>
@@ -454,7 +433,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       </div>
     </div>
   </div>
-
   <footer>
     <div class="foot-logo"><div class="logo-dot"></div> Logify Hub</div>
     <p style="color:var(--mut2);font-size:.8rem;margin-bottom:.3rem">Instant Digital Products · Powered by Classyteelogs API</p>
@@ -474,17 +452,19 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
     </div>
   </nav>
   <div style="padding-top:60px">
-    <div style="background:var(--bg2);border-bottom:1px solid var(--bord);padding:1.4rem 1.5rem .9rem">
-      <h2 style="font-family:'Montserrat';font-size:1.25rem;font-weight:800;margin-bottom:.2rem">Digital Products Store</h2>
-      <p style="color:var(--mut2);font-size:.82rem;margin-bottom:.85rem">Instant delivery · Powered by Classyteelogs</p>
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem">
-        <div class="cat-tabs" id="catTabs" style="margin:0;flex:1">
-          <div class="cat-tab on" onclick="filterCat('all',this)">All</div>
+    <div class="store-topbar">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+        <div>
+          <h2 style="font-family:'Montserrat';font-size:1.2rem;font-weight:800;margin-bottom:.15rem">Digital Products Store</h2>
+          <p style="color:var(--mut2);font-size:.78rem">Instant delivery · Powered by Classyteelogs</p>
         </div>
-        <input id="searchInp" style="background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--txt);padding:.38rem .75rem;border-radius:8px;font-family:'Inter';font-size:.8rem;outline:none;width:170px;flex-shrink:0" placeholder="🔍 Search..." oninput="searchProds(this.value)">
+        <input id="searchInp" style="background:rgba(255,255,255,.05);border:1px solid var(--bord);color:var(--txt);padding:.4rem .78rem;border-radius:8px;font-family:'Inter';font-size:.8rem;outline:none;width:190px" placeholder="🔍 Search..." oninput="searchProds(this.value)">
+      </div>
+      <div class="cat-filter-tabs" id="catTabs">
+        <div class="cat-tab on" onclick="filterCat('all',this)">All</div>
       </div>
     </div>
-    <div style="max-width:900px;margin:0 auto;padding:1.5rem" id="storeContent">
+    <div class="store-wrap" id="storeWrap">
       <div class="ctl-loading"><div class="spin"></div><span>Fetching products from Classyteelogs...</span></div>
     </div>
   </div>
@@ -499,18 +479,13 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       <h2>Login</h2>
       <div class="fg"><label>Email</label><input type="email" id="le" placeholder="you@example.com"></div>
       <div class="fg"><label>Password</label>
-        <div class="pw-wrap">
-          <input type="password" id="lp" placeholder="Password">
-          <button class="pw-eye" onclick="epw('lp',this)">👁</button>
-        </div>
+        <div class="pw-wrap"><input type="password" id="lp" placeholder="Password"><button class="pw-eye" onclick="epw('lp',this)">👁</button></div>
       </div>
       <button class="btn btn-primary btn-full" id="loginBtn" onclick="doLogin()" style="margin-bottom:.6rem">Login</button>
       <div class="divid">or</div>
       <button class="btn btn-ghost btn-full" onclick="go('register')">Create Account</button>
       <div class="auth-sw">No account? <a onclick="go('register')">Sign up free</a></div>
-      <div style="text-align:center;margin-top:.5rem">
-        <a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a>
-      </div>
+      <div style="text-align:center;margin-top:.5rem"><a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a></div>
     </div>
   </div>
 </div>
@@ -529,20 +504,16 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       <div class="fg"><label>Email</label><input type="email" id="re" placeholder="you@example.com"></div>
       <div class="fg"><label>Phone</label><input type="tel" id="rph" placeholder="+234 800 000 0000"></div>
       <div class="fg"><label>Password</label>
-        <div class="pw-wrap">
-          <input type="password" id="rp" placeholder="Min 6 characters">
-          <button class="pw-eye" onclick="epw('rp',this)">👁</button>
-        </div>
+        <div class="pw-wrap"><input type="password" id="rp" placeholder="Min 6 characters"><button class="pw-eye" onclick="epw('rp',this)">👁</button></div>
       </div>
       <div class="fg"><label>Confirm Password</label><input type="password" id="rp2" placeholder="Repeat password"></div>
       <button class="btn btn-primary btn-full" id="regBtn" onclick="doRegister()" style="margin-top:.25rem">Create Account →</button>
       <div class="auth-sw">Already have an account? <a onclick="go('login')">Login</a></div>
-      <div style="text-align:center;margin-top:.4rem">
-        <a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a>
-      </div>
+      <div style="text-align:center;margin-top:.4rem"><a style="color:var(--mut2);font-size:.72rem;cursor:pointer" onclick="go('home')">← Back to Home</a></div>
     </div>
   </div>
 </div>
+
 <!-- ===== DASHBOARD ===== -->
 <div id="dashboard" class="page">
   <nav style="z-index:1000">
@@ -596,14 +567,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
 
       <!-- ORDERS TAB -->
       <div id="dorders" style="display:none">
-        <div class="dash-hd">
-          <div><h1>My Orders</h1><p>All your purchases</p></div>
-          <button class="btn btn-primary btn-sm" onclick="go('store')">+ New Order</button>
-        </div>
-        <div class="panel">
-          <div class="panel-t">Order History</div>
-          <div id="ordersList"><p style="color:var(--mut2);font-size:.83rem">No orders yet.</p></div>
-        </div>
+        <div class="dash-hd"><div><h1>My Orders</h1><p>All your purchases</p></div><button class="btn btn-primary btn-sm" onclick="go('store')">+ New Order</button></div>
+        <div class="panel"><div class="panel-t">Order History</div><div id="ordersList"><p style="color:var(--mut2);font-size:.83rem">No orders yet.</p></div></div>
       </div>
 
       <!-- WALLET TAB -->
@@ -614,14 +579,11 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
           <div class="wal-amt" id="wbal">₦0.00</div>
           <div class="wal-sub">Use to buy any product instantly</div>
           <div class="wal-actions">
-            <button class="wal-btn p" onclick="openDeposit()">+ Deposit via Paga</button>
+            <button class="wal-btn p" onclick="openDeposit()">+ Deposit</button>
             <button class="wal-btn s" onclick="go('store')">Browse Store</button>
           </div>
         </div>
-        <div class="panel">
-          <div class="panel-t">Transaction History</div>
-          <div id="wtxlog"><p style="color:var(--mut2);font-size:.83rem">No transactions yet.</p></div>
-        </div>
+        <div class="panel"><div class="panel-t">Transaction History</div><div id="wtxlog"><p style="color:var(--mut2);font-size:.83rem">No transactions yet.</p></div></div>
       </div>
 
       <!-- PROFILE TAB -->
@@ -632,37 +594,34 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
           <div class="fg"><label>Full Name</label><input type="text" id="pname" readonly style="background:rgba(255,255,255,.03)"></div>
           <div class="fg"><label>Email</label><input type="email" id="pemail" readonly style="background:rgba(255,255,255,.03)"></div>
           <div class="fg"><label>Phone</label><input type="tel" id="pphone" readonly style="background:rgba(255,255,255,.03)"></div>
-          <div style="margin-top:.5rem">
-            <div class="fg"><label>New Password</label><input type="password" id="newpw" placeholder="Leave blank to keep current"></div>
-            <button class="btn btn-ghost" onclick="updateProfile()">Save Changes</button>
-          </div>
+          <div class="fg" style="margin-top:.5rem"><label>New Password</label><input type="password" id="newpw" placeholder="Leave blank to keep current"></div>
+          <button class="btn btn-ghost" onclick="updateProfile()">Save Changes</button>
         </div>
       </div>
-
     </div>
   </div>
 
   <!-- MOBILE NAV WITH SVG ICONS -->
   <div class="mobnav">
-    <div class="mob-btn on" id="mob0" onclick="dsh('dhome',this);mobOn(0)">
+    <div class="mob-btn on" id="mn0" onclick="dsh('dhome',null);mobOn(0)">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-      HOME
+      Home
     </div>
-    <div class="mob-btn" id="mob1" onclick="dsh('dorders',this);mobOn(1)">
-      <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-      ORDERS
+    <div class="mob-btn" id="mn1" onclick="dsh('dorders',null);mobOn(1)">
+      <svg viewBox="0 0 24 24"><path d="M20 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      Orders
     </div>
-    <div class="mob-btn" id="mob2" onclick="dsh('dwallet',this);mobOn(2)">
-      <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 12h.01"/><path d="M2 10h20"/></svg>
-      WALLET
+    <div class="mob-btn" id="mn2" onclick="dsh('dwallet',null);mobOn(2)">
+      <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 13a1 1 0 100-2 1 1 0 000 2z" fill="currentColor" stroke="none"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      Wallet
     </div>
-    <div class="mob-btn" id="mob3" onclick="go('store')">
+    <div class="mob-btn" id="mn3" onclick="go('store')">
       <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-      STORE
+      Store
     </div>
-    <div class="mob-btn" id="mob4" onclick="dsh('dprofile',this);mobOn(4)">
+    <div class="mob-btn" id="mn4" onclick="dsh('dprofile',null);mobOn(4)">
       <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      PROFILE
+      Profile
     </div>
   </div>
 </div>
@@ -685,8 +644,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
             </select>
           </div>
         </div>
-
-        <!-- WALLET BUY BAR -->
         <div class="wbb" id="walletBuyBar" style="display:none">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.55rem">
             <div><div class="wbb-l">Wallet Balance</div><div class="wbb-v" id="wbalChk">₦0</div></div>
@@ -694,42 +651,30 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
           </div>
           <div style="color:var(--mut2);font-size:.7rem;margin-top:.35rem">Deducted from wallet — credentials delivered immediately via CTL API</div>
         </div>
-
         <div class="panel">
           <div class="panel-t">Payment Method</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.9rem">
-            <button id="payCardBtn" onclick="setPay('card')" style="padding:.58rem;border-radius:8px;border:1.5px solid var(--primary);background:rgba(59,130,246,.08);color:var(--primary2);font-family:'Montserrat';font-weight:700;font-size:.76rem;cursor:pointer">💳 Paga</button>
+            <button id="payCardBtn" onclick="setPay('card')" style="padding:.58rem;border-radius:8px;border:1.5px solid var(--primary);background:rgba(59,130,246,.08);color:var(--primary2);font-family:'Montserrat';font-weight:700;font-size:.76rem;cursor:pointer">💳 Paystack</button>
             <button id="payCryptoBtn" onclick="setPay('crypto')" style="padding:.58rem;border-radius:8px;border:1px solid var(--bord);background:rgba(255,255,255,.04);color:var(--txt);font-family:'Montserrat';font-weight:700;font-size:.76rem;cursor:pointer;transition:all .2s">₿ Bitcoin</button>
           </div>
-
-          <!-- PAGA BOX -->
           <div id="cardBox">
             <div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:9px;padding:.9rem;margin-bottom:.85rem">
-              <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.7rem">
-                <div style="width:28px;height:28px;background:linear-gradient(135deg,#00a651,#007a3d);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#fff">P</div>
-                <div style="font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut2)">Pay via Paga</div>
-              </div>
-              <div style="display:flex;justify-content:space-between;padding:.28rem 0;border-bottom:1px solid var(--bord);font-size:.81rem"><span style="color:var(--mut2)">Business Name</span><span style="font-weight:600">Logify Hub</span></div>
-              <div style="display:flex;justify-content:space-between;padding:.28rem 0;border-bottom:1px solid var(--bord);font-size:.81rem"><span style="color:var(--mut2)">Paga Number</span><span style="font-weight:600" id="pagaNum">YOUR_PAGA_NUMBER</span></div>
-              <div style="display:flex;justify-content:space-between;padding:.28rem 0;border-bottom:1px solid var(--bord);font-size:.81rem"><span style="color:var(--mut2)">Reference</span><span style="font-weight:600;font-size:.74rem;color:var(--gold)" id="pagaRef">LGF-00000</span></div>
+              <div style="font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut2);margin-bottom:.65rem">OPay Transfer</div>
+              <div style="display:flex;justify-content:space-between;padding:.28rem 0;border-bottom:1px solid var(--bord);font-size:.81rem"><span style="color:var(--mut2)">Bank</span><span style="font-weight:600">OPay</span></div>
+              <div style="display:flex;justify-content:space-between;padding:.28rem 0;border-bottom:1px solid var(--bord);font-size:.81rem"><span style="color:var(--mut2)">Account</span><span style="font-weight:600">6481012827</span></div>
+              <div style="display:flex;justify-content:space-between;padding:.28rem 0;border-bottom:1px solid var(--bord);font-size:.81rem"><span style="color:var(--mut2)">Name</span><span style="font-weight:600">Grace Akor</span></div>
               <div style="display:flex;justify-content:space-between;padding:.28rem 0;font-size:.81rem"><span style="color:var(--mut2)">Amount</span><span style="font-weight:700;color:var(--gold)" id="camount">—</span></div>
-              <button class="btn btn-ghost btn-sm" style="width:100%;border-radius:7px;margin-top:.6rem" onclick="copyPagaRef()">📋 Copy Reference</button>
             </div>
           </div>
-
-          <!-- CRYPTO BOX -->
           <div id="cryptoBox" style="display:none">
             <div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:9px;padding:.9rem;margin-bottom:.85rem">
               <div style="font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut2);margin-bottom:.45rem">Bitcoin Payment</div>
               <div style="font-size:.8rem;color:var(--mut2);margin-bottom:.35rem"><span id="btcAmt" style="color:var(--gold);font-weight:700">—</span></div>
-              <div style="font-size:.63rem;font-weight:700;letter-spacing:1px;color:var(--mut2);margin:.55rem 0 .22rem">Bitcoin Address</div>
               <div style="background:rgba(0,0,0,.3);border:1px solid var(--bord);border-radius:8px;padding:.58rem .85rem;font-family:monospace;font-size:.71rem;color:var(--primary2);word-break:break-all;margin-bottom:.5rem">bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma</div>
-              <button class="btn btn-ghost btn-sm" style="width:100%;border-radius:7px;margin-bottom:.6rem" onclick="copyBTC()">📋 Copy Address</button>
+              <button class="btn btn-ghost btn-sm" style="width:100%;margin-bottom:.6rem" onclick="copyBTC()">📋 Copy Address</button>
               <div style="text-align:center;font-size:.76rem;color:var(--mut2)">Expires in <span id="countdown" style="color:var(--red);font-weight:700">15:00</span></div>
             </div>
           </div>
-
-          <!-- RECEIPT UPLOAD -->
           <div style="border:2px dashed rgba(255,255,255,.09);border-radius:9px;padding:1.1rem;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:.7rem"
             onclick="document.getElementById('rfile').click()"
             onmouseover="this.style.borderColor='rgba(59,130,246,.35)'"
@@ -742,13 +687,9 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
           <img id="cprev" alt="Receipt" style="display:none;max-width:100%;max-height:120px;border-radius:7px;border:1px solid var(--bord);margin-bottom:.7rem">
           <button class="btn btn-primary btn-full" style="border-radius:9px;padding:.78rem;margin-bottom:.35rem" onclick="submitOrder()">I Have Sent Payment</button>
           <div style="text-align:center;font-size:.68rem;color:var(--mut2)">🔒 Admin verifies and releases credentials</div>
-          <div style="text-align:center;margin-top:.55rem">
-            <a style="color:var(--mut2);font-size:.7rem;cursor:pointer" onclick="go('store')">← Back to Store</a>
-          </div>
+          <div style="text-align:center;margin-top:.55rem"><a style="color:var(--mut2);font-size:.7rem;cursor:pointer" onclick="go('store')">← Back to Store</a></div>
         </div>
       </div>
-
-      <!-- ORDER SUMMARY -->
       <div class="csum">
         <div class="csum-t">Order Summary</div>
         <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;padding-bottom:.85rem;border-bottom:1px solid var(--bord)">
@@ -760,11 +701,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
         <div class="csum-tot"><span>Total</span><span id="ctot" style="color:var(--gold)">—</span></div>
         <div style="margin-top:.85rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.14);border-radius:8px;padding:.65rem">
           <div style="color:var(--green);font-weight:700;font-size:.76rem;margin-bottom:.15rem">⚡ Wallet = Instant via CTL</div>
-          <div style="color:var(--mut2);font-size:.7rem">Fund wallet → buy → get credentials in seconds</div>
-        </div>
-        <div style="margin-top:.55rem;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.14);border-radius:8px;padding:.65rem">
-          <div style="color:var(--primary2);font-weight:700;font-size:.76rem;margin-bottom:.15rem">✓ 100% Authentic</div>
-          <div style="color:var(--mut2);font-size:.7rem">Sourced directly from Classyteelogs inventory</div>
+          <div style="color:var(--mut2);font-size:.7rem">Fund wallet → buy → get credentials instantly</div>
         </div>
       </div>
     </div>
@@ -777,10 +714,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
     <div class="deliv-icon">🎉</div>
     <div class="deliv-t">Order Complete!</div>
     <p style="color:var(--mut2);margin-bottom:1.8rem;font-size:.86rem">Your credentials are ready. Save them now!</p>
-    <div class="cred-box">
-      <div class="cred-bt">🔑 Your Access Credentials</div>
-      <div id="credLines"></div>
-    </div>
+    <div class="cred-box"><div class="cred-bt">🔑 Your Access Credentials</div><div id="credLines"></div></div>
     <div style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.14);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--mut2);margin-bottom:1rem">📧 Saved to your orders dashboard.</div>
     <button class="btn btn-primary btn-full btn-lg" style="border-radius:9px" onclick="go('dashboard')">Go to Dashboard →</button>
   </div>
@@ -800,17 +734,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
       <div class="sb-sec">Overview</div>
       <div class="sb-i on" onclick="atab('aov');sOn(this)"><span class="ic">📊</span> Overview</div>
       <div class="sb-div"></div>
-      <div class="sb-sec">Orders</div>
-      <div class="sb-i" onclick="atab('aord');sOn(this)"><span class="ic">📦</span> All Orders</div>
-      <div class="sb-i" onclick="atab('apurch');sOn(this)"><span class="ic">🧾</span> Purchases</div>
-      <div class="sb-div"></div>
-      <div class="sb-sec">Products</div>
-      <div class="sb-i" onclick="atab('aprod');sOn(this)"><span class="ic">🛍️</span> My Products</div>
-      <div class="sb-i" onclick="atab('actlprod');sOn(this)"><span class="ic">📋</span> CTL Products</div>
-      <div class="sb-div"></div>
-      <div class="sb-sec">Users & Finance</div>
+      <div class="sb-sec">Manage</div>
+      <div class="sb-i" onclick="atab('aord');sOn(this)"><span class="ic">📦</span> Orders</div>
       <div class="sb-i" onclick="atab('ausr');sOn(this)"><span class="ic">👥</span> Users</div>
+      <div class="sb-i" onclick="atab('aprod');sOn(this)"><span class="ic">➕</span> Add Products</div>
       <div class="sb-i" onclick="atab('actlbal');sOn(this)"><span class="ic">🔗</span> CTL Balance</div>
+      <div class="sb-i" onclick="atab('actlprod');sOn(this)"><span class="ic">📋</span> CTL Products</div>
       <div class="sb-div"></div>
       <div class="sb-i" onclick="atab('aset');sOn(this)"><span class="ic">⚙️</span> Settings</div>
       <div class="sb-i" onclick="go('home')"><span class="ic">🌐</span> View Site</div>
@@ -819,24 +748,21 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
 
       <!-- OVERVIEW -->
       <div id="aov" class="asec on">
-        <div class="dash-hd">
-          <div><h1>Overview</h1><p>Platform metrics</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="loadStats()">↻ Refresh</button>
-        </div>
+        <div class="dash-hd"><div><h1>Overview</h1><p>Platform metrics</p></div><button class="btn btn-ghost btn-sm" onclick="loadStats()">↻ Refresh</button></div>
         <div class="akpis">
           <div class="ak"><div class="ak-l">Revenue</div><div class="ak-v" style="color:var(--green)" id="arev">₦0</div></div>
           <div class="ak"><div class="ak-l">Users</div><div class="ak-v" id="ausr2">0</div></div>
           <div class="ak"><div class="ak-l">Orders</div><div class="ak-v" id="aord2">0</div></div>
           <div class="ak"><div class="ak-l">Pending</div><div class="ak-v" style="color:var(--gold)" id="apend">0</div></div>
           <div class="ak"><div class="ak-l">Completed</div><div class="ak-v" style="color:var(--green)" id="acomp">0</div></div>
-          <div class="ak"><div class="ak-l">CTL Balance</div><div class="ak-v" style="color:var(--primary2)" id="actlb">—</div></div>
+          <div class="ak"><div class="ak-l">CTL Balance</div><div class="ak-v" style="color:var(--primary2);font-size:1rem" id="actlb">—</div></div>
         </div>
         <div class="panel"><div class="panel-t">Recent Orders</div><div id="arec"><p style="color:var(--mut2);font-size:.82rem">No orders yet.</p></div></div>
       </div>
 
-      <!-- ALL ORDERS -->
+      <!-- ORDERS -->
       <div id="aord" class="asec">
-        <div class="dash-hd"><div><h1>All Orders</h1><p>Review, release or auto-fulfill</p></div></div>
+        <div class="dash-hd"><div><h1>Orders</h1><p>Review, release or auto-fulfill via CTL</p></div></div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.45rem">
           <div style="display:flex;gap:.35rem;flex-wrap:wrap">
             <button class="btn btn-ghost btn-sm" onclick="faord('all')">All</button>
@@ -854,35 +780,60 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
         </div>
       </div>
 
-      <!-- PURCHASES (CTL Supervised) -->
-      <div id="apurch" class="asec">
-        <div class="dash-hd"><div><h1>Purchase History</h1><p>All CTL API purchases made on your account</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="loadPurchases()">↻ Refresh</button>
-        </div>
+      <!-- USERS -->
+      <div id="ausr" class="asec">
+        <div class="dash-hd"><div><h1>Users</h1><p>Manage all accounts</p></div></div>
         <div class="tbl-wrap">
           <table class="tbl">
-            <thead><tr><th>CTL Order ID</th><th>Product</th><th>Qty</th><th>Amount Paid</th><th>Date</th><th>Status</th></tr></thead>
-            <tbody id="purchTbody"><tr><td colspan="6" style="color:var(--mut2);padding:2rem;text-align:center"><div class="spin" style="margin:0 auto"></div></td></tr></tbody>
+            <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Orders</th><th>Wallet</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="autbd"><tr><td colspan="8" style="color:var(--mut2);padding:2rem;text-align:center">No users yet.</td></tr></tbody>
           </table>
         </div>
       </div>
 
-      <!-- MY PRODUCTS (Admin manual products) -->
+      <!-- ADD PRODUCTS -->
       <div id="aprod" class="asec">
-        <div class="dash-hd">
-          <div><h1>My Products</h1><p>Add your own custom products to the store</p></div>
-          <button class="btn btn-primary btn-sm" onclick="openAddProd()">+ Add Product</button>
+        <div class="dash-hd"><div><h1>Add Products</h1><p>Manually add products to the store</p></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:900px">
+          <div class="panel">
+            <div class="panel-t">New Product</div>
+            <div class="fg"><label>Product Name</label><input type="text" id="prdName" placeholder="e.g. Facebook USA Aged 2022"></div>
+            <div class="fg"><label>Category</label>
+              <select id="prdCat">
+                <option>Facebook</option><option>Instagram</option><option>Twitter</option>
+                <option>TikTok</option><option>Gmail</option><option>YouTube</option>
+                <option>Dating</option><option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label>Price (₦)</label><input type="number" id="prdPrice" placeholder="e.g. 5000" min="0"></div>
+            <div class="fg"><label>Stock Count</label><input type="number" id="prdStock" placeholder="e.g. 25" min="0"></div>
+            <div class="fg"><label>Description</label><textarea id="prdDesc" placeholder="Short product description..."></textarea></div>
+            <div class="fg"><label>Icon (emoji)</label><input type="text" id="prdIcon" placeholder="e.g. 📘" maxlength="4"></div>
+            <button class="btn btn-primary" onclick="addManualProduct()" style="width:100%;border-radius:8px;padding:.7rem">Add Product</button>
+          </div>
+          <div class="panel">
+            <div class="panel-t">Manual Products</div>
+            <div id="manualProdList"><p style="color:var(--mut2);font-size:.82rem">No manual products yet.</p></div>
+          </div>
         </div>
-        <div id="myProdGrid" class="prod-manager-grid">
-          <p style="color:var(--mut2);font-size:.83rem">No custom products yet. Add one above.</p>
+      </div>
+
+      <!-- CTL BALANCE -->
+      <div id="actlbal" class="asec">
+        <div class="dash-hd"><div><h1>CTL Wallet Balance</h1><p>Your Classyteelogs account balance</p></div><button class="btn btn-ghost btn-sm" onclick="loadCTLBalance()">↻ Refresh</button></div>
+        <div class="ctl-bal">
+          <div class="ctl-bal-lbl">Classyteelogs Balance</div>
+          <div class="ctl-bal-amt" id="ctlBalAmt">Loading...</div>
+          <div class="ctl-bal-sub" id="ctlBalSub">Fetching from CTL API...</div>
+        </div>
+        <div class="panel"><div class="panel-t">Balance Info</div>
+          <p style="color:var(--mut2);font-size:.82rem;line-height:1.65">This is your Classyteelogs wallet balance. When a user buys via wallet, Logify automatically calls CTL API to purchase and deliver credentials. Keep this balance funded to enable auto-delivery.</p>
         </div>
       </div>
 
       <!-- CTL PRODUCTS -->
       <div id="actlprod" class="asec">
-        <div class="dash-hd"><div><h1>CTL Products</h1><p>Live product list from Classyteelogs</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="loadCTLProducts(true)">↻ Refresh</button>
-        </div>
+        <div class="dash-hd"><div><h1>CTL Products</h1><p>Live product list from Classyteelogs</p></div><button class="btn btn-ghost btn-sm" onclick="loadCTLProducts(true)">↻ Refresh</button></div>
         <div class="tbl-wrap">
           <table class="tbl">
             <thead><tr><th>ID</th><th>Product Name</th><th>CTL Price</th><th>Your Price</th><th>Stock</th><th>Status</th></tr></thead>
@@ -891,37 +842,10 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
         </div>
       </div>
 
-      <!-- USERS -->
-      <div id="ausr" class="asec">
-        <div class="dash-hd"><div><h1>Users</h1><p>Manage all accounts</p></div></div>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Name</th><th>Email</th><th>Orders</th><th>Wallet</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
-            <tbody id="autbd"><tr><td colspan="7" style="color:var(--mut2);padding:2rem;text-align:center">No users yet.</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- CTL BALANCE -->
-      <div id="actlbal" class="asec">
-        <div class="dash-hd"><div><h1>CTL Wallet Balance</h1><p>Your Classyteelogs account balance</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="loadCTLBalance()">↻ Refresh</button>
-        </div>
-        <div class="ctl-bal">
-          <div class="ctl-bal-lbl">Classyteelogs Balance</div>
-          <div class="ctl-bal-amt" id="ctlBalAmt">Loading...</div>
-          <div class="ctl-bal-sub" id="ctlBalSub">Fetching from CTL API...</div>
-        </div>
-        <div class="panel">
-          <div class="panel-t">How It Works</div>
-          <p style="color:var(--mut2);font-size:.82rem;line-height:1.6">When a user buys via wallet, Logify calls CTL API automatically and charges this balance. Keep it funded to ensure instant delivery to your customers.</p>
-        </div>
-      </div>
-
       <!-- SETTINGS -->
       <div id="aset" class="asec">
         <div class="dash-hd"><div><h1>Settings</h1></div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:820px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:780px">
           <div class="panel">
             <div class="panel-t">Admin Password</div>
             <div class="fg"><label>New Password</label><input type="password" id="npw" placeholder="New password"></div>
@@ -930,33 +854,53 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
           </div>
           <div class="panel">
             <div class="panel-t">CTL API Key</div>
-            <div class="fg"><label>API Key</label><input type="text" id="ctlKeyInp" value="CTL_1935e3fef5c0" placeholder="CTL_..."></div>
+            <div class="fg"><label>API Key</label><input type="text" id="ctlKeyInp" value="CTL_1935e3fef5c0"></div>
             <button class="btn btn-green" onclick="saveCTLKey()">Save Key</button>
           </div>
           <div class="panel">
-            <div class="panel-t">Markup % (Profit)</div>
+            <div class="panel-t">Markup % (Reseller Profit)</div>
             <div class="fg"><label>Markup Percentage</label><input type="number" id="markupInp" value="30" min="0" max="500"></div>
             <button class="btn btn-gold" onclick="saveMarkup()">Save Markup</button>
-            <p style="color:var(--mut2);font-size:.72rem;margin-top:.4rem">CTL price + markup % = your selling price</p>
+            <p style="color:var(--mut2);font-size:.72rem;margin-top:.5rem">CTL price + this % = your selling price</p>
           </div>
           <div class="panel">
-            <div class="panel-t">Paga Settings</div>
-            <div class="fg"><label>Paga Business Number</label><input type="text" id="pagaNumInp" placeholder="Your Paga number"></div>
-            <div class="fg"><label>Paga Public Key</label><input type="text" id="pagaPKInp" placeholder="YOUR_PAGA_PUBLIC_KEY"></div>
-            <button class="btn btn-primary" onclick="savePagaSettings()">Save Paga Settings</button>
-          </div>
-          <div class="panel" style="grid-column:1/-1">
             <div class="panel-t">Danger Zone</div>
-            <div style="display:flex;gap:.55rem;flex-wrap:wrap">
+            <div style="display:flex;flex-direction:column;gap:.5rem">
               <button class="btn btn-red" onclick="conf('Clear all orders?','All records deleted.',()=>{DB.orders=[];rstats();toast('Orders cleared.');})">Clear All Orders</button>
-              <button class="btn btn-red" onclick="conf('Delete all users?','All accounts removed.',()=>{DB.users=[];rstats();toast('Users deleted.');})">Delete All Users</button>
-              <button class="btn btn-red" onclick="conf('Clear custom products?','All your custom products removed.',()=>{DB.myProds=[];saveMyProds();renderMyProds();toast('Products cleared.');})">Clear My Products</button>
+              <button class="btn btn-red" onclick="conf('Delete all users?','All accounts removed.',()=>{DB.users=[];rausr();rstats();toast('Users deleted.');})">Delete All Users</button>
             </div>
           </div>
         </div>
       </div>
 
     </div>
+  </div>
+</div>
+
+<!-- RELEASE MODAL -->
+<div class="mo" id="relmo">
+  <div class="mo-wide">
+    <h3>🗝️ Release Credentials</h3>
+    <div class="fg"><label>Order ID</label><input type="text" id="rid" readonly style="background:rgba(255,255,255,.03)"></div>
+    <div class="fg"><label>Customer Email</label><input type="email" id="rem2" readonly style="background:rgba(255,255,255,.03)"></div>
+    <div class="fg"><label>Username / Access Code</label><input type="text" id="ruser" placeholder="e.g. username or code"></div>
+    <div class="fg"><label>Password / Link</label><input type="text" id="rpass" placeholder="e.g. password or zoom link"></div>
+    <div class="fg"><label>Extra Notes</label><textarea id="rext" placeholder="Date, instructions..." style="min-height:48px"></textarea></div>
+    <div class="mo-btns">
+      <button class="btn btn-ghost" onclick="closeRel()">Cancel</button>
+      <button class="btn btn-primary" onclick="doRelease()">Release →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER DETAIL MODAL -->
+<div class="mo" id="orddetmo">
+  <div class="mo-wide">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+      <h3 style="margin:0">📦 Order Details</h3>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('orddetmo').classList.remove('open')">✕</button>
+    </div>
+    <div id="ordDetContent"></div>
   </div>
 </div>
 
@@ -969,45 +913,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
     </div>
     <img id="rcptimg" src="" alt="Receipt" style="max-width:100%;border-radius:7px;border:1px solid var(--bord)">
     <p id="rcptinfo" style="color:var(--mut2);font-size:.74rem;margin-top:.4rem"></p>
-  </div>
-</div>
-
-<!-- RELEASE MODAL -->
-<div class="mo" id="relmo">
-  <div class="mo-box" style="max-width:400px;text-align:left">
-    <h2 style="font-size:1rem;margin-bottom:.25rem">🗝️ Release Credentials</h2>
-    <p style="color:var(--mut2);font-size:.8rem;margin-bottom:.85rem">Enter credentials to deliver to buyer</p>
-    <div class="fg"><label>Order ID</label><input type="text" id="rid" readonly style="background:rgba(255,255,255,.03)"></div>
-    <div class="fg"><label>Customer Email</label><input type="email" id="rem2" readonly style="background:rgba(255,255,255,.03)"></div>
-    <div class="fg"><label>Username / Access Code</label><input type="text" id="ruser" placeholder="e.g. username or code"></div>
-    <div class="fg"><label>Password / Link</label><input type="text" id="rpass" placeholder="e.g. password or link"></div>
-    <div class="fg"><label>Extra Notes</label><textarea id="rext" placeholder="Date, instructions..." style="min-height:48px"></textarea></div>
-    <div class="mo-btns">
-      <button class="btn btn-ghost" onclick="closeRel()">Cancel</button>
-      <button class="btn btn-primary" onclick="doRelease()">Release →</button>
-    </div>
-  </div>
-</div>
-
-<!-- ADD/EDIT PRODUCT MODAL -->
-<div class="mo" id="prodmo">
-  <div class="prod-mo">
-    <h3 id="prodmoTitle">➕ Add Custom Product</h3>
-    <div class="fg"><label>Product Name</label><input type="text" id="prdName" placeholder="e.g. Facebook USA Aged 2022"></div>
-    <div class="fg"><label>Category</label><input type="text" id="prdCat" placeholder="e.g. Facebook, Instagram, Twitter"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem">
-      <div class="fg"><label>Price (₦)</label><input type="number" id="prdPrice" placeholder="e.g. 5000" min="0"></div>
-      <div class="fg"><label>Stock Count</label><input type="number" id="prdStock" placeholder="e.g. 50" min="0"></div>
-    </div>
-    <div class="fg"><label>Description</label><textarea id="prdDesc" placeholder="Short description of the product..." style="min-height:60px"></textarea></div>
-    <div class="fg"><label>Credentials (one per line — delivered on wallet purchase)</label>
-      <textarea id="prdCreds" placeholder="username1|password1&#10;username2|password2" style="font-family:monospace;font-size:.78rem;min-height:70px"></textarea>
-    </div>
-    <input type="hidden" id="prdId">
-    <div class="mo-btns">
-      <button class="btn btn-ghost" onclick="closeProdMo()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveProd()">Save Product</button>
-    </div>
   </div>
 </div>
 
@@ -1028,28 +933,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
 <!-- DEPOSIT MODAL -->
 <div class="mo" id="depmo">
   <div class="dep-mo">
-    <h3>💰 Deposit via Paga</h3>
-    <p style="color:var(--mut2);font-size:.8rem;margin-bottom:.25rem">Send payment to Paga, then confirm below.</p>
-    <div style="background:rgba(0,162,68,.08);border:1px solid rgba(0,162,68,.2);border-radius:9px;padding:.85rem;margin-bottom:.9rem">
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mut2);margin-bottom:.45rem">Paga Payment Details</div>
-      <div style="display:flex;justify-content:space-between;padding:.22rem 0;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.06)"><span style="color:var(--mut2)">Business</span><span style="font-weight:600">Logify Hub</span></div>
-      <div style="display:flex;justify-content:space-between;padding:.22rem 0;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.06)"><span style="color:var(--mut2)">Paga No.</span><span style="font-weight:600" id="depPagaNum">YOUR_PAGA_NUMBER</span></div>
-      <div style="display:flex;justify-content:space-between;padding:.22rem 0;font-size:.82rem"><span style="color:var(--mut2)">Ref</span><span style="font-weight:700;color:var(--gold)" id="depRef">LGF-DEP-00000</span></div>
-    </div>
-    <div class="fg" style="margin-bottom:.85rem"><label>Amount (NGN)</label><input type="number" id="depAmount" placeholder="e.g. 5000" min="500" style="font-size:1rem" oninput="updateDepRef()"></div>
-    <div style="border:2px dashed rgba(255,255,255,.09);border-radius:9px;padding:.9rem;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:.75rem"
-      onclick="document.getElementById('depReceipt').click()"
-      onmouseover="this.style.borderColor='rgba(59,130,246,.35)'"
-      onmouseout="this.style.borderColor='rgba(255,255,255,.09)'">
-      <input type="file" id="depReceipt" accept="image/*" style="display:none" onchange="prevDepReceipt(this)">
-      <div style="font-size:1.1rem;margin-bottom:.18rem">📤</div>
-      <div style="font-size:.76rem;color:var(--mut2)">Upload Paga screenshot</div>
-      <div id="depRfn" style="color:var(--green);font-size:.72rem;font-weight:600;margin-top:.18rem"></div>
-    </div>
-    <img id="depPrev" alt="Deposit receipt" style="display:none;max-width:100%;max-height:100px;border-radius:7px;border:1px solid var(--bord);margin-bottom:.7rem">
+    <h3>💰 Deposit Funds</h3>
+    <p style="color:var(--mut2);font-size:.8rem;margin-bottom:1rem">Add to your Logify wallet. Minimum ₦500.</p>
+    <div class="fg" style="margin-bottom:.85rem"><label>Amount (NGN)</label><input type="number" id="depAmount" placeholder="e.g. 5000" min="500" style="font-size:1rem"></div>
     <div style="display:flex;gap:.5rem">
       <button class="btn btn-ghost" style="flex:1;border-radius:7px" onclick="closeDeposit()">Cancel</button>
-      <button class="btn btn-primary" style="flex:2;border-radius:7px" id="depBtn" onclick="submitDeposit()">Confirm Deposit →</button>
+      <button class="btn btn-primary" style="flex:2;border-radius:7px" id="depBtn" onclick="doDeposit()">Pay with Paystack →</button>
     </div>
   </div>
 </div>
@@ -1068,7 +957,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
 
 <div id="toast"></div>
 <script src="https://js.paystack.co/v1/inline.js"></script>
-
 <script>
 // ── Firebase Init ──
 (async()=>{
@@ -1089,15 +977,13 @@ footer{background:var(--bg2);border-top:1px solid var(--bord);padding:2rem 1.5re
 })();
 
 // ── State ──
-let DB={users:[],orders:[],myProds:[]};
-let CU=null,curOid=null,ctTimer=null,editProdId=null;
-let CP={name:'',price:0,product_id:null,isCustom:false};
+let DB={users:[],orders:[],manualProducts:[]};
+let CU=null,curOid=null,ctTimer=null;
+let CP={name:'',price:0,ctlPrice:0,product_id:null,isManual:false};
 let CTL_KEY='CTL_1935e3fef5c0';
 let MARKUP=30;
-let PAGA_NUM='YOUR_PAGA_NUMBER';
-let PAGA_PK='YOUR_PAGA_PUBLIC_KEY';
 let allProducts=[];
-let depReceiptData=null;
+const PK='pk_test_5f298cf9bd105fbf30c8c641c7296f4b774223f9';
 const BTC='bc1que9u32a7ecvezt2ul3dh7vgwe6mvuu3sxmd3ma';
 const CTL_BASE='https://www.classyteelogs.com.ng';
 
@@ -1108,17 +994,15 @@ const now=()=>new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short'
 const stl=s=>s==='completed'?'t-g':s==='cancelled'?'t-r':s==='processing'?'t-b':'t-y';
 const slbl=s=>s==='completed'?'Completed':s==='cancelled'?'Cancelled':s==='processing'?'Processing':'Pending';
 const markedPrice=p=>Math.ceil(p*(1+MARKUP/100));
-const catIcon=cat=>{
-  const c=(cat||'').toLowerCase();
-  if(c.includes('facebook'))return'📘';
-  if(c.includes('instagram'))return'📸';
-  if(c.includes('twitter')||c.includes('x'))return'🐦';
-  if(c.includes('tiktok'))return'🎵';
-  if(c.includes('youtube'))return'▶️';
-  if(c.includes('telegram'))return'✈️';
-  if(c.includes('gmail')||c.includes('email'))return'📧';
-  if(c.includes('dating'))return'❤️';
-  return'🛒';
+const catIcon=c=>{
+  const m={'Facebook':'📘','Instagram':'📸','Twitter':'🐦','TikTok':'🎵',
+    'Gmail':'📧','YouTube':'▶️','Dating':'❤️','WhatsApp':'💬','Telegram':'✈️'};
+  return m[c]||'📦';
+};
+const catColor=c=>{
+  const m={'Facebook':'#1877f2','Instagram':'#e1306c','Twitter':'#1da1f2',
+    'TikTok':'#010101','Gmail':'#ea4335','YouTube':'#ff0000','Dating':'#e91e63'};
+  return m[c]||'#3b82f6';
 };
 
 // ── Firebase Helpers ──
@@ -1127,14 +1011,14 @@ async function fbUsers(){if(!window.db)return DB.users;try{return(await window.f
 async function fbOrders(){if(!window.db)return DB.orders;try{return(await window.fsGetDocs(window.fsColl(window.db,'lgf_orders'))).docs.map(d=>({...d.data(),id:d.id}));}catch{return DB.orders;}}
 async function fbSaveUser(u){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_users',String(u.id)),u);}catch(e){console.error(e);}}
 async function fbSaveOrder(o){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_orders',String(o.id)),o);}catch(e){console.error(e);}}
-async function fbDelOrder(id){if(!window.db)return;try{await window.fsDel(window.fsDoc(window.db,'lgf_orders',String(id)));}catch(e){console.error(e);}}
-async function fbGetAdmin(){if(!window.db)return{pw:'admin123',ctlKey:CTL_KEY,markup:MARKUP,pagaNum:PAGA_NUM,pagaPK:PAGA_PK};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_config','admin'));return d.exists()?d.data():{pw:'admin123',ctlKey:CTL_KEY,markup:MARKUP,pagaNum:PAGA_NUM,pagaPK:PAGA_PK};}catch{return{pw:'admin123'};}}
+async function fbDelUser(id){if(!window.db)return;try{await window.fsDel(window.fsDoc(window.db,'lgf_users',String(id)));}catch(e){console.error(e);}}
+async function fbGetAdmin(){if(!window.db)return{pw:'admin123',ctlKey:CTL_KEY,markup:MARKUP};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_config','admin'));return d.exists()?d.data():{pw:'admin123',ctlKey:CTL_KEY,markup:MARKUP};}catch{return{pw:'admin123',ctlKey:CTL_KEY,markup:MARKUP};}}
 async function fbSetAdmin(data){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_config','admin'),data);}catch(e){console.error(e);}}
 async function fbGetWallet(uid){if(!window.db)return{balance:0,transactions:[]};try{const d=await window.fsGet(window.fsDoc(window.db,'lgf_wallets',String(uid)));return d.exists()?d.data():{balance:0,transactions:[]};}catch{return{balance:0,transactions:[]};}}
 async function fbSaveWallet(uid,w){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_wallets',String(uid)),w);}catch(e){console.error(e);}}
-async function fbGetMyProds(){if(!window.db)return DB.myProds;try{return(await window.fsGetDocs(window.fsColl(window.db,'lgf_myprods'))).docs.map(d=>({id:d.id,...d.data()}));}catch{return DB.myProds;}}
-async function fbSaveMyProd(p){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_myprods',String(p.id)),p);}catch(e){console.error(e);}}
-async function fbDelMyProd(id){if(!window.db)return;try{await window.fsDel(window.fsDoc(window.db,'lgf_myprods',String(id)));}catch(e){console.error(e);}}
+async function fbGetManualProds(){if(!window.db)return[];try{return(await window.fsGetDocs(window.fsColl(window.db,'lgf_products'))).docs.map(d=>({id:d.id,...d.data()}));}catch{return[];}}
+async function fbSaveManualProd(p){if(!window.db)return;try{await window.fsSet(window.fsDoc(window.db,'lgf_products',String(p.id)),p);}catch(e){console.error(e);}}
+async function fbDelManualProd(id){if(!window.db)return;try{await window.fsDel(window.fsDoc(window.db,'lgf_products',String(id)));}catch(e){console.error(e);}}
 
 // ── CTL API ──
 async function ctlGet(endpoint){
@@ -1152,128 +1036,114 @@ async function ctlPost(endpoint,body){
 async function ctlBalance(){const r=await ctlGet('/api/v1/balance');return r&&r.status==='success'?r.data:null;}
 async function ctlProducts(cat){const r=await ctlGet('/api/v1/products'+(cat?'?category_id='+cat:''));return r&&r.status==='success'?r.products:[];}
 async function ctlPurchase(pid,qty){return await ctlPost('/api/v1/purchase',{product_id:pid,quantity:qty||1});}
-async function ctlGetOrder(oid){const r=await ctlGet('/api/v1/order?order_id='+oid);return r&&r.status==='success'?r.order_data:null;}
 
 // ── Load & Render Products ──
 async function loadCTLProducts(adminMode){
-  if(!adminMode&&allProducts.length){renderStore();return;}
   try{
-    const prods=await ctlProducts();
-    allProducts=prods||[];
-    if(adminMode)renderAdminProducts();
-    else{renderStore();renderHomeFeatured();}
+    const ctlProds=await ctlProducts();
+    const manProds=await fbGetManualProds();
+    DB.manualProducts=manProds;
+    allProducts=[...(ctlProds||[]).map(p=>({...p,source:'ctl'})),...manProds.map(p=>({...p,source:'manual',in_stock:p.stock>0,stock_count:p.stock}))];
+    if(adminMode){renderAdminProducts(ctlProds||[]);renderManualProdList();}
+    else{renderStore(allProducts);renderHomeFeatured(allProducts);}
   }catch(e){
-    document.getElementById('storeContent').innerHTML='<p style="color:var(--red);font-size:.85rem;padding:1rem">Failed to load products. Check CTL API key.</p>';
+    console.error(e);
+    if(!adminMode)document.getElementById('storeWrap').innerHTML='<p style="color:var(--red);padding:2rem;font-size:.85rem">Failed to load products. Check CTL API key.</p>';
   }
 }
 
-function renderStore(filter){
-  const sc=document.getElementById('storeContent');
-  let prods=filter?allProducts.filter(p=>(p.category||'General')===filter):allProducts;
-  // merge custom products
-  const customs=DB.myProds.map(p=>({...p,isCustom:true,in_stock:(p.stock||0)>0,stock_count:p.stock||0,price:p.price,category:p.cat||'Custom'}));
-  const combined=filter?[...prods,...customs.filter(c=>c.category===filter)]:[...prods,...customs];
-  if(!combined.length){sc.innerHTML='<p style="color:var(--mut2);font-size:.85rem;padding:1rem">No products found.</p>';return;}
-  // group by category
+function groupByCategory(prods){
   const groups={};
-  combined.forEach(p=>{
-    const cat=p.category||'General';
+  prods.forEach(p=>{
+    const cat=p.category||'Other';
     if(!groups[cat])groups[cat]=[];
     groups[cat].push(p);
   });
-  // build tabs
-  const tabs=document.getElementById('catTabs');
-  const cats=Object.keys(groups);
-  tabs.innerHTML='<div class="cat-tab on" onclick="filterCat(\'all\',this)">All</div>'+
-    cats.map(c=>`<div class="cat-tab" onclick="filterCat('${c}',this)">${catIcon(c)} ${c}</div>`).join('');
-  // render grouped list
-  sc.innerHTML=cats.map(cat=>`
-    <div class="cat-section">
-      <div class="cat-header">
-        <div class="cat-header-left">
-          <div class="cat-icon">${catIcon(cat)}</div>
-          <div class="cat-name">${cat}</div>
-        </div>
-        <span class="cat-view" onclick="filterCat('${cat}',null)">View All →</span>
-      </div>
-      <div class="prod-list">
-        ${groups[cat].map(p=>prodItemHTML(p)).join('')}
-      </div>
-    </div>`).join('');
-  document.getElementById('prodCount')&&(document.getElementById('prodCount').textContent=combined.length+' products');
+  return groups;
 }
 
-function prodItemHTML(p){
-  const inStock=p.in_stock!==false&&(p.stock_count||0)>=0;
-  const price=p.isCustom?p.price:markedPrice(p.price||0);
-  const stockNum=p.stock_count||0;
-  const stockClass=stockNum===0?'stock-out':stockNum<10?'stock-low':'stock-ok';
-  const stockLabel=stockNum===0?'● Out of stock':stockNum<10?`● ${stockNum} pcs.`:`● ${stockNum} pcs.`;
-  return`<div class="prod-item" onclick="openCheckout(${JSON.stringify(p).replace(/"/g,'&quot;')})">
-    <div class="prod-item-icon">${catIcon(p.category||'')}</div>
-    <div class="prod-item-info">
-      <div class="prod-item-name">${p.name}</div>
-      <div class="prod-item-stock ${stockClass}">${stockLabel}</div>
+function renderStore(prods){
+  // Build category tabs
+  const cats=[...new Set(prods.map(p=>p.category||'Other'))];
+  const tabsEl=document.getElementById('catTabs');
+  tabsEl.innerHTML='<div class="cat-tab on" onclick="filterCat(\'all\',this)">All</div>'+
+    cats.map(c=>`<div class="cat-tab" onclick="filterCat('${c.replace(/'/g,"\\'")}',this)">${catIcon(c)} ${c}</div>`).join('');
+  renderStoreGroups(prods);
+}
+
+function renderStoreGroups(prods){
+  const wrap=document.getElementById('storeWrap');
+  if(!prods.length){wrap.innerHTML='<p style="color:var(--mut2);padding:2rem;font-size:.85rem">No products found.</p>';return;}
+  const groups=groupByCategory(prods);
+  wrap.innerHTML=Object.entries(groups).map(([cat,items])=>`
+    <div class="cat-section">
+      <div class="cat-header">
+        <div class="cat-title">
+          <div class="cat-icon" style="background:${catColor(cat)}22;color:${catColor(cat)}">${catIcon(cat)}</div>
+          ${cat}
+        </div>
+        <span class="cat-view" onclick="filterCat('${cat.replace(/'/g,"\\'")}',null)">View All →</span>
+      </div>
+      <div class="prod-list">
+        ${items.map(p=>prodRowHTML(p)).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function prodRowHTML(p){
+  const price=p.source==='manual'?p.price:markedPrice(p.price||0);
+  const inStock=p.in_stock!==false&&p.stock_count!==0;
+  const lowStock=inStock&&p.stock_count&&p.stock_count<=10;
+  const dotClass=!inStock?'dot-red':lowStock?'dot-orange':'dot-green';
+  const stockTxt=!inStock?'Out of stock':lowStock?p.stock_count+' pcs.':p.stock_count?' '+p.stock_count+' pcs.':'In stock';
+  const icon=p.icon||catIcon(p.category||'Other');
+  const safeP=JSON.stringify(p).replace(/"/g,'&quot;');
+  return`<div class="prod-row" onclick="openCheckout(${safeP})">
+    <div class="prod-row-icon" style="background:${catColor(p.category||'Other')}18;color:${catColor(p.category||'Other')}">${icon}</div>
+    <div class="prod-row-info">
+      <div class="prod-row-name">${p.name}</div>
+      <div class="prod-row-stock"><span class="stock-dot ${dotClass}"></span>${stockTxt}</div>
     </div>
-    <div class="prod-item-right">
-      <div class="prod-item-price">${fmt(price)}</div>
-      ${stockNum===0
-        ?'<span class="sold-badge">Sold Out</span>'
-        :`<button class="buy-btn" onclick="event.stopPropagation();openCheckout(${JSON.stringify(p).replace(/"/g,'&quot;')})">Buy ›</button>`
-      }
+    <div class="prod-row-right">
+      <div class="prod-row-price">${fmt(price)}</div>
+      ${inStock
+        ?`<button class="buy-btn" onclick="event.stopPropagation();openCheckout(${safeP})">Buy <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>`
+        :`<span class="sold-badge">Sold</span>`}
     </div>
   </div>`;
 }
 
-function renderHomeFeatured(){
+function renderHomeFeatured(prods){
   const el=document.getElementById('homeFeatured');if(!el)return;
-  const top=allProducts.filter(p=>p.in_stock!==false).slice(0,6);
-  const customs=DB.myProds.filter(p=>(p.stock||0)>0).slice(0,3).map(p=>({...p,isCustom:true,in_stock:true,stock_count:p.stock||0,price:p.price,category:p.cat||'Custom'}));
-  const combined=[...top,...customs].slice(0,6);
-  if(!combined.length){el.innerHTML='<p style="color:var(--mut2);font-size:.85rem">No products available.</p>';return;}
-  // group by category for featured
-  const groups={};
-  combined.forEach(p=>{const cat=p.category||'General';if(!groups[cat])groups[cat]=[];groups[cat].push(p);});
-  el.innerHTML=Object.keys(groups).slice(0,3).map(cat=>`
-    <div class="cat-section">
-      <div class="cat-header">
-        <div class="cat-header-left"><div class="cat-icon">${catIcon(cat)}</div><div class="cat-name">${cat}</div></div>
-        <span class="cat-view" onclick="go('store')">View All →</span>
-      </div>
-      <div class="prod-list">${groups[cat].slice(0,3).map(p=>prodItemHTML(p)).join('')}</div>
-    </div>`).join('');
+  const top=prods.filter(p=>p.in_stock!==false).slice(0,6);
+  if(!top.length){el.innerHTML='<p style="color:var(--mut2);font-size:.85rem">No products available.</p>';return;}
+  const groups=groupByCategory(top);
+  el.innerHTML=`<div style="background:var(--card);border:1px solid var(--bord);border-radius:14px;overflow:hidden">
+    ${top.map(p=>prodRowHTML(p)).join('')}
+  </div>`;
 }
 
 function filterCat(cat,btn){
   if(btn){document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('on'));btn.classList.add('on');}
-  renderStore(cat==='all'?null:cat);
+  const filtered=cat==='all'?allProducts:allProducts.filter(p=>(p.category||'Other')===cat);
+  renderStoreGroups(filtered);
 }
 
 function searchProds(q){
-  const sc=document.getElementById('storeContent');
-  const customs=DB.myProds.map(p=>({...p,isCustom:true,in_stock:(p.stock||0)>0,stock_count:p.stock||0,category:p.cat||'Custom'}));
-  const combined=[...allProducts,...customs];
-  const filtered=combined.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||(p.category||'').toLowerCase().includes(q.toLowerCase()));
-  if(!filtered.length){sc.innerHTML='<p style="color:var(--mut2);font-size:.85rem;padding:1rem">No results for "'+q+'"</p>';return;}
-  const groups={};
-  filtered.forEach(p=>{const cat=p.category||'General';if(!groups[cat])groups[cat]=[];groups[cat].push(p);});
-  sc.innerHTML=Object.keys(groups).map(cat=>`
-    <div class="cat-section">
-      <div class="cat-header"><div class="cat-header-left"><div class="cat-icon">${catIcon(cat)}</div><div class="cat-name">${cat}</div></div></div>
-      <div class="prod-list">${groups[cat].map(p=>prodItemHTML(p)).join('')}</div>
-    </div>`).join('');
+  const filtered=!q?allProducts:allProducts.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||(p.category||'').toLowerCase().includes(q.toLowerCase()));
+  renderStoreGroups(filtered);
 }
 
-function renderAdminProducts(){
+function renderAdminProducts(prods){
   const tb=document.getElementById('ctlProdTb');
-  if(!allProducts.length){tb.innerHTML='<tr><td colspan="6" style="color:var(--mut2);padding:2rem;text-align:center">No CTL products.</td></tr>';return;}
-  tb.innerHTML=allProducts.map(p=>`<tr>
+  if(!prods.length){tb.innerHTML='<tr><td colspan="6" style="color:var(--mut2);padding:2rem;text-align:center">No products.</td></tr>';return;}
+  tb.innerHTML=prods.map(p=>`<tr>
     <td style="font-family:monospace;font-size:.74rem;color:var(--primary2)">${p.product_id}</td>
     <td style="font-weight:600;font-size:.81rem">${p.name}</td>
-    <td style="font-family:'Montserrat';font-weight:700">${fmt(p.price||0)}</td>
-    <td style="font-family:'Montserrat';font-weight:700;color:var(--gold)">${fmt(markedPrice(p.price||0))}</td>
-    <td style="font-size:.8rem">${p.stock_count||0}</td>
-    <td><span class="tag ${p.in_stock!==false?'t-g':'t-r'}">${p.in_stock!==false?'In Stock':'Out'}</span></td>
+    <td>${fmt(p.price||0)}</td>
+    <td style="color:var(--gold);font-weight:700">${fmt(markedPrice(p.price||0))}</td>
+    <td>${p.stock_count||'—'}</td>
+    <td><span class="tag ${p.in_stock!==false?'t-g':'t-r'}">${p.in_stock!==false?'In Stock':'Out of Stock'}</span></td>
   </tr>`).join('');
 }
 
@@ -1285,103 +1155,54 @@ async function loadCTLBalance(){
     document.getElementById('ctlBalSub').textContent='Currency: '+(bal.currency||'NGN')+' · Account: '+(bal.username||'');
     document.getElementById('actlb').textContent=(bal.symbol||'₦')+Number(bal.balance).toLocaleString();
   }else{
-    document.getElementById('ctlBalAmt').textContent='Error';
-    document.getElementById('ctlBalSub').textContent='Check your CTL API key.';
+    document.getElementById('ctlBalAmt').textContent='Error loading';
+    document.getElementById('ctlBalSub').textContent='Check API key in Settings.';
   }
 }
 
-async function loadPurchases(){
-  const tb=document.getElementById('purchTbody');
-  const orders=DB.orders.filter(o=>o.ctlOrderId);
-  if(!orders.length){tb.innerHTML='<tr><td colspan="6" style="color:var(--mut2);padding:2rem;text-align:center">No CTL purchases yet.</td></tr>';return;}
-  tb.innerHTML=orders.map(o=>`<tr>
-    <td style="font-family:monospace;font-size:.74rem;color:var(--primary2)">${o.ctlOrderId||'—'}</td>
-    <td style="font-weight:600;font-size:.81rem">${o.product}</td>
-    <td>${o.qty||1}</td>
-    <td style="font-family:'Montserrat';font-weight:700">${fmt(o.ctlPrice||0)}</td>
-    <td style="font-size:.76rem;color:var(--mut2)">${o.date||''}</td>
-    <td><span class="tag t-g">Completed</span></td>
-  </tr>`).join('');
-}
-
-// ── Custom Products ──
-function openAddProd(){
-  editProdId=null;
-  document.getElementById('prodmoTitle').textContent='➕ Add Custom Product';
-  document.getElementById('prdName').value='';
-  document.getElementById('prdCat').value='';
-  document.getElementById('prdPrice').value='';
-  document.getElementById('prdStock').value='';
-  document.getElementById('prdDesc').value='';
-  document.getElementById('prdCreds').value='';
-  document.getElementById('prdId').value='';
-  document.getElementById('prodmo').classList.add('open');
-}
-
-function openEditProd(id){
-  const p=DB.myProds.find(x=>x.id===id);if(!p)return;
-  editProdId=id;
-  document.getElementById('prodmoTitle').textContent='✏️ Edit Product';
-  document.getElementById('prdName').value=p.name||'';
-  document.getElementById('prdCat').value=p.cat||'';
-  document.getElementById('prdPrice').value=p.price||'';
-  document.getElementById('prdStock').value=p.stock||'';
-  document.getElementById('prdDesc').value=p.desc||'';
-  document.getElementById('prdCreds').value=(p.creds||[]).join('\n');
-  document.getElementById('prdId').value=id;
-  document.getElementById('prodmo').classList.add('open');
-}
-
-function closeProdMo(){document.getElementById('prodmo').classList.remove('open');}
-
-async function saveProd(){
+// ── Manual Products ──
+async function addManualProduct(){
   const name=document.getElementById('prdName').value.trim();
-  const cat=document.getElementById('prdCat').value.trim();
+  const cat=document.getElementById('prdCat').value;
   const price=parseFloat(document.getElementById('prdPrice').value);
   const stock=parseInt(document.getElementById('prdStock').value)||0;
   const desc=document.getElementById('prdDesc').value.trim();
-  const credsRaw=document.getElementById('prdCreds').value.trim();
-  if(!name||!cat||!price){toast('Name, category and price required.');return;}
-  const creds=credsRaw?credsRaw.split('\n').filter(l=>l.trim()):[];
-  const id=editProdId||gid();
-  const p={id,name,cat,price,stock,desc,creds,added:now()};
-  await fbSaveMyProd(p);
-  if(editProdId){const idx=DB.myProds.findIndex(x=>x.id===editProdId);if(idx>-1)DB.myProds[idx]=p;else DB.myProds.push(p);}
-  else DB.myProds.push(p);
-  closeProdMo();renderMyProds();
-  toast(editProdId?'Product updated!':'Product added!');
+  const icon=document.getElementById('prdIcon').value.trim()||catIcon(cat);
+  if(!name||!price){toast('Enter product name and price.');return;}
+  const p={id:gid(),name,category:cat,price,stock,description:desc,icon,source:'manual',in_stock:stock>0,stock_count:stock,added:now()};
+  await fbSaveManualProd(p);
+  DB.manualProducts.push(p);
+  allProducts.push({...p,in_stock:stock>0});
+  document.getElementById('prdName').value='';
+  document.getElementById('prdPrice').value='';
+  document.getElementById('prdStock').value='';
+  document.getElementById('prdDesc').value='';
+  document.getElementById('prdIcon').value='';
+  renderManualProdList();
+  toast('✅ Product added!');
 }
 
-function renderMyProds(){
-  const grid=document.getElementById('myProdGrid');
-  if(!DB.myProds.length){grid.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No custom products yet. Add one above.</p>';return;}
-  grid.innerHTML=DB.myProds.map(p=>`
-    <div class="apcard">
-      <div class="apcard-cat">${catIcon(p.cat)} ${p.cat||'General'}</div>
-      <div class="apcard-name">${p.name}</div>
-      <div style="color:var(--mut2);font-size:.75rem;margin-bottom:.35rem;line-height:1.4">${p.desc||''}</div>
-      <div class="apcard-price">${fmt(p.price||0)}</div>
-      <div style="display:flex;gap:.5rem;margin-bottom:.65rem;font-size:.75rem">
-        <span class="tag ${(p.stock||0)>0?'t-g':'t-r'}">Stock: ${p.stock||0}</span>
-        <span class="tag t-gr">Creds: ${(p.creds||[]).length}</span>
+function renderManualProdList(){
+  const el=document.getElementById('manualProdList');
+  if(!DB.manualProducts.length){el.innerHTML='<p style="color:var(--mut2);font-size:.82rem">No manual products yet.</p>';return;}
+  el.innerHTML=DB.manualProducts.map(p=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--bord)">
+      <div>
+        <div style="font-size:.82rem;font-weight:600">${p.icon||''} ${p.name}</div>
+        <div style="font-size:.71rem;color:var(--mut2)">${p.category} · ${fmt(p.price)} · Stock: ${p.stock}</div>
       </div>
-      <div class="apcard-actions">
-        <button class="btn btn-ghost btn-xs" onclick="openEditProd('${p.id}')">✏️ Edit</button>
-        <button class="btn btn-red btn-xs" onclick="deleteProd('${p.id}')">🗑 Delete</button>
-      </div>
+      <button class="btn btn-xs btn-red" onclick="delManualProd('${p.id}')">Delete</button>
     </div>`).join('');
 }
 
-async function deleteProd(id){
+async function delManualProd(id){
   conf('Delete this product?','It will be removed from the store.',async()=>{
-    await fbDelMyProd(id);
-    DB.myProds=DB.myProds.filter(p=>p.id!==id);
-    renderMyProds();toast('Product deleted.');
+    await fbDelManualProd(id);
+    DB.manualProducts=DB.manualProducts.filter(p=>p.id!==id);
+    allProducts=allProducts.filter(p=>p.id!==id);
+    renderManualProdList();
+    toast('Product deleted.');
   });
-}
-
-async function saveMyProds(){
-  for(const p of DB.myProds)await fbSaveMyProd(p);
 }
 
 // ── Session Restore ──
@@ -1390,16 +1211,9 @@ window.addEventListener('load',async()=>{
   await fbWait();
   const cfg=await fbGetAdmin();
   if(cfg.ctlKey)CTL_KEY=cfg.ctlKey;
-  if(cfg.markup)MARKUP=cfg.markup;
-  if(cfg.pagaNum)PAGA_NUM=cfg.pagaNum;
-  if(cfg.pagaPK)PAGA_PK=cfg.pagaPK;
+  if(cfg.markup!==undefined)MARKUP=cfg.markup;
   document.getElementById('ctlKeyInp').value=CTL_KEY;
   document.getElementById('markupInp').value=MARKUP;
-  document.getElementById('pagaNumInp').value=PAGA_NUM;
-  document.getElementById('pagaPKInp').value=PAGA_PK;
-  document.getElementById('pagaNum').textContent=PAGA_NUM;
-  document.getElementById('depPagaNum').textContent=PAGA_NUM;
-  DB.myProds=await fbGetMyProds();
   loadCTLProducts(false);
   if(!s)return;
   if(s==='admin'){CU='admin';go('admin');await loadStats();return;}
@@ -1422,7 +1236,7 @@ function go(id){
   const e=document.getElementById(id);
   if(e){e.classList.add('active');window.scrollTo(0,0);}
   updateNavBtns();updateBack();
-  if(id==='store'){DB.myProds.length||loadCTLProducts(false);renderStore();}
+  if(id==='store')renderStore(allProducts);
 }
 function goBack(){
   if(!navHist.length)return;
@@ -1439,32 +1253,26 @@ function updateNavBtns(){
   ['stLogin','stSignup'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=l?'none':'';});
   ['stLogout','stDash'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=l?'':'none';});
 }
-function epw(id,btn){const i=document.getElementById(id);i.type=i.type==='password'?'text​​​​​​​​​​​​​​​​
-
-i.type=i.type==='password'?'text':'password';btn.textContent=i.type==='password'?'👁':'🙈';}
-function mobOn(n){document.querySelectorAll('.mob-btn').forEach((b,i)=>{b.classList.toggle('on',i===n);});}
+function epw(id,btn){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';btn.textContent=i.type==='password'?'👁':'🙈';}
+function mobOn(idx){document.querySelectorAll('.mob-btn').forEach((b,i)=>{b.classList.toggle('on',i===idx);});}
 
 // ── Auth ──
 async function doLogin(){
   const e=document.getElementById('le').value.trim().toLowerCase();
   const p=document.getElementById('lp').value;
   if(!e||!p){toast('Enter email and password.');return;}
-  const btn=document.getElementById('loginBtn');
-  btn.textContent='Signing in...';btn.disabled=true;
+  const btn=document.getElementById('loginBtn');btn.textContent='Signing in...';btn.disabled=true;
   await fbWait();
   if(e==='admin@logifyhub.com'){
-    const cfg=await fbGetAdmin();
-    btn.textContent='Login';btn.disabled=false;
+    const cfg=await fbGetAdmin();btn.textContent='Login';btn.disabled=false;
     if(p!==cfg.pw&&p!=='admin123'){toast('Wrong admin password.');return;}
-    CU='admin';localStorage.setItem('lgf_s','admin');
-    go('admin');await loadStats();return;
+    CU='admin';localStorage.setItem('lgf_s','admin');go('admin');await loadStats();return;
   }
-  const users=await fbUsers();
-  DB.users=users;
+  const users=await fbUsers();DB.users=users;
   const u=users.find(x=>x.email===e);
   if(!u){btn.textContent='Login';btn.disabled=false;toast('Account not found.');return;}
   if(u.pw!==p){btn.textContent='Login';btn.disabled=false;toast('Wrong password.');return;}
-  if(u.status==='banned'){btn.textContent='Login';btn.disabled=false;toast('Account banned.');return;}
+  if(u.status==='banned'){btn.textContent='Login';btn.disabled=false;toast('Account banned. Contact support.');return;}
   CU=u;localStorage.setItem('lgf_s',e);
   DB.orders=await fbOrders();
   btn.textContent='Login';btn.disabled=false;
@@ -1481,26 +1289,20 @@ async function doRegister(){
   if(!f||!l||!e||!p){toast('Fill all required fields.');return;}
   if(p.length<6){toast('Password min 6 characters.');return;}
   if(p!==p2){toast('Passwords do not match.');return;}
-  const btn=document.getElementById('regBtn');
-  btn.textContent='Creating...';btn.disabled=true;
+  const btn=document.getElementById('regBtn');btn.textContent='Creating...';btn.disabled=true;
   await fbWait();
   const users=await fbUsers();
   if(users.find(x=>x.email===e)){btn.textContent='Create Account →';btn.disabled=false;toast('Email already registered.');return;}
   const u={id:gid(),name:f+' '+l,email:e,phone:ph,pw:p,status:'active',joined:now()};
   await fbSaveUser(u);
-  DB.users=[...users,u];
-  CU=u;localStorage.setItem('lgf_s',e);
+  DB.users=[...users,u];CU=u;
+  localStorage.setItem('lgf_s',e);
   DB.orders=await fbOrders();
-  DB.myProds=await fbGetMyProds();
   btn.textContent='Create Account →';btn.disabled=false;
-  loadDash(u);go('dashboard');
-  toast('Welcome to Logify Hub! 🎉');
+  loadDash(u);go('dashboard');toast('Welcome to Logify Hub! 🎉');
 }
 
-function doLogout(){
-  CU=null;localStorage.removeItem('lgf_s');
-  navHist=[];go('home');updateNavBtns();
-}
+function doLogout(){CU=null;localStorage.removeItem('lgf_s');navHist=[];go('home');updateNavBtns();}
 
 // ── Dashboard ──
 async function loadDash(u){
@@ -1509,8 +1311,7 @@ async function loadDash(u){
   document.getElementById('pname').value=u.name||'';
   document.getElementById('pemail').value=u.email||'';
   document.getElementById('pphone').value=u.phone||'';
-  await loadWallet();
-  await rdash(u);
+  await loadWallet();await rdash(u);
 }
 
 async function rdash(u){
@@ -1527,7 +1328,7 @@ async function rdash(u){
     rec.innerHTML=orders.slice(-5).reverse().map(o=>`
       <div class="tx-row">
         <div class="tx-l">
-          <div class="tx-ico" style="background:rgba(59,130,246,.1)">${catIcon(o.category||'')}</div>
+          <div class="tx-ico" style="background:rgba(59,130,246,.1)">🛒</div>
           <div><div class="tx-desc">${o.product}</div><div class="tx-date">${o.date||''}</div></div>
         </div>
         <div style="text-align:right">
@@ -1543,7 +1344,7 @@ async function rdash(u){
     <tbody>${orders.slice().reverse().map(o=>`
       <tr>
         <td style="font-family:monospace;font-size:.74rem;color:var(--primary2)">#LGF-${o.id}</td>
-        <td style="font-weight:600;font-size:.81rem">${o.product}</td>
+        <td style="font-weight:600;font-size:.81rem;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.product}</td>
         <td style="font-family:'Montserrat';font-weight:700">${fmt(o.total||0)}</td>
         <td style="font-size:.76rem;color:var(--mut2)">${o.date||''}</td>
         <td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td>
@@ -1553,9 +1354,8 @@ async function rdash(u){
 }
 
 function viewCred(oid){
-  const o=DB.orders.find(x=>x.id===oid);
-  if(!o||!o.cred)return;
-  const keys=(o.cred.format||'Username|Password').split('|');
+  const o=DB.orders.find(x=>x.id===oid);if(!o||!o.cred)return;
+  const keys=(o.cred.format||'Username|Password|Notes').split('|');
   const vals=(o.cred.data||'').split('|');
   document.getElementById('credLines').innerHTML=keys.map((k,i)=>`
     <div class="cred-row">
@@ -1567,12 +1367,10 @@ function viewCred(oid){
 }
 
 function dsh(id,el){
-  ['dhome','dorders','dwallet','dprofile'].forEach(s=>{
-    const e=document.getElementById(s);if(e)e.style.display='none';
-  });
+  ['dhome','dorders','dwallet','dprofile'].forEach(s=>{const e=document.getElementById(s);if(e)e.style.display='none';});
   const t=document.getElementById(id);if(t)t.style.display='block';
   document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));
-  if(el&&el.classList)el.classList.add('on');
+  if(el)el.classList.add('on');
   if(id==='dwallet')loadWallet();
   if(id==='dorders'&&CU&&CU!=='admin')rdash(CU);
 }
@@ -1582,8 +1380,7 @@ async function updateProfile(){
   const pw=document.getElementById('newpw').value;
   if(pw&&pw.length<6){toast('Password min 6 characters.');return;}
   if(pw)CU.pw=pw;
-  await fbSaveUser(CU);
-  toast('Profile updated!');
+  await fbSaveUser(CU);toast('Profile updated!');
   document.getElementById('newpw').value='';
 }
 
@@ -1594,8 +1391,7 @@ async function loadWallet(){
   const bal=w.balance||0;
   document.getElementById('wbal').textContent=fmt(bal);
   document.getElementById('kwbal').textContent=fmt(bal);
-  const wbc=document.getElementById('wbalChk');
-  if(wbc)wbc.textContent=fmt(bal);
+  if(document.getElementById('wbalChk'))document.getElementById('wbalChk').textContent=fmt(bal);
   const log=document.getElementById('wtxlog');
   const txs=w.transactions||[];
   if(!txs.length){log.innerHTML='<p style="color:var(--mut2);font-size:.83rem">No transactions yet.</p>';return;}
@@ -1611,63 +1407,36 @@ async function loadWallet(){
     </div>`).join('');
 }
 
-// ── Paga Deposit ──
-function openDeposit(){
-  const ref='LGF-DEP-'+gid();
-  document.getElementById('depRef').textContent=ref;
-  document.getElementById('depAmount').value='';
-  document.getElementById('depRfn').textContent='';
-  document.getElementById('depPrev').style.display='none';
-  document.getElementById('depReceipt').value='';
-  depReceiptData=null;
-  document.getElementById('depmo').classList.add('open');
-}
+function openDeposit(){document.getElementById('depmo').classList.add('open');}
 function closeDeposit(){document.getElementById('depmo').classList.remove('open');}
 
-function updateDepRef(){
-  const amt=document.getElementById('depAmount').value;
-  if(amt)document.getElementById('depRef').textContent='LGF-DEP-'+gid()+'-'+amt;
-}
-
-function prevDepReceipt(inp){
-  const f=inp.files[0];if(!f)return;
-  document.getElementById('depRfn').textContent='✓ '+f.name;
-  const r=new FileReader();
-  r.onload=e=>{
-    depReceiptData=e.target.result;
-    const img=document.getElementById('depPrev');
-    img.src=depReceiptData;img.style.display='block';
-  };
-  r.readAsDataURL(f);
-}
-
-async function submitDeposit(){
-  if(!CU||CU==='admin'){toast('Login required.');return;}
+async function doDeposit(){
+  if(!CU||CU==='admin'){toast('Login to deposit.');return;}
   const amt=parseFloat(document.getElementById('depAmount').value);
   if(!amt||amt<500){toast('Minimum deposit is ₦500.');return;}
-  if(!depReceiptData){toast('Please upload your Paga payment screenshot.');return;}
-  const btn=document.getElementById('depBtn');
-  btn.textContent='Submitting...';btn.disabled=true;
-  const ref=document.getElementById('depRef').textContent;
-  const depOrder={
-    id:gid(),uid:CU.id,name:CU.name,email:CU.email,
-    product:'Wallet Deposit',type:'deposit',
-    total:amt,status:'pending',date:now(),
-    method:'paga',ref,receipt:depReceiptData
-  };
-  await fbSaveOrder(depOrder);
-  DB.orders.push(depOrder);
-  btn.textContent='Confirm Deposit →';btn.disabled=false;
-  closeDeposit();
-  toast('✅ Deposit request sent! Admin will credit your wallet after verification.');
+  const btn=document.getElementById('depBtn');btn.textContent='Loading...';btn.disabled=true;
+  const handler=PaystackPop.setup({
+    key:PK,email:CU.email,amount:Math.round(amt*100),currency:'NGN',
+    ref:'LGF-DEP-'+gid()+'-'+Date.now(),
+    onClose:()=>{btn.textContent='Pay with Paystack →';btn.disabled=false;},
+    callback:async(res)=>{
+      btn.textContent='Pay with Paystack →';btn.disabled=false;closeDeposit();
+      const w=await fbGetWallet(CU.id);
+      w.balance=(w.balance||0)+amt;
+      w.transactions=w.transactions||[];
+      w.transactions.push({type:'deposit',amount:amt,desc:'Paystack deposit',date:now(),ref:res.reference});
+      await fbSaveWallet(CU.id,w);await loadWallet();
+      toast('✅ '+fmt(amt)+' added to wallet!');
+    }
+  });
+  handler.openIframe();
 }
 
 // ── Checkout ──
 function openCheckout(p){
-  if(p.in_stock===false||(p.stock_count!==undefined&&p.stock_count===0)){toast('This product is out of stock.');return;}
-  const price=p.isCustom?p.price:markedPrice(p.price||0);
-  CP={name:p.name,price,ctlPrice:p.price||0,product_id:p.product_id,isCustom:p.isCustom||false,category:p.category||''};
-  const ref='LGF-'+gid();
+  if(p.in_stock===false||p.stock_count===0){toast('This product is out of stock.');return;}
+  const price=p.source==='manual'?p.price:markedPrice(p.price||0);
+  CP={name:p.name,price,ctlPrice:p.price||0,product_id:p.product_id||null,isManual:p.source==='manual'};
   document.getElementById('cpname').textContent=CP.name;
   document.getElementById('cup').textContent=fmt(CP.price);
   document.getElementById('cq').value='1';
@@ -1675,11 +1444,10 @@ function openCheckout(p){
   document.getElementById('ctot').textContent=fmt(CP.price);
   document.getElementById('camount').textContent=fmt(CP.price);
   document.getElementById('btcAmt').textContent=fmt(CP.price);
-  document.getElementById('pagaRef').textContent=ref;
   document.getElementById('rfn').textContent='';
   document.getElementById('cprev').style.display='none';
   document.getElementById('rfile').value='';
-  CP.receiptData=null;CP.ref=ref;
+  CP.receiptData=null;
   if(CU&&CU!=='admin'){
     document.getElementById('cn').value=CU.name||'';
     document.getElementById('ce').value=CU.email||'';
@@ -1706,43 +1474,28 @@ function setPay(m){
   document.getElementById('cardBox').style.display=isCard?'block':'none';
   document.getElementById('cryptoBox').style.display=isCard?'none':'block';
   document.getElementById('payCardBtn').style.cssText=isCard?'padding:.58rem;border-radius:8px;border:1.5px solid var(--primary);background:rgba(59,130,246,.08);color:var(--primary2);font-family:Montserrat;font-weight:700;font-size:.76rem;cursor:pointer':'padding:.58rem;border-radius:8px;border:1px solid var(--bord);background:rgba(255,255,255,.04);color:var(--txt);font-family:Montserrat;font-weight:700;font-size:.76rem;cursor:pointer';
-  document.getElementById('payCryptoBtn').style.cssText=isCard?'padding:.58rem;border-radius:8px;border:1px solid var(--bord);background:rgba(255,255,255,.04);color:var(--txt);font-family:Montserrat;font-weight:700;font-size:.76rem;cursor:pointer':'padding:.58rem;border-radius:8px;border:1.5px solid var(--primary);background:rgba(59,130,246,.08);color:var(--primary2);font-family:Montserrat;font-weight:700;font-size:.76rem;cursor:pointer';
+  document.getElementById('payCryptoBtn').style.cssText=isCard?'padding:.58rem;border-radius:8px;border:1px solid var(--bord);background:rgba(255,255,255,.04);color:var(--txt);font-family:Montserrat;font-weight:700;font-size:.76rem;cursor:pointer;transition:all .2s':'padding:.58rem;border-radius:8px;border:1.5px solid var(--primary);background:rgba(59,130,246,.08);color:var(--primary2);font-family:Montserrat;font-weight:700;font-size:.76rem;cursor:pointer;transition:all .2s';
   if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
   if(!isCard)startCountdown();
 }
 
 function startCountdown(){
-  let secs=15*60;
-  const el=document.getElementById('countdown');
-  ctTimer=setInterval(()=>{
-    secs--;
-    if(secs<=0){clearInterval(ctTimer);if(el)el.textContent='Expired';return;}
-    const m=Math.floor(secs/60),s=secs%60;
-    if(el)el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-  },1000);
+  let secs=15*60;const el=document.getElementById('countdown');
+  ctTimer=setInterval(()=>{secs--;if(secs<=0){clearInterval(ctTimer);if(el)el.textContent='Expired';return;}
+    const m=Math.floor(secs/60),s=secs%60;if(el)el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;},1000);
 }
 
 function copyBTC(){
   navigator.clipboard.writeText(BTC).then(()=>toast('Bitcoin address copied!')).catch(()=>{
-    const t=document.createElement('textarea');t.value=BTC;document.body.appendChild(t);
-    t.select();document.execCommand('copy');document.body.removeChild(t);toast('Copied!');
+    const t=document.createElement('textarea');t.value=BTC;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);toast('Copied!');
   });
-}
-
-function copyPagaRef(){
-  const ref=document.getElementById('pagaRef').textContent;
-  navigator.clipboard.writeText(ref).then(()=>toast('Reference copied!')).catch(()=>toast('Copy manually: '+ref));
 }
 
 function prevReceipt(inp){
   const f=inp.files[0];if(!f)return;
   document.getElementById('rfn').textContent='✓ '+f.name;
   const r=new FileReader();
-  r.onload=e=>{
-    CP.receiptData=e.target.result;
-    const img=document.getElementById('cprev');
-    img.src=CP.receiptData;img.style.display='block';
-  };
+  r.onload=e=>{const img=document.getElementById('cprev');img.src=e.target.result;img.style.display='block';CP.receiptData=e.target.result;};
   r.readAsDataURL(f);
 }
 
@@ -1754,78 +1507,42 @@ async function submitOrder(){
   const q=parseInt(document.getElementById('cq').value)||1;
   const tot=CP.price*q;
   const id=gid();
-  const o={
-    id,uid:CU?CU.id:'guest',name:n,email:e,
-    product:CP.name,product_id:CP.product_id||null,
-    category:CP.category||'',isCustom:CP.isCustom||false,
-    ctlPrice:CP.ctlPrice,qty:q,total:tot,
-    receipt:CP.receiptData,status:'pending',
-    date:now(),method:'paga',ref:CP.ref||''
-  };
-  await fbSaveOrder(o);
-  DB.orders.push(o);
+  const o={id,uid:CU?CU.id:'guest',name:n,email:e,product:CP.name,
+    product_id:CP.product_id,isManual:CP.isManual,ctlPrice:CP.ctlPrice,
+    qty:q,total:tot,receipt:CP.receiptData,status:'pending',date:now(),method:'manual'};
+  await fbSaveOrder(o);DB.orders.push(o);
   if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
   document.getElementById('oid').textContent=id;
   document.getElementById('sucmo').classList.add('open');
   CP.receiptData=null;
 }
 
-// ── Wallet Buy (Auto CTL) ──
 async function buyWithWallet(){
   if(!CU||CU==='admin'){toast('Login required.');return;}
   const w=await fbGetWallet(CU.id);
   const q=parseInt(document.getElementById('cq').value)||1;
   const tot=CP.price*q;
-  if((w.balance||0)<tot){toast('Insufficient balance. Please deposit first.');return;}
-  if(CP.isCustom){
-    // Custom product — pull from stored creds
-    const prod=DB.myProds.find(p=>p.name===CP.name);
-    if(!prod||(prod.creds||[]).length===0){toast('No credentials available for this product.');return;}
-    w.balance=(w.balance||0)-tot;
-    w.transactions=w.transactions||[];
-    w.transactions.push({type:'purchase',amount:tot,desc:q+'× '+CP.name,date:now()});
-    await fbSaveWallet(CU.id,w);
-    const cred=prod.creds.shift();
-    prod.stock=Math.max(0,(prod.stock||1)-q);
-    await fbSaveMyProd(prod);
-    const parts=cred.split('|');
-    const id=gid();
-    const o={
-      id,uid:CU.id,name:CU.name,email:CU.email,
-      product:CP.name,category:CP.category,isCustom:true,
-      qty:q,total:tot,status:'completed',date:now(),method:'wallet',
-      cred:{format:'Username|Password',data:cred}
-    };
-    await fbSaveOrder(o);
-    DB.orders.push(o);
-    await loadWallet();
-    showDelivered(o.cred);
-    toast('✅ Purchase complete!');
-    return;
+  if((w.balance||0)<tot){toast('Insufficient wallet balance. Please deposit first.');return;}
+  if(CP.isManual){
+    toast('This product requires manual delivery. Submit order instead.');return;
   }
-  // CTL product
-  toast('Processing... Calling Classyteelogs API ⚡');
-  const res=await ctlPurchase(CP.product_id,q);
-  if(!res||res.status!=='success'){
-    toast('❌ CTL error: '+(res?.message||'Failed. Check CTL balance.'));return;
-  }
+  if(!CP.product_id){toast('Product ID missing. Cannot auto-purchase.');return;}
+  toast('Processing... Contacting Classyteelogs API ⚡');
+  const ctlRes=await ctlPurchase(CP.product_id,q);
+  if(!ctlRes||ctlRes.status!=='success'){toast('❌ CTL error: '+(ctlRes?.message||'Failed'));return;}
   w.balance=(w.balance||0)-tot;
   w.transactions=w.transactions||[];
   w.transactions.push({type:'purchase',amount:tot,desc:q+'× '+CP.name,date:now()});
   await fbSaveWallet(CU.id,w);
-  const od=res.order_details||res;
+  const od=ctlRes.order_details||ctlRes;
   const id=gid();
-  const o={
-    id,uid:CU.id,name:CU.name,email:CU.email,
-    product:CP.name,product_id:CP.product_id,
-    category:CP.category,ctlPrice:CP.ctlPrice,
-    qty:q,total:tot,status:'completed',date:now(),
-    method:'wallet',ctlOrderId:od.order_id||null,
+  const o={id,uid:CU.id,name:CU.name,email:CU.email,product:CP.name,
+    product_id:CP.product_id,ctlPrice:CP.ctlPrice,qty:q,total:tot,
+    status:'completed',date:now(),method:'wallet',ctlOrderId:od.order_id||null,
     cred:{format:'CTL Order ID|Product|Qty|Amount Paid',
-      data:(od.order_id||'—')+'|'+(od.product_name||CP.name)+'|'+q+'|'+(od.total_spent||CP.ctlPrice)}
-  };
-  await fbSaveOrder(o);
-  DB.orders.push(o);
+      data:(od.order_id||'—')+'|'+(od.product_name||CP.name)+'|'+q+'|'+(od.total_spent||CP.ctlPrice),
+      raw:JSON.stringify(od)}};
+  await fbSaveOrder(o);DB.orders.push(o);
   await loadWallet();
   if(ctTimer){clearInterval(ctTimer);ctTimer=null;}
   showDelivered(o.cred);
@@ -1852,26 +1569,20 @@ function atab(id){
   if(id==='ausr')rausr();
   if(id==='actlbal')loadCTLBalance();
   if(id==='actlprod')loadCTLProducts(true);
-  if(id==='apurch')loadPurchases();
-  if(id==='aprod')renderMyProds();
+  if(id==='aprod')renderManualProdList();
 }
 
-function sOn(el){
-  document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));
-  if(el)el.classList.add('on');
-}
+function sOn(el){document.querySelectorAll('.dash-sb .sb-i').forEach(i=>i.classList.remove('on'));if(el)el.classList.add('on');}
 
 async function loadStats(){
-  DB.users=await fbUsers();
-  DB.orders=await fbOrders();
-  DB.myProds=await fbGetMyProds();
-  rstats();raord();rausr();renderMyProds();
-  loadCTLBalance();
+  DB.users=await fbUsers();DB.orders=await fbOrders();
+  DB.manualProducts=await fbGetManualProds();
+  rstats();raord();rausr();loadCTLBalance();
 }
 
 function rstats(){
   const o=DB.orders,u=DB.users;
-  const rev=o.filter(x=>x.status==='completed'&&x.type!=='deposit').reduce((s,x)=>s+Number(x.total||0),0);
+  const rev=o.filter(x=>x.status==='completed').reduce((s,x)=>s+Number(x.total||0),0);
   const pend=o.filter(x=>x.status==='pending').length;
   const comp=o.filter(x=>x.status==='completed').length;
   document.getElementById('arev').textContent=fmt(rev);
@@ -1881,12 +1592,12 @@ function rstats(){
   document.getElementById('acomp').textContent=comp;
   const rec=document.getElementById('arec');
   if(!o.length){rec.innerHTML='<p style="color:var(--mut2);font-size:.82rem">No orders yet.</p>';return;}
-  rec.innerHTML=o.filter(x=>x.type!=='deposit').slice(-6).reverse().map(x=>`
+  rec.innerHTML=o.slice(-6).reverse().map(x=>`
     <div class="tx-row">
       <div class="tx-l">
-        <div class="tx-ico" style="background:rgba(59,130,246,.08)">${catIcon(x.category||'')}</div>
+        <div class="tx-ico" style="background:rgba(59,130,246,.08)">🛒</div>
         <div><div class="tx-desc" style="font-size:.81rem">${x.name} — ${x.product}</div>
-        <div class="tx-date">${x.date||''} · ${x.method==='wallet'?'⚡ Wallet':'Paga'}</div></div>
+        <div class="tx-date">${x.date||''} · ${x.method==='wallet'?'⚡ Wallet':'Manual'}</div></div>
       </div>
       <div style="text-align:right">
         <div style="font-family:'Montserrat';font-weight:700;font-size:.83rem">${fmt(x.total||0)}</div>
@@ -1902,57 +1613,58 @@ function raord(){
     <tr>
       <td><span style="font-family:monospace;font-size:.74rem;color:var(--primary2)">#LGF-${o.id}</span></td>
       <td><div style="font-weight:600;font-size:.81rem">${o.name}</div><div style="font-size:.7rem;color:var(--mut2)">${o.email}</div></td>
-      <td style="font-size:.81rem;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.product}</td>
+      <td style="font-size:.79rem;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.product}</td>
       <td style="font-family:'Montserrat';font-weight:700">${fmt(o.total||0)}</td>
-      <td><span class="tag ${o.method==='wallet'?'t-b':o.type==='deposit'?'t-gr':'t-y'}">${o.method==='wallet'?'⚡ Wallet':o.type==='deposit'?'Deposit':'Paga'}</span></td>
+      <td><span class="tag ${o.method==='wallet'?'t-b':'t-gr'}">${o.method==='wallet'?'⚡ Wallet':'Manual'}</span></td>
       <td><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></td>
       <td>
         <div class="abs">
+          <button class="btn btn-xs btn-ghost" onclick="viewOrderDetail('${o.id}')">Detail</button>
           ${o.receipt?`<button class="btn btn-xs btn-ghost" onclick="vrcpt('${o.id}')">Receipt</button>`:''}
-          ${o.status==='pending'&&o.type==='deposit'?`<button class="btn btn-xs btn-green" onclick="approveDeposit('${o.id}')">✓ Credit</button>`:''}
-          ${o.status==='pending'&&o.type!=='deposit'?`<button class="btn btn-xs btn-green" onclick="openRel('${o.id}')">Release</button>`:''}
-          ${o.status==='pending'&&o.product_id?`<button class="btn btn-xs btn-primary" onclick="autoFulfill('${o.id}')">⚡ Auto</button>`:''}
+          ${o.status==='pending'?`<button class="btn btn-xs btn-green" onclick="openRel('${o.id}')">Release</button>`:''}
+          ${o.status==='pending'&&o.product_id&&!o.isManual?`<button class="btn btn-xs btn-primary" onclick="autoFulfill('${o.id}')">⚡Auto</button>`:''}
           ${o.status==='pending'?`<button class="btn btn-xs btn-red" onclick="cancOrd('${o.id}')">Cancel</button>`:''}
         </div>
       </td>
     </tr>`).join('');
 }
 
-function faord(f){
-  document.querySelectorAll('#aotbd tr').forEach(r=>{
-    r.style.display=f==='all'?'':r.textContent.toLowerCase().includes(f)?'':'none';
-  });
+function viewOrderDetail(id){
+  const o=DB.orders.find(x=>x.id===id);if(!o)return;
+  document.getElementById('ordDetContent').innerHTML=`
+    <div style="display:grid;gap:.55rem;font-size:.83rem">
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Order ID</span><span style="font-family:monospace;color:var(--primary2)">#LGF-${o.id}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Customer</span><span style="font-weight:600">${o.name}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Email</span><span>${o.email}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Product</span><span style="font-weight:600">${o.product}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Quantity</span><span>${o.qty||1}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Amount</span><span style="font-family:'Montserrat';font-weight:700;color:var(--gold)">${fmt(o.total||0)}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Method</span><span>${o.method==='wallet'?'⚡ Wallet':'Manual Payment'}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Date</span><span>${o.date||''}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">Status</span><span class="tag ${stl(o.status)}">${slbl(o.status)}</span></div>
+      ${o.ctlOrderId?`<div style="display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--bord)"><span style="color:var(--mut2)">CTL Order ID</span><span style="font-family:monospace;font-size:.76rem">${o.ctlOrderId}</span></div>`:''}
+      ${o.cred?`<div style="padding:.4rem 0"><div style="color:var(--mut2);margin-bottom:.4rem">Credentials</div><div style="background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:8px;padding:.65rem;font-family:monospace;font-size:.76rem;color:var(--green)">${o.cred.data||''}</div></div>`:''}
+    </div>`;
+  document.getElementById('orddetmo').classList.add('open');
 }
 
-async function approveDeposit(id){
-  const o=DB.orders.find(x=>x.id===id);if(!o)return;
-  conf('Credit ₦'+fmt(o.total)+' to '+o.name+'?','Wallet will be updated immediately.',async()=>{
-    const w=await fbGetWallet(o.uid);
-    w.balance=(w.balance||0)+Number(o.total);
-    w.transactions=w.transactions||[];
-    w.transactions.push({type:'deposit',amount:o.total,desc:'Paga deposit approved',date:now(),ref:o.ref||''});
-    await fbSaveWallet(o.uid,w);
-    o.status='completed';
-    await fbSaveOrder(o);
-    const idx=DB.orders.findIndex(x=>x.id===id);
-    if(idx>-1)DB.orders[idx]=o;
-    raord();rstats();
-    toast('✅ Wallet credited!');
+function faord(f){
+  document.querySelectorAll('#aotbd tr').forEach(r=>{
+    r.style.display=f==='all'||r.textContent.toLowerCase().includes(f)?'':'none';
   });
 }
 
 async function cancOrd(id){
   conf('Cancel this order?','Status set to Cancelled.',async()=>{
     const o=DB.orders.find(x=>x.id===id);if(!o)return;
-    o.status='cancelled';await fbSaveOrder(o);
-    raord();rstats();toast('Order cancelled.');
+    o.status='cancelled';await fbSaveOrder(o);raord();rstats();toast('Order cancelled.');
   });
 }
 
 function vrcpt(id){
   const o=DB.orders.find(x=>x.id===id);if(!o||!o.receipt)return;
   document.getElementById('rcptimg').src=o.receipt;
-  document.getElementById('rcptinfo').textContent='#LGF-'+id+' · '+o.name+' · '+fmt(o.total||0)+' · '+o.date;
+  document.getElementById('rcptinfo').textContent='#LGF-'+id+' · '+o.name+' · '+o.date;
   document.getElementById('rcptmo').classList.add('open');
 }
 
@@ -1974,52 +1686,49 @@ async function doRelease(){
   const p=document.getElementById('rpass').value.trim();
   const n=document.getElementById('rext').value.trim();
   o.status='completed';
-  o.cred={format:'Username|Password|Notes',data:u+'|'+p+'|'+n};
+  o.cred={format:'Username|Password|Notes',data:u+'|'+p+'|'+n,product:o.product};
   await fbSaveOrder(o);
-  const idx=DB.orders.findIndex(x=>x.id===curOid);
-  if(idx>-1)DB.orders[idx]=o;
-  closeRel();raord();rstats();
-  toast('✅ Credentials released!');
+  const idx=DB.orders.findIndex(x=>x.id===curOid);if(idx>-1)DB.orders[idx]=o;
+  closeRel();raord();rstats();toast('✅ Credentials released!');
 }
 
 async function autoFulfill(id){
   const o=DB.orders.find(x=>x.id===id);
   if(!o||!o.product_id){toast('No CTL product ID on this order.');return;}
-  conf('Auto-fulfill via CTL API?','This charges your CTL wallet.',async()=>{
+  conf('Auto-fulfill via CTL?','This charges your CTL wallet balance.',async()=>{
     toast('Calling Classyteelogs API...');
     const res=await ctlPurchase(o.product_id,o.qty||1);
     if(!res||res.status!=='success'){toast('❌ CTL error: '+(res?.message||'Failed'));return;}
     const od=res.order_details||res;
-    o.status='completed';
-    o.ctlOrderId=od.order_id||null;
+    o.status='completed';o.ctlOrderId=od.order_id||null;
     o.cred={format:'CTL Order ID|Product|Qty|Amount',
-      data:(od.order_id||'—')+'|'+(od.product_name||o.product)+'|'+(o.qty||1)+'|'+(od.total_spent||o.ctlPrice)};
+      data:(od.order_id||'—')+'|'+(od.product_name||o.product)+'|'+(o.qty||1)+'|'+(od.total_spent||o.ctlPrice),
+      raw:JSON.stringify(od)};
     await fbSaveOrder(o);
-    const idx=DB.orders.findIndex(x=>x.id===id);
-    if(idx>-1)DB.orders[idx]=o;
-    raord();rstats();
-    toast('✅ Auto-fulfilled via Classyteelogs!');
+    const idx=DB.orders.findIndex(x=>x.id===id);if(idx>-1)DB.orders[idx]=o;
+    raord();rstats();toast('✅ Auto-fulfilled via Classyteelogs!');
   });
 }
 
 function rausr(){
   const tb=document.getElementById('autbd');
-  if(!DB.users.length){tb.innerHTML='<tr><td colspan="7" style="color:var(--mut2);padding:2rem;text-align:center">No users.</td></tr>';return;}
+  if(!DB.users.length){tb.innerHTML='<tr><td colspan="8" style="color:var(--mut2);padding:2rem;text-align:center">No users.</td></tr>';return;}
   tb.innerHTML=DB.users.map(u=>{
-    const ords=DB.orders.filter(o=>o.uid===u.id&&o.type!=='deposit').length;
+    const ords=DB.orders.filter(o=>o.uid===u.id).length;
     return`<tr>
       <td style="font-weight:600">${u.name}</td>
-      <td style="font-size:.79rem;color:var(--mut2)">${u.email}</td>
+      <td style="font-size:.78rem;color:var(--mut2)">${u.email}</td>
+      <td style="font-size:.78rem;color:var(--mut2)">${u.phone||'—'}</td>
       <td>${ords}</td>
       <td id="uw-${u.id}" style="font-size:.79rem;color:var(--primary2)">...</td>
-      <td style="font-size:.76rem;color:var(--mut2)">${u.joined||''}</td>
+      <td style="font-size:.74rem;color:var(--mut2)">${u.joined||''}</td>
       <td><span class="tag ${u.status==='banned'?'t-r':'t-g'}">${u.status==='banned'?'Banned':'Active'}</span></td>
       <td>
         <div class="abs">
-          ${u.status!=='banned'?
-            `<button class="btn btn-xs btn-red" onclick="banU('${u.id}')">Ban</button>`:
-            `<button class="btn btn-xs btn-ghost" onclick="unbanU('${u.id}')">Unban</button>`}
-          <button class="btn btn-xs btn-primary" onclick="creditUser('${u.id}','${u.name}')">+ Credit</button>
+          ${u.status!=='banned'
+            ?`<button class="btn btn-xs btn-red" onclick="banU('${u.id}')">Ban</button>`
+            :`<button class="btn btn-xs btn-ghost" onclick="unbanU('${u.id}')">Unban</button>`}
+          <button class="btn btn-xs btn-red" onclick="deleteUser('${u.id}')">Delete</button>
         </div>
       </td>
     </tr>`;
@@ -2033,23 +1742,20 @@ function rausr(){
 
 async function banU(id){
   const u=DB.users.find(x=>x.id===id);if(!u)return;
-  conf('Ban this user?','They cannot login.',async()=>{u.status='banned';await fbSaveUser(u);rausr();rstats();toast('User banned.');});
+  conf('Ban this user?','They cannot login.',async()=>{
+    u.status='banned';await fbSaveUser(u);rausr();rstats();toast('User banned.');
+  });
 }
 async function unbanU(id){
   const u=DB.users.find(x=>x.id===id);if(!u)return;
   u.status='active';await fbSaveUser(u);rausr();rstats();toast('User unbanned.');
 }
-
-async function creditUser(uid,name){
-  const amt=prompt('Credit amount for '+name+' (₦):');
-  if(!amt||isNaN(parseFloat(amt)))return;
-  const n=parseFloat(amt);
-  const w=await fbGetWallet(uid);
-  w.balance=(w.balance||0)+n;
-  w.transactions=w.transactions||[];
-  w.transactions.push({type:'deposit',amount:n,desc:'Admin credit',date:now()});
-  await fbSaveWallet(uid,w);
-  rausr();toast('✅ ₦'+n+' credited to '+name+'!');
+async function deleteUser(id){
+  conf('Permanently delete this user?','This cannot be undone. All their data stays.',async()=>{
+    await fbDelUser(id);
+    DB.users=DB.users.filter(x=>x.id!==id);
+    rausr();rstats();toast('User deleted.');
+  });
 }
 
 async function chgPw(){
@@ -2057,35 +1763,21 @@ async function chgPw(){
   const p2=document.getElementById('npw2').value;
   if(!p1||p1.length<6){toast('Min 6 characters.');return;}
   if(p1!==p2){toast('Passwords do not match.');return;}
-  const cfg=await fbGetAdmin();cfg.pw=p1;
-  await fbSetAdmin(cfg);
+  const cfg=await fbGetAdmin();cfg.pw=p1;await fbSetAdmin(cfg);
   document.getElementById('npw').value='';document.getElementById('npw2').value='';
-  toast('✅ Password updated!');
+  toast('✅ Admin password updated!');
 }
-
 async function saveCTLKey(){
   const k=document.getElementById('ctlKeyInp').value.trim();
-  if(!k){toast('Enter a valid key.');return;}
+  if(!k){toast('Enter a valid CTL key.');return;}
   CTL_KEY=k;const cfg=await fbGetAdmin();cfg.ctlKey=k;await fbSetAdmin(cfg);
-  toast('✅ CTL key saved!');
+  toast('✅ CTL API key saved!');
 }
-
 async function saveMarkup(){
   const m=parseFloat(document.getElementById('markupInp').value);
-  if(isNaN(m)||m<0){toast('Enter valid markup %.');return;}
+  if(isNaN(m)||m<0){toast('Enter a valid markup %.');return;}
   MARKUP=m;const cfg=await fbGetAdmin();cfg.markup=m;await fbSetAdmin(cfg);
   toast('✅ Markup '+m+'% saved!');
-}
-
-async function savePagaSettings(){
-  const num=document.getElementById('pagaNumInp').value.trim();
-  const pk=document.getElementById('pagaPKInp').value.trim();
-  if(!num){toast('Enter your Paga number.');return;}
-  PAGA_NUM=num;PAGA_PK=pk;
-  document.getElementById('pagaNum').textContent=num;
-  document.getElementById('depPagaNum').textContent=num;
-  const cfg=await fbGetAdmin();cfg.pagaNum=num;cfg.pagaPK=pk;await fbSetAdmin(cfg);
-  toast('✅ Paga settings saved!');
 }
 
 // ── Modals ──
@@ -2097,16 +1789,11 @@ function conf(title,body,cb){
 }
 function closeConf(){document.getElementById('confmo').classList.remove('open');}
 function closeSuc(){document.getElementById('sucmo').classList.remove('open');}
-
-document.querySelectorAll('.mo').forEach(m=>{
-  m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
-});
+document.querySelectorAll('.mo').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});});
 
 function stbl(inp,tid){
   const q=inp.value.toLowerCase();
-  document.querySelectorAll('#'+tid+' tbody tr').forEach(r=>{
-    r.style.display=r.textContent.toLowerCase().includes(q)?'':'none';
-  });
+  document.querySelectorAll('#'+tid+' tbody tr').forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(q)?'':'none';});
 }
 
 // ── Toast ──
