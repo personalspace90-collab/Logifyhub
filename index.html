@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Logify Hub — Your Trusted Hub for Premium Digital Services</title>
+<meta name="description" content="Logify Hub — a premium digital marketplace for digital tools, subscriptions, and worldwide gift services." />
+<script src="[cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      colors: { brand: { purple: '#7c3aed', purpleDark: '#5b21b6', purpleLight: '#a78bfa', gold: '#d4af37', goldLight: '#f0d98c' } },
+      fontFamily: { sans: ['Inter','system-ui','sans-serif'], display: ['"Playfair Display"','serif'] },
+      animation: { 'fade-up':'fadeUp 0.7s ease forwards', 'float':'float 6s ease-in-out infinite', 'glow':'glow 3s ease-in-out infinite' },
+      keyframes: {
+        fadeUp: { '0%':{opacity:0,transform:'translateY(30px)'}, '100%':{opacity:1,transform:'translateY(0)'} },
+        float:  { '0%,100%':{transform:'translateY(0)'}, '50%':{transform:'translateY(-18px)'} },
+        glow:   { '0%,100%':{boxShadow:'0 0 20px rgba(124,58,237,0.4)'}, '50%':{boxShadow:'0 0 40px rgba(124,58,237,0.7)'} },
+      }
+    } }
+  }
+</script>
+<link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap)" rel="stylesheet">
+<style>
+  .gradient-text { background: linear-gradient(120deg,#a78bfa 0%,#7c3aed 40%,#d4af37 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .gold-line { background: linear-gradient(90deg,transparent,#d4af37,transparent); }
+  .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(14px); }
+  .dark .glass { background: rgba(17,17,20,0.6); }
+  .card-hover { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 50px -12px rgba(124,58,237,.35); }
+  .reveal { opacity:0; transform:translateY(30px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity:1; transform:translateY(0); }
+  .btn-shine { position:relative; overflow:hidden; }
+  .btn-shine::after { content:''; position:absolute; top:0; left:-120%; width:60%; height:100%; background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent); transform:skewX(-20deg); transition:left .6s; }
+  .btn-shine:hover::after { left:140%; }
+  .hero-grid { background-image: linear-gradient(rgba(124,58,237,.06) 1px,transparent 1px), linear-gradient(90deg,rgba(124,58,237,.06) 1px,transparent 1px); background-size:44px 44px; }
+  .faq-answer { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .faq-item.open .faq-answer { max-height:240px; }
+  .faq-item.open .faq-icon { transform:rotate(45deg); }
+</style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-[#0a0a0c] dark:text-gray-100 font-sans transition-colors duration-300">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 inset-x-0 z-50 glass border-b border-black/5 dark:border-white/10">
+  <nav class="max-w-7xl mx-auto px-5 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 group">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-purple to-brand-purpleDark flex items-center justify-center font-display font-bold text-white text-lg group-hover:animate-glow">L</div>
+      <span class="font-display text-xl font-bold">Logify<span class="text-brand-gold">Hub</span></span>
+    </a>
+    <div class="hidden lg:flex items-center gap-7 text-sm font-medium">
+      <a href="#products" class="hover:text-brand-purple transition">Products</a>
+      <a href="#accounts" class="hover:text-brand-purple transition">Accounts</a>
+      <a href="#tools" class="hover:text-brand-purple transition">Tools</a>
+      <a href="#gifts" class="hover:text-brand-purple transition">Gifts</a>
+      <a href="#reviews" class="hover:text-brand-purple transition">Reviews</a>
+      <a href="#faq" class="hover:text-brand-purple transition">FAQ</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" aria-label="Toggle theme" class="w-9 h-9 rounded-lg border border-black/10 dark:border-white/15 flex items-center justify-center hover:border-brand-purple transition">
+        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.72 0l-.7.7M6.34 17.66l-.7.7M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+      </button>
+      <a href="#" class="hidden sm:inline-flex text-sm font-medium px-4 py-2 rounded-lg border border-black/10 dark:border-white/15 hover:border-brand-purple transition">Log in</a>
+      <a href="#" class="btn-shine text-sm font-semibold px-4 py-2 rounded-lg bg-brand-purple text-white hover:bg-brand-purpleDark transition">Sign up</a>
+      <button id="menuBtn" class="lg:hidden w-9 h-9 flex items-center justify-center" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-black/5 dark:border-white/10 px-5 py-4 space-y-3 glass">
+    <a href="#products" class="block py-1">Products</a>
+    <a href="#accounts" class="block py-1">Accounts</a>
+    <a href="#tools" class="block py-1">Tools</a>
+    <a href="#gifts" class="block py-1">Gifts</a>
+    <a href="#reviews" class="block py-1">Reviews</a>
+    <a href="#faq" class="block py-1">FAQ</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative pt-32 pb-24 overflow-hidden hero-grid">
+  <div class="absolute -top-20 -left-20 w-96 h-96 bg-brand-purple/30 rounded-full blur-3xl animate-float"></div>
+  <div class="absolute top-40 -right-20 w-80 h-80 bg-brand-gold/20 rounded-full blur-3xl animate-float" style="animation-delay:-3s"></div>
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 text-center">
+    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-purple/10 text-brand-purple border border-brand-purple/20 mb-6 animate-fade-up">
+      <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span> Premium Digital Marketplace · Worldwide
+    </span>
+    <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-fade-up" style="animation-delay:.1s">
+      We're Back Like <br class="hidden sm:block"/><span class="gradient-text">We Never Left!</span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 animate-fade-up" style="animation-delay:.2s">
+      Your trusted hub for premium digital services worldwide.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style="animation-delay:.3s">
+      <a href="#products" class="btn-shine w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-purple text-white font-semibold hover:bg-brand-purpleDark transition shadow-lg shadow-brand-purple/30">Browse Products</a>
+      <a href="#" class="btn-shine w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldLight text-gray-900 font-semibold hover:opacity-90 transition shadow-lg shadow-brand-gold/30">Fund Wallet</a>
+      <a href="#gifts" class="w-full sm:w-auto px-7 py-3.5 rounded-xl border-2 border-black/10 dark:border-white/20 font-semibold hover:border-brand-purple hover:text-brand-purple transition">Send Gifts Worldwide</a>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto mt-20 animate-fade-up" style="animation-delay:.4s">
+      <div><div class="font-display text-3xl font-bold gradient-text">12K+</div><div class="text-sm text-gray-500 mt-1">Happy Customers</div></div>
+      <div><div class="font-display text-3xl font-bold gradient-text">50K+</div><div class="text-sm text-gray-500 mt-1">Orders Delivered</div></div>
+      <div><div class="font-display text-3xl font-bold gradient-text">99.9%</div><div class="text-sm text-gray-500 mt-1">Uptime</div></div>
+      <div><div class="font-display text-3xl font-bold gradient-text">24/7</div><div class="text-sm text-gray-500 mt-1">Support</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section id="products" class="py-20 max-w-7xl mx-auto px-5 lg:px-8">
+  <div class="text-center mb-14 reveal">
+    <p class="text-brand-gold font-semibold tracking-widest text-sm uppercase mb-2">Handpicked</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-bold">Featured Products</h2>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10">
+      <div class="flex items-center justify-between mb-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-purple/10 text-brand-purple">Bestseller</span><span class="text-brand-gold">★ 4.9</span></div>
+      <h3 class="font-semibold text-lg mb-2">Premium AI Suite</h3>
+      <p class="text-sm text-gray-500 mb-5">Full access to top AI tools, instant activation, ready-to-use credentials.</p>
+      <div class="flex items-center justify-between"><span class="font-display text-2xl font-bold">$24.99</span><button class="btn-shine px-4 py-2 rounded-lg bg-brand-purple text-white text-sm font-semibold">Add to Cart</button></div>
+    </div>
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10">
+      <div class="flex items-center justify-between mb-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-gold/15 text-brand-gold">Hot</span><span class="text-brand-gold">★ 4.8</span></div>
+      <h3 class="font-semibold text-lg mb-2">Streaming Bundle</h3>
+      <p class="text-sm text-gray-500 mb-5">Curated premium streaming subscriptions delivered instantly to your dashboard.</p>
+      <div class="flex items-center justify-between"><span class="font-display text-2xl font-bold">$14.99</span><button class="btn-shine px-4 py-2 rounded-lg bg-brand-purple text-white text-sm font-semibold">Add to Cart</button></div>
+    </div>
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10">
+      <div class="flex items-center justify-between mb-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-purple/10 text-brand-purple">New</span><span class="text-brand-gold">★ 5.0</span></div>
+      <h3 class="font-semibold text-lg mb-2">Design Pro Pack</h3>
+      <p class="text-sm text-gray-500 mb-5">Professional design tools for creators, with secure instant delivery.</p>
+      <div class="flex items-center justify-between"><span class="font-display text-2xl font-bold">$19.99</span><button class="btn-shine px-4 py-2 rounded-lg bg-brand-purple text-white text-sm font-semibold">Add to Cart</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED ACCOUNTS -->
+<section id="accounts" class="py-20 bg-gray-50 dark:bg-[#0d0d10]">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center mb-14 reveal"><p class="text-brand-gold font-semibold tracking-widest text-sm uppercase mb-2">Verified Inventory</p><h2 class="font-display text-3xl sm:text-4xl font-bold">Trusted Accounts</h2></div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">📘</div><div class="font-semibold text-sm">Facebook</div><div class="text-xs text-gray-500 mt-1">In stock</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">📸</div><div class="font-semibold text-sm">Instagram</div><div class="text-xs text-gray-500 mt-1">In stock</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">🎵</div><div class="font-semibold text-sm">TikTok</div><div class="text-xs text-gray-500 mt-1">In stock</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">✖️</div><div class="font-semibold text-sm">X (Twitter)</div><div class="text-xs text-gray-500 mt-1">In stock</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">👻</div><div class="font-semibold text-sm">Snapchat</div><div class="text-xs text-gray-500 mt-1">In stock</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">💜</div><div class="font-semibold text-sm">POF</div><div class="text-xs text-gray-500 mt-1">In stock</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL TOOLS -->
+<section id="tools" class="py-20 max-w-7xl mx-auto px-5 lg:px-8">
+  <div class="text-center mb-14 reveal"><p class="text-brand-gold font-semibold tracking-widest text-sm uppercase mb-2">Power Up</p><h2 class="font-display text-3xl sm:text-4xl font-bold">Digital Tools & Subscriptions</h2></div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-2xl mb-4">🎬</div><h3 class="font-semibold text-lg mb-1">Streaming Subscriptions</h3><p class="text-sm text-gray-500">Premium entertainment access, activated instantly.</p></div>
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-2xl mb-4">💻</div><h3 class="font-semibold text-lg mb-1">Premium Software</h3><p class="text-sm text-gray-500">Licensed software keys ready for instant use.</p></div>
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-2xl mb-4">🤖</div><h3 class="font-semibold text-lg mb-1">AI Tools</h3><p class="text-sm text-gray-500">Cutting-edge AI platforms at your fingertips.</p></div>
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-2xl mb-4">🎨</div><h3 class="font-semibold text-lg mb-1">Design Tools</h3><p class="text-sm text-gray-500">Creative suites for designers and makers.</p></div>
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-2xl mb-4">⚡</div><h3 class="font-semibold text-lg mb-1">Productivity Tools</h3><p class="text-sm text-gray-500">Work smarter with premium productivity apps.</p></div>
+    <div class="reveal card-hover rounded-2xl p-6 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-2xl mb-4">🎓</div><h3 class="font-semibold text-lg mb-1">Educational Subscriptions</h3><p class="text-sm text-gray-500">Learn from the best platforms worldwide.</p></div>
+  </div>
+</section>
+
+<!-- GIFTS -->
+<section id="gifts" class="py-20 bg-gradient-to-br from-brand-purple/5 to-brand-gold/5 dark:from-brand-purple/10 dark:to-transparent">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center mb-14 reveal"><p class="text-brand-gold font-semibold tracking-widest text-sm uppercase mb-2">Spread Joy Anywhere</p><h2 class="font-display text-3xl sm:text-4xl font-bold">Send Gifts Worldwide</h2><p class="max-w-xl mx-auto text-gray-500 mt-3">Submit recipient details and instructions — our team reviews and delivers globally.</p></div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">💍</div><div class="font-semibold text-sm">Ring</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">💐</div><div class="font-semibold text-sm">Flowers</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">🍕</div><div class="font-semibold text-sm">Pizza</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">☕</div><div class="font-semibold text-sm">Starbucks</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">👕</div><div class="font-semibold text-sm">Custom Hoodie</div></div>
+      <div class="reveal card-hover rounded-xl p-5 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-3xl mb-2">🍵</div><div class="font-semibold text-sm">Custom Mug</div></div>
+    </div>
+    <div class="text-center reveal"><a href="#" class="btn-shine inline-flex px-8 py-3.5 rounded-xl bg-brand-purple text-white font-semibold hover:bg-brand-purpleDark transition shadow-lg shadow-brand-purple/30">Request a Gift Delivery</a></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="py-20 max-w-7xl mx-auto px-5 lg:px-8">
+  <div class="text-center mb-14 reveal"><p class="text-brand-gold font-semibold tracking-widest text-sm uppercase mb-2">The Logify Promise</p><h2 class="font-display text-3xl sm:text-4xl font-bold">Why Choose Us</h2></div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="reveal card-hover rounded-2xl p-7 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-14 h-14 mx-auto rounded-2xl bg-brand-purple/10 flex items-center justify-center text-3xl mb-4">⚡</div><h3 class="font-semibold text-lg mb-2">Instant Delivery</h3><p class="text-sm text-gray-500">Credentials land in your dashboard the moment you buy.</p></div>
+    <div class="reveal card-hover rounded-2xl p-7 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-14 h-14 mx-auto rounded-2xl bg-brand-gold/15 flex items-center justify-center text-3xl mb-4">🛡️</div><h3 class="font-semibold text-lg mb-2">Trusted Service</h3><p class="text-sm text-gray-500">Thousands of satisfied customers worldwide.</p></div>
+    <div class="reveal card-hover rounded-2xl p-7 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-14 h-14 mx-auto rounded-2xl bg-brand-purple/10 flex items-center justify-center text-3xl mb-4">🔒</div><h3 class="font-semibold text-lg mb-2">Secure Transactions</h3><p class="text-sm text-gray-500">Wallet-based checkout with verified manual deposits.</p></div>
+    <div class="reveal card-hover rounded-2xl p-7 text-center bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="w-14 h-14 mx-auto rounded-2xl bg-brand-gold/15 flex items-center justify-center text-3xl mb-4">💬</div><h3 class="font-semibold text-lg mb-2">24/7 Support</h3><p class="text-sm text-gray-500">Real humans, ready to help any time of day.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" class="py-20 bg-gray-50 dark:bg-[#0d0d10]">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center mb-14 reveal"><p class="text-brand-gold font-semibold tracking-widest text-sm uppercase mb-2">Real Words</p><h2 class="font-display text-3xl sm:text-4xl font-bold">Customer Reviews</h2></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="reveal card-hover rounded-2xl p-7 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-brand-gold mb-3">★★★★★</div><p class="text-sm text-gray-600 dark:text-gray-400 mb-5">"Delivery was instant and everything worked perfectly. Easily my go-to marketplace now."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brand-purple/20 flex items-center justify-center font-semibold text-brand-purple">A</div><div><div class="font-semibold text-sm">Amara O.</div><div class="text-xs text-gray-500">Verified Buyer</div></div></div></div>
+      <div class="reveal card-hover rounded-2xl p-7 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-brand-gold mb-3">★★★★★</div><p class="text-sm text-gray-600 dark:text-gray-400 mb-5">"Funded my wallet, got approved fast, and bought with zero hassle. Truly premium experience."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brand-gold/25 flex items-center justify-center font-semibold text-brand-gold">D</div><div><div class="font-semibold text-sm">David M.</div><div class="text-xs text-gray-500">Verified Buyer</div></div></div></div>
+      <div class="reveal card-hover rounded-2xl p-7 bg-white dark:bg-[#121215] border border-black/5 dark:border-white/10"><div class="text-brand-gold mb-3">★★★★★</div><p class="text-sm text-gray-600 dark:text-gray-400 mb-5">"Sent a gift across the world to my sister. Their team handled everything beautifully."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brand-purple/20 flex items-center justify-center font-semibold text-brand-purple">S</div><div><div class="font-semibold text-sm">Sarah K.</div><div class="text-xs text-gray-500">Verified Buyer</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 max-w-3xl mx-auto px-5 lg:px-8">
+  <div class="text-center mb-14 reveal"><p class="text-brand-gold font-semibold tracking-widest text-sm uppercase mb-2">Got Questions?</p><h2 class="font-display text-3xl sm:text-4xl font-bold">Frequently Asked</h2></div>
+  <div class="space-y-4">
+    <div class="faq-item reveal rounded-xl border border-black/5 dark:border-white/10 bg-white dark:bg-[#121215] overflow-hidden"><button class="faq-trigger w-full flex items-center justify-between p-5 text-left font-semibold">How do I fund my wallet?<span class="faq-icon text-brand-purple text-2xl transition-transform">+</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500">Transfer to our displayed company bank account, then upload your payment proof. Once an admin approves it, your wallet balance updates automatically.</p></div></div>
+    <div class="faq-item reveal rounded-xl border border-black/5 dark:border-white/10 bg-white dark:bg-[#121215] overflow-hidden"><button class="faq-trigger w-full flex items-center justify-between p-5 text-left font-semibold">How fast is delivery?<span class="faq-icon text-brand-purple text-2xl transition-transform">+</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500">Digital products are delivered instantly — your purchased credentials appear in your Orders page right after checkout.</p></div></div>
+    <div class="faq-item reveal rounded-xl border border-black/5 dark:border-white/10 bg-white dark:bg-[#121215] overflow-hidden"><button class="faq-trigger w-full flex items-center justify-between p-5 text-left font-semibold">How does the gift service work?<span class="faq-icon text-brand-purple text-2xl transition-transform">+</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500">Choose a gift type, submit the recipient's details and your instructions. Our team reviews the request manually and arranges worldwide delivery.</p></div></div>
+    <div class="faq-item reveal rounded-xl border border-black/5 dark:border-white/10 bg-white dark:bg-[#121215] overflow-hidden"><button class="faq-trigger w-full flex items-center justify-between p-5 text-left font-semibold">Is my payment secure?<span class="faq-icon text-brand-purple text-2xl transition-transform">+</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500">Yes. All deposits are manually verified, transactions run through your secure wallet balance, and your data is encrypted.</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-gray-50 dark:bg-[#0d0d10]">
+  <div class="max-w-4xl mx-auto px-5 lg:px-8 text-center reveal">
+    <p class="text-brand-gold font-semibold tracking-widest text-sm uppercase mb-2">We're Here For You</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
+    <p class="text-gray-500 mb-10 max-w-xl mx-auto">Reach our team anytime through WhatsApp or Telegram for instant support.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="[wa.me](https://wa.me/)" class="btn-shine inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-green-500 text-white font-semibold hover:bg-green-600 transition">WhatsApp</a>
+      <a href="[t.me](https://t.me/)" class="btn-shine inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-sky-500 text-white font-semibold hover:bg-sky-600 transition">Telegram</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-black/5 dark:border-white/10 py-12">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div><div class="flex items-center gap-2 mb-4"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-purple to-brand-purpleDark flex items-center justify-center font-display font-bold text-white">L</div><span class="font-display text-xl font-bold">Logify<span class="text-brand-gold">Hub</span></span></div><p class="text-sm text-gray-500">Your trusted hub for premium digital services worldwide.</p></div>
+    <div><h4 class="font-semibold mb-3">Marketplace</h4><ul class="space-y-2 text-sm text-gray-500"><li><a href="#products" class="hover:text-brand-purple">Products</a></li><li><a href="#tools" class="hover:text-brand-purple">Digital Tools</a></li><li><a href="#gifts" class="hover:text-brand-purple">Gifts</a></li></ul></div>
+    <div><h4 class="font-semibold mb-3">Account</h4><ul class="space-y-2 text-sm text-gray-500"><li><a href="#" class="hover:text-brand-purple">Log in</a></li><li><a href="#" class="hover:text-brand-purple">Sign up</a></li><li><a href="#" class="hover:text-brand-purple">Dashboard</a></li></ul></div>
+    <div><h4 class="font-semibold mb-3">Support</h4><ul class="space-y-2 text-sm text-gray-500"><li><a href="#faq" class="hover:text-brand-purple">FAQ</a></li><li><a href="#contact" class="hover:text-brand-purple">Contact</a></li><li><a href="#" class="hover:text-brand-purple">Tickets</a></li></ul></div>
+  </div>
+  <div class="gold-line h-px max-w-7xl mx-auto my-8"></div>
+  <p class="text-center text-sm text-gray-500">© 2026 Logify Hub. All rights reserved.</p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="[wa.me](https://wa.me/)" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition animate-glow" aria-label="WhatsApp">💬</a>
+
+<script>
+  // Theme toggle (saved preference + system default)
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) root.classList.add('dark');
+  themeToggle.onclick = () => {
+    root.classList.toggle('dark');
+    localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+  };
+  // Mobile menu
+  menuBtn.onclick = () => mobileMenu.classList.toggle('hidden');
+  document.querySelectorAll('#mobileMenu a').forEach(a => a.onclick = () => mobileMenu.classList.add('hidden'));
+  // FAQ accordion
+  document.querySelectorAll('.faq-trigger').forEach(b => b.onclick = () => b.closest('.faq-item').classList.toggle('open'));
+  // Scroll reveal
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
